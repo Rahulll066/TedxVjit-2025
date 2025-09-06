@@ -1,55 +1,70 @@
 'use client'
 
-
-import TypingText from '../components/TypingText'
-import { Ticket } from 'lucide-react'
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 export default function Hero() {
-  return (
-    <section className="relative min-h-screen w-full overflow-hidden font-['Montserrat',sans-serif] text-white">
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/10 to-black/30 z-10" />
+  const twinkleRef = useRef<HTMLDivElement | null>(null)
 
-      {/* Hero Content with Framer Motion */}
-      <motion.div
-        className="relative z-30 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
+  useEffect(() => {
+    const container = twinkleRef.current
+    if (!container) return
+
+    // generate glowing amber dots
+    for (let i = 0; i < 15; i++) {
+      const dot = document.createElement('div')
+      dot.className = 'absolute rounded-full w-2 h-2 bg-red-600/70 blur-[1px]'
+      dot.style.top = `${Math.random() * 100}%`
+      dot.style.left = `${Math.random() * 100}%`
+      dot.style.opacity = `${Math.random() * 0.6 + 0.3}`
+      dot.style.animation = `twinkle ${Math.random() * 6 + 2}s infinite alternate, float ${Math.random() * 8 + 4}s ease-in-out infinite alternate`
+      container.appendChild(dot)
+    }
+  }, [])
+
+  return (
+    <section className="relative min-h-screen w-full overflow-hidden font-['Playfair Display',serif] text-white bg-gradient-to-br from-black">
+
+      {/* Twinkle Layer */}
+      <div ref={twinkleRef} className="absolute inset-0 z-0" />
+
+      {/* Hero Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-6">
+
         <motion.h1
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight drop-shadow-[0_4px_30px_rgba(255,0,0,0.7)] px-2"
-          initial={{ y: 40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
+          className="relative text-xl md:text-4xl lg:text-6xl font-extrabold tracking-wider leading-tight 
+  bg-clip-text text-transparent 
+  bg-gradient-to-r from-red-800 via-red-500 to-red-800 
+  
+  uppercase"
+          initial={{ opacity: 0, scale: 0.85, y: 40 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
         >
-          <span className="text-red-600">TEDx</span>VJIT 2025
+          <span className="bg-clip-text text-transparent bg-[length:200%_200%]">
+            Metamorphosis
+          </span>
         </motion.h1>
 
         <motion.div
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-        >
-          <TypingText
-            prefix="Metamorphosis"
-            text=" — The Evolution of Thought. The Power of Change."
-            className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-extrabold max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl text-white/90 leading-relaxed px-2"
-          />
-        </motion.div>
+          className="mt-5 h-1.5 w-40 bg-gradient-to-t from-red-600 via-orange-500 to-red-700 rounded-full shadow-[0_0_25px_rgba(255,100,100,0.9)]"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1.5 }}
+          transition={{ duration: 1, delay: 0.4 }}
+        />
 
-        <motion.a
-          href="#register"
-          className="mt-6 sm:mt-8 md:mt-10 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold bg-red-600 text-white transition-all duration-300 shadow-lg inline-flex items-center gap-2 text-sm sm:text-base w-full sm:w-auto justify-center max-w-xs sm:max-w-none hover:scale-105 hover:shadow-2xl hover:shadow-red-500/25 hover:bg-red-700"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.1, duration: 0.8 }}
+        <motion.p
+          className="mt-10 text-lg sm:text-xl md:text-xl max-w-3xl font-medium text-white/95 leading-relaxed tracking-wide"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.7 }}
         >
-          <Ticket size={18} strokeWidth={2.5} className="text-white sm:w-5 sm:h-5" />
-          Reserve Your Seat
-        </motion.a>
-      </motion.div>
+          From <span className="text-red-400 font-bold">ashes</span> to <span className="text-orange-400 font-bold">awakening</span>,
+          from <span className="text-red-400 font-bold">ideas</span> to <span className="text-orange-400 font-bold">impact</span> —
+          a <span className="italic text-red-300">radical transformation</span> begins <span className="text-red-500 font-extrabold">here.</span>
+        </motion.p>
+
+      </div>
     </section>
   )
 }
