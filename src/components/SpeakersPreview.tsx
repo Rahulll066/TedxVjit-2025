@@ -1,4 +1,42 @@
-import SpeakerCard from './SpeakerCard';
+"use client";
+
+import SpeakerCard from "./SpeakerCard";
+import Slider from "react-slick";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Settings, CustomArrowProps } from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+// 🔴 Custom Arrow Components
+function NextArrow(props: CustomArrowProps) {
+  const { onClick } = props;
+  return (
+    <button
+      onClick={onClick}
+      className="absolute -right-8 top-1/2 -translate-y-1/2 
+                 bg-red-600 hover:bg-red-700 text-white rounded-full p-3 
+                 shadow-lg shadow-red-600/40 transition-all duration-300 z-20"
+      style={{ outline: 'none' }}
+    >
+      <ChevronRight className="w-6 h-6" />
+    </button>
+  );
+}
+
+function PrevArrow(props: CustomArrowProps) {
+  const { onClick } = props;
+  return (
+    <button
+      onClick={onClick}
+      className="absolute -left-8 top-1/2 -translate-y-1/2 
+                 bg-red-600 hover:bg-red-700 text-white rounded-full p-3 
+                 shadow-lg shadow-red-600/40 transition-all duration-300 z-20"
+      style={{ outline: 'none' }}
+    >
+      <ChevronLeft className="w-6 h-6" />
+    </button>
+  );
+}
 
 const sampleSpeakers = [
   {
@@ -34,22 +72,149 @@ const sampleSpeakers = [
     expertise: ['Education Reform', 'Social Change', 'Community Development'],
     social: { linkedin: '#', twitter: '#', website: '#' }
   },
+  {
+    id: 4,
+    name: 'David Kim',
+    title: 'AI for Good',
+    company: 'AI Impact',
+    image: '/assets/2.png',
+    bio: 'David leverages AI for social impact.',
+    description: 'David Kim is a data scientist focused on leveraging artificial intelligence for social good, working on projects that address real-world problems.',
+    expertise: ['AI', 'Data Science', 'Social Impact'],
+    social: { linkedin: '#', twitter: '#', website: '#' }
+  },
+  {
+    id: 5,
+    name: 'Elena Garcia',
+    title: 'Designing the Future',
+    company: 'NextGen Design',
+    image: '/assets/6.png',
+    bio: 'Elena is a creative designer and futurist.',
+    description: 'Elena Garcia is a creative designer and futurist, passionate about blending technology and art to create meaningful experiences.',
+    expertise: ['Design', 'Futurism', 'Art'],
+    social: { linkedin: '#', twitter: '#', website: '#' }
+  },
+  {
+    id: 6,
+    name: 'Frank Wu',
+    title: 'Health Innovator',
+    company: 'Wellness Tech',
+    image: '/assets/hero-banner.png',
+    bio: 'Frank pioneers health tech solutions.',
+    description: 'Frank Wu pioneers health tech solutions that improve patient outcomes and healthcare accessibility.',
+    expertise: ['Health Tech', 'Innovation', 'Wellness'],
+    social: { linkedin: '#', twitter: '#', website: '#' }
+  },
+  {
+    id: 7,
+    name: 'Grace Patel',
+    title: 'Women in STEM',
+    company: 'STEM Forward',
+    image: '/assets/2.png',
+    bio: 'Grace advocates for women in STEM fields.',
+    description: 'Grace Patel is a passionate advocate for women in STEM, working to close the gender gap and inspire future generations.',
+    expertise: ['STEM', 'Advocacy', 'Education'],
+    social: { linkedin: '#', twitter: '#', website: '#' }
+  },
+  {
+    id: 8,
+    name: 'Hassan Ali',
+    title: 'Green Energy Visionary',
+    company: 'EcoPower',
+    image: '/assets/6.png',
+    bio: 'Hassan drives green energy initiatives.',
+    description: 'Hassan Ali is a green energy visionary, leading projects that promote sustainability and renewable energy adoption.',
+    expertise: ['Green Energy', 'Sustainability', 'Leadership'],
+    social: { linkedin: '#', twitter: '#', website: '#' }
+  },
+  {
+    id: 9,
+    name: 'Isabella Rossi',
+    title: 'Cultural Connector',
+    company: 'Global Voices',
+    image: '/assets/hero-banner.png',
+    bio: 'Isabella connects cultures through dialogue.',
+    description: 'Isabella Rossi connects cultures through dialogue and storytelling, fostering understanding and collaboration.',
+    expertise: ['Culture', 'Dialogue', 'Storytelling'],
+    social: { linkedin: '#', twitter: '#', website: '#' }
+  },
+  {
+    id: 10,
+    name: 'Jin Park',
+    title: 'Urban Innovator',
+    company: 'CityLab',
+    image: '/assets/2.png',
+    bio: 'Jin reimagines urban spaces.',
+    description: 'Jin Park is an urban innovator, reimagining city spaces for better living and community engagement.',
+    expertise: ['Urban Design', 'Innovation', 'Community'],
+    social: { linkedin: '#', twitter: '#', website: '#' }
+  },
+  {
+    id: 11,
+    name: 'Kavya Singh',
+    title: 'Digital Educator',
+    company: 'EdTech Now',
+    image: '/assets/6.png',
+    bio: 'Kavya transforms digital learning.',
+    description: 'Kavya Singh transforms digital learning with innovative tools and inclusive teaching strategies.',
+    expertise: ['EdTech', 'Digital Learning', 'Inclusion'],
+    social: { linkedin: '#', twitter: '#', website: '#' }
+  },
+  {
+    id: 12,
+    name: 'Liam O’Connor',
+    title: 'Entrepreneurship Catalyst',
+    company: 'Startup Hub',
+    image: '/assets/hero-banner.png',
+    bio: 'Liam empowers entrepreneurs.',
+    description: 'Liam O’Connor empowers entrepreneurs to launch and scale impactful startups.',
+    expertise: ['Entrepreneurship', 'Startups', 'Mentorship'],
+    social: { linkedin: '#', twitter: '#', website: '#' }
+  },
 ];
 
 export default function SpeakersPreview() {
+  const settings: Settings = {
+    dots: true,
+    infinite: true,
+    speed: 350,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    cssEase: "linear",
+    pauseOnHover: false,
+    responsive: [
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 640, settings: { slidesToShow: 1 } },
+    ],
+    arrows: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    appendDots: (dots: React.ReactNode) => (
+      <div style={{ bottom: "-45px" }}>
+        <ul className="flex justify-center gap-3">{dots}</ul>
+      </div>
+    ),
+    customPaging: () => (
+      <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-gray-600 hover:bg-red-400 transition-all duration-300"></div>
+    ),
+  };
+
   return (
-    <section className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
+  <section className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 relative">
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 text-center text-white px-2">
         Featured Speakers
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
-  {sampleSpeakers.map((speaker) => (
-          <SpeakerCard
-            key={speaker.id}
-            speaker={speaker}
-          />
+  <Slider {...settings} className="max-w-6xl mx-auto relative px-12">
+        {sampleSpeakers.map((speaker) => (
+          <div key={speaker.id} className="flex justify-center items-stretch">
+            <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xs xl:max-w-xs h-[420px] flex items-stretch mx-2">
+              <SpeakerCard speaker={speaker} />
+            </div>
+          </div>
         ))}
-      </div>
+      </Slider>
     </section>
   );
 }
