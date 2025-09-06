@@ -1,219 +1,248 @@
 'use client'
 
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X } from 'lucide-react'
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion'
 
 export default function Navbar() {
   const ref = useRef<HTMLDivElement>(null)
+  const { scrollY } = useScroll({ target: ref })
   const [visible, setVisible] = useState(false)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
 
-  // Simulate scroll effect without framer-motion
-  const handleScroll = () => {
-    if (window.scrollY > 70) {
-      setVisible(true)
-    } else {
-      setVisible(false)
-    }
-  }
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    setVisible(latest > 70)
+  })
 
-  // Add scroll listener
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Close mobile menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
-        setIsMobileMenuOpen(false)
-        setIsDropdownOpen(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
-
-  const navigationItems = [
+  const navLinks = [
     { text: 'About', href: '/about' },
     { text: 'Speakers', href: '/speakers' },
-    { text: 'Gallery', href: '/gallery' }
+    { text: 'Schedule', href: '/schedule' },
   ]
 
   return (
-    <header
+    <motion.header
       ref={ref}
-      className={`fixed top-3 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 transition-all duration-700 ${
-        visible 
-          ? 'backdrop-blur-[50px] bg-black/85 shadow-[0_6px_30px_rgba(225,29,72,0.5),0_2px_4px_rgba(225,29,72,0.1)] rounded-[1.85rem] translate-y-2 border border-red-500/60' 
-          : 'bg-transparent border-transparent'
-      }`}
-      style={{
-        paddingTop: visible ? '0.85rem' : '1rem',
-        paddingBottom: visible ? '0.85rem' : '1rem',
-        paddingLeft: '1.9rem',
-        paddingRight: '1.9rem',
+      animate={{
+        width: visible ? '70%' : '98%',
+        backdropFilter: visible ? 'blur(12px)' : 'none',
+        backgroundColor: visible ? 'rgba(0,0,0,0.75)' : 'rgba(0,0,0,0)',
+        boxShadow: visible ? '0 3px 15px rgba(225,29,72,0.6)' : 'none',
+        borderRadius: visible ? '1rem' : '0.5rem',
+        y: visible ? 4 : 0,
+        padding: '0.8rem 1.5rem',
       }}
+      transition={{ type: 'spring', stiffness: 30, damping: 20 }}
+      className="fixed top-3 left-1/2 -translate-x-1/2 max-w-7xl w-full z-50"
     >
       <nav className="flex items-center justify-between w-full text-white">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <Link href="/">
-            <Image
-              src="/assets/tedxvjlogo.png"
-              alt="TEDxVJIT Logo"
-              width={140}
-              height={140}
-              className="object-contain w-32 sm:w-36 md:w-44 lg:w-52"
-            />
-          </Link>
-        </div>
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/assets/tedxvjlogo.png"
+            alt="TEDxVJIT Logo"
+            width={180}
+            height={180}
+            className="object-contain"
+          />
+        </Link>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Links */}
         <ul className="hidden md:flex gap-8 text-md font-semibold tracking-wide relative">
-          {navigationItems.map((item, idx) => (
+          {navLinks.map((item, idx) => (
             <li key={idx} className="relative group px-3 py-1">
               <Link
                 href={item.href}
+                onClick={(e) => {
+                  if (item.href.startsWith('#')) {
+                    e.preventDefault()
+                    const target = document.getElementById(item.href.replace('#', ''))
+                    target?.scrollIntoView({ behavior: 'smooth' })
+                  }
+                  setDropdownOpen(false) // close dropdown if open
+                }}
                 className="relative z-10 text-white transition-colors duration-200 group-hover:text-red-400"
               >
                 {item.text}
               </Link>
-              <span className="absolute inset-0 rounded-full bg-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+              <motion.span
+                layoutId="hovered"
+                className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-all duration-200"
+              />
             </li>
           ))}
         </ul>
 
-        {/* Desktop CTA Button with Dropdown */}
-        <div className="relative ml-4 hidden md:block">
+        {/* Desktop CTA Dropdown */}
+        <div className="relative hidden md:block ml-4">
           <button
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300
-             bg-red-600 text-white shadow-md hover:scale-105 hover:shadow-red-600/50 animate-pulse flex items-center gap-2"
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+            className="px-5 py-2.5 rounded-full text-sm font-semibold transition-transform duration-300
+             bg-red-600 text-white shadow-md hover:scale-105 hover:shadow-red-600/50 flex items-center gap-2"
           >
             Register Now
-            <svg 
-              className={`w-4 h-4 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} 
-              fill="none" 
-              stroke="currentColor" 
+            <motion.svg
+              animate={{ rotate: dropdownOpen ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
               viewBox="0 0 24 24"
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
+            </motion.svg>
           </button>
 
-          {/* Dropdown Menu */}
-          {isDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-gray-900/95 backdrop-blur-sm rounded-xl border border-red-500/30 shadow-2xl overflow-hidden animate-fade-in">
-              <div className="py-2">
+          <AnimatePresence>
+            {dropdownOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="absolute right-0 mt-2 w-64 bg-black/90 backdrop-blur-md rounded-xl p-3 shadow-lg space-y-2 z-50"
+              >
                 <Link
-                  href="#register-audience"
-                  onClick={() => setIsDropdownOpen(false)}
-                  className="flex items-center px-4 py-3 text-white hover:bg-red-600/20 transition-colors duration-200 group"
+                  href="/#register-audience"
+                  onClick={() => setDropdownOpen(false)}
+                  className="flex items-center px-4 py-3 text-white hover:bg-red-600/20 rounded-lg group"
                 >
-                  <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-red-500/40 transition-colors duration-200">
+                  <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-red-500/40">
                     <svg className="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                   </div>
                   <div>
-                    <div className="font-semibold">As Audience</div>
+                    <div className="font-semibold">Register as Audience</div>
                     <div className="text-xs text-gray-400">Join as an attendee</div>
                   </div>
                 </Link>
-                
+
                 <Link
-                  href="#register-speaker"
-                  onClick={() => setIsDropdownOpen(false)}
-                  className="flex items-center px-4 py-3 text-white hover:bg-red-600/20 transition-colors duration-200 group"
+                  href="/#register-speaker"
+                  onClick={() => setDropdownOpen(false)}
+                  className="flex items-center px-4 py-3 text-white hover:bg-red-600/20 rounded-lg group"
                 >
-                  <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-red-500/40 transition-colors duration-200">
+                  <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-red-500/40">
                     <svg className="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.543 12.674a1 1 0 000 1.652l5.914 3.674a1 1 0 001.543-.868V8.738a1 1 0 00-1.543-.868l-5.914 3.674a1 1 0 000 1.652z" />
                     </svg>
                   </div>
                   <div>
-                    <div className="font-semibold">As Speaker</div>
+                    <div className="font-semibold">Register as Speaker</div>
                     <div className="text-xs text-gray-400">Share your ideas</div>
                   </div>
                 </Link>
-              </div>
-            </div>
-          )}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden p-2 text-white hover:text-red-400 transition-colors duration-200"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Hamburger */}
+        <div className="md:hidden ml-5">
+          <motion.button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="relative w-8 h-8 flex flex-col justify-between items-center focus:outline-none z-50"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <motion.span
+              animate={{
+                rotate: menuOpen ? 45 : 0,
+                y: menuOpen ? 8 : 0,
+                backgroundColor: menuOpen ? '#e11d48' : '#fff',
+              }}
+              className="block h-0.5 w-full rounded-full"
+              transition={{ duration: 0.4 }}
+            />
+            <motion.span
+              animate={{ opacity: menuOpen ? 0 : 1 }}
+              className="block h-0.5 w-full bg-white rounded-full"
+              transition={{ duration: 0.2 }}
+            />
+            <motion.span
+              animate={{
+                rotate: menuOpen ? -45 : 0,
+                y: menuOpen ? -20 : 0,
+                backgroundColor: menuOpen ? '#e11d48' : '#fff',
+              }}
+              className="block h-0.5 w-full rounded-full"
+              transition={{ duration: 0.4 }}
+            />
+          </motion.button>
+        </div>
       </nav>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 mt-4 bg-gray-900/95 backdrop-blur-sm rounded-2xl border border-red-500/30 shadow-2xl overflow-hidden">
-          <div className="py-4">
-            {/* Navigation Links */}
-            <div className="px-4 py-2">
-              {navigationItems.map((item, idx) => (
+      {/* Mobile Menu + Backdrop */}
+      <AnimatePresence>
+        {menuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.6 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMenuOpen(false)}
+              className="fixed inset-0 bg-black z-40"
+            />
+            {/* Menu */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="md:hidden mt-4 bg-black/90 rounded-xl shadow-lg p-4 space-y-4 z-50 relative"
+            >
+              {navLinks.map((item, idx) => (
                 <Link
                   key={idx}
                   href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block px-4 py-3 text-white hover:bg-red-600/20 transition-colors duration-200 rounded-lg"
+                  className="block text-white font-semibold text-lg hover:text-red-500"
+                  onClick={() => setMenuOpen(false)}
                 >
                   {item.text}
                 </Link>
               ))}
-            </div>
 
-            {/* Divider */}
-            <div className="border-t border-gray-700/50 my-2" />
+              {/* Mobile CTA Buttons */}
+              <div className="space-y-2">
+                <Link
+                  href="/#register-audience"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center px-4 py-3 text-white hover:bg-red-600/20 rounded-lg group"
+                >
+                  <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-red-500/40">
+                    <svg className="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="font-semibold">Register as Audience</div>
+                    <div className="text-xs text-gray-400">Join as an attendee</div>
+                  </div>
+                </Link>
 
-            {/* Mobile CTA Buttons */}
-            <div className="px-4 py-2 space-y-2">
-              <Link
-                href="#register-audience"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center px-4 py-3 text-white hover:bg-red-600/20 transition-colors duration-200 rounded-lg group"
-              >
-                <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-red-500/40 transition-colors duration-200">
-                  <svg className="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="font-semibold">Register as Audience</div>
-                  <div className="text-xs text-gray-400">Join as an attendee</div>
-                </div>
-              </Link>
-              
-              <Link
-                href="#register-speaker"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center px-4 py-3 text-white hover:bg-red-600/20 transition-colors duration-200 rounded-lg group"
-              >
-                <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-red-500/40 transition-colors duration-200">
-                  <svg className="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.543 12.674a1 1 0 000 1.652l5.914 3.674a1 1 0 001.543-.868V8.738a1 1 0 00-1.543-.868l-5.914 3.674a1 1 0 000 1.652z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="font-semibold">Register as Speaker</div>
-                  <div className="text-xs text-gray-400">Share your ideas</div>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
-    </header>
+                <Link
+                  href="/#register-speaker"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center px-4 py-3 text-white hover:bg-red-600/20 rounded-lg group"
+                >
+                  <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-red-500/40">
+                    <svg className="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.543 12.674a1 1 0 000 1.652l5.914 3.674a1 1 0 001.543-.868V8.738a1 1 0 00-1.543-.868l-5.914 3.674a1 1 0 000 1.652z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="font-semibold">Register as Speaker</div>
+                    <div className="text-xs text-gray-400">Share your ideas</div>
+                  </div>
+                </Link>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </motion.header>
   )
 }
