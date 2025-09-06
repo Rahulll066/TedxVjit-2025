@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap');
 @import "tailwindcss";
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -31,6 +32,7 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -42,6 +44,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -73,9 +76,12 @@ body {
 }
 
 @keyframes pulseGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 0px rgba(236, 72, 153, 0.4);
   }
+
   50% {
     box-shadow: 0 0 12px rgba(236, 72, 153, 0.8);
   }
@@ -85,6 +91,7 @@ body {
   0% {
     background-position: -700px 0;
   }
+
   100% {
     background-position: 700px 0;
   }
@@ -96,9 +103,12 @@ body {
 }
 
 @keyframes text-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
   }
+
   50% {
     filter: drop-shadow(0 0 12px rgba(255, 200, 0, 0.7));
   }
@@ -106,4 +116,33 @@ body {
 
 .animate-text-glow {
   animation: text-glow 2s infinite ease-in-out;
+}
+
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-5px, -10px);
+  }
+
+  100% {
+    transform: translate(5px, -5px);
+  }
 }
