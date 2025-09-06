@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import Lottie from 'lottie-react'
-import mtm from '../../public/animations/mtm background effect.json'
 import rotate from '../../public/animations/Animation rotate.json'
 import TypingText from '../components/TypingText'
 import { Ticket } from 'lucide-react'
