@@ -21,7 +21,7 @@ export default function RegistrationCTA() {
           </h2>
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
             Choose your role and be part of this inspiring journey. Whether you want to listen, learn,
-            or share your ideas, there's a place for you at TEDxVJIT.
+            or share your ideas, there&apos;s a place for you at TEDxVJIT.
           </p>
         </div>
 
@@ -142,7 +142,7 @@ export default function RegistrationCTA() {
               Ready to Make a Difference?
             </h3>
             <p className="text-base sm:text-lg text-gray-300 mb-4 sm:mb-6 max-w-2xl mx-auto px-2">
-              Whether you're here to learn, inspire, or connect, your presence will make this
+              Whether you&apos;re here to learn, inspire, or connect, your presence will make this
               TEDx event truly special. Join us in spreading ideas worth sharing.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">

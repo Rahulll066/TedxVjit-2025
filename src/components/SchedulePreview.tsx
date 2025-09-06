@@ -1,6 +1,6 @@
 'use client'
 
-import { Clock, MapPin, Users, Calendar, ArrowRight } from 'lucide-react'
+import { Clock, Calendar, ArrowRight } from 'lucide-react'
 
 const eventSchedule = [
   {
