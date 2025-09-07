@@ -206,7 +206,7 @@ export default function SpeakersPreview() {
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 text-center text-white px-2">
         Featured Speakers
       </h2>
-  <Slider {...settings} className="max-w-6xl mx-auto relative px-12">
+  <Slider {...settings} className="max-w-6xl mx-auto relative px-18">
         {sampleSpeakers.map((speaker) => (
           <div key={speaker.id} className="flex justify-center items-stretch">
             <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xs xl:max-w-xs h-[420px] flex items-stretch mx-2">
