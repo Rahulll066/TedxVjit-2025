@@ -17,10 +17,20 @@ export default function Navbar() {
   })
 
   const navLinks = [
+    { text: 'Home', href: '/' },
     { text: 'About', href: '/about' },
     { text: 'Speakers', href: '/speakers' },
+    { text: 'Team', href: '/team' },
     { text: 'Schedule', href: '/schedule' },
-  ]
+  ];
+
+  // Dropdown state for Previous Events
+  const [prevEventsOpen, setPrevEventsOpen] = useState(false);
+  const prevEventsLinks = [
+    { text: 'Speakers', href: '/2024/speakers' },
+    { text: 'Team', href: '/2024/team' },
+    { text: 'Gallery', href: '/2024/gallery' },
+  ];
 
   return (
     <motion.header
@@ -67,12 +77,48 @@ export default function Navbar() {
               >
                 {item.text}
               </Link>
-              <motion.span
-                layoutId="hovered"
-                className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-all duration-200"
-              />
+              {/* Removed gray background span for active/hovered nav option */}
             </li>
           ))}
+          {/* Previous Events Dropdown (Desktop) */}
+          <li
+            className="relative group px-3 py-1"
+            onMouseEnter={() => setPrevEventsOpen(true)}
+            onMouseLeave={() => setPrevEventsOpen(false)}
+          >
+            <button
+              className="relative z-10 text-white transition-colors duration-200 group-hover:text-red-400 flex items-center gap-1"
+              type="button"
+            >
+              Previous Events
+              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <AnimatePresence>
+              {prevEventsOpen && (
+                <motion.ul
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute left-0 mt-2 w-48 bg-black/90 backdrop-blur-md rounded-xl p-2 shadow-lg space-y-1 z-50"
+                >
+                  {prevEventsLinks.map((item, idx) => (
+                    <li key={idx}>
+                      <Link
+                        href={item.href}
+                        className="block px-4 py-2 text-white hover:bg-red-600/20 rounded-lg"
+                        onClick={() => setPrevEventsOpen(false)}
+                      >
+                        {item.text}
+                      </Link>
+                    </li>
+                  ))}
+                </motion.ul>
+              )}
+            </AnimatePresence>
+          </li>
         </ul>
 
         {/* Desktop CTA Dropdown */}
@@ -206,6 +252,46 @@ export default function Navbar() {
                   {item.text}
                 </Link>
               ))}
+
+              {/* Previous Events Dropdown (Mobile) */}
+              <div className="relative">
+                <button
+                  className="w-full flex items-center justify-between px-4 py-3 text-white font-semibold text-lg hover:text-red-500 focus:outline-none"
+                  onClick={() => setPrevEventsOpen((open) => !open)}
+                  type="button"
+                >
+                  Previous Events
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <AnimatePresence>
+                  {prevEventsOpen && (
+                    <motion.ul
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="mt-1 bg-black/90 backdrop-blur-md rounded-xl shadow-lg p-2 space-y-1 z-50"
+                    >
+                      {prevEventsLinks.map((item, idx) => (
+                        <li key={idx}>
+                          <Link
+                            href={item.href}
+                            className="block px-4 py-2 text-white hover:bg-red-600/20 rounded-lg"
+                            onClick={() => {
+                              setPrevEventsOpen(false);
+                              setMenuOpen(false);
+                            }}
+                          >
+                            {item.text}
+                          </Link>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+              </div>
 
               {/* Mobile CTA */}
               <div className="space-y-2">
