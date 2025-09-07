@@ -1,8 +1,27 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap');
 @import 'slick-carousel/slick/slick.css';
 @import 'slick-carousel/slick/slick-theme.css';
 @import "tailwindcss";
+
+/* Custom thick red scrollbar */
+::-webkit-scrollbar {
+  width: 16px;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #e10600;
+  border-radius: 8px;
+  border: 3px solid #e10600;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: thick;
+  scrollbar-color: #e10600 transparent;
+}
 
 :root {
   --background: #ffffff;
