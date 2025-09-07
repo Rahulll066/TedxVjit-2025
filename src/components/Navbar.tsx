@@ -8,12 +8,12 @@ import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-
 export default function Navbar() {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollY } = useScroll({ target: ref })
-  const [visible, setVisible] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    setVisible(latest > 70)
+    setScrolled(latest > 70)
   })
 
   const navLinks = [
@@ -26,16 +26,16 @@ export default function Navbar() {
     <motion.header
       ref={ref}
       animate={{
-        width: visible ? '70%' : '98%',
-        backdropFilter: visible ? 'blur(12px)' : 'none',
-        backgroundColor: visible ? 'rgba(0,0,0,0.75)' : 'rgba(0,0,0,0)',
-        boxShadow: visible ? '0 3px 15px rgba(225,29,72,0.6)' : 'none',
-        borderRadius: visible ? '1rem' : '0.5rem',
-        y: visible ? 4 : 0,
+        backgroundColor: scrolled ? 'rgba(0,0,0,1)' : 'rgba(0,0,0,0)',
+        boxShadow: scrolled
+          ? '0px 2px 6px rgba(225,29,72,0.4)'
+          : 'none',
+        backdropFilter: scrolled ? 'blur(8px)' : 'none',
+             
         padding: '0.8rem 1.5rem',
       }}
-      transition={{ type: 'spring', stiffness: 30, damping: 20 }}
-      className="fixed top-3 left-1/2 -translate-x-1/2 max-w-7xl w-full z-50"
+      transition={{ type: 'spring', stiffness: 40, damping: 20 }}
+      className="fixed  w-[100%] z-50"
     >
       <nav className="flex items-center justify-between w-full text-white">
         {/* Logo */}
@@ -61,7 +61,7 @@ export default function Navbar() {
                     const target = document.getElementById(item.href.replace('#', ''))
                     target?.scrollIntoView({ behavior: 'smooth' })
                   }
-                  setDropdownOpen(false) // close dropdown if open
+                  setDropdownOpen(false)
                 }}
                 className="relative z-10 text-white transition-colors duration-200 group-hover:text-red-400"
               >
@@ -80,7 +80,7 @@ export default function Navbar() {
           <button
             onClick={() => setDropdownOpen(!dropdownOpen)}
             className="px-5 py-2.5 rounded-full text-sm font-semibold transition-transform duration-300
-             bg-red-600 text-white shadow-md hover:scale-105 hover:shadow-red-600/50 flex items-center gap-2"
+             bg-red-600 text-white shadow-md hover:scale-105 hover:shadow-red-600/40 flex items-center gap-2"
           >
             Register Now
             <motion.svg
@@ -104,6 +104,7 @@ export default function Navbar() {
                 transition={{ duration: 0.2 }}
                 className="absolute right-0 mt-2 w-64 bg-black/90 backdrop-blur-md rounded-xl p-3 shadow-lg space-y-2 z-50"
               >
+                {/* Audience */}
                 <Link
                   href="/#register-audience"
                   onClick={() => setDropdownOpen(false)}
@@ -120,6 +121,7 @@ export default function Navbar() {
                   </div>
                 </Link>
 
+                {/* Speaker */}
                 <Link
                   href="/#register-speaker"
                   onClick={() => setDropdownOpen(false)}
@@ -175,7 +177,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu + Backdrop */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <>
@@ -205,7 +207,7 @@ export default function Navbar() {
                 </Link>
               ))}
 
-              {/* Mobile CTA Buttons */}
+              {/* Mobile CTA */}
               <div className="space-y-2">
                 <Link
                   href="/#register-audience"
