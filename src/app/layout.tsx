@@ -13,7 +13,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <head>
         <title>TEDxVJIT</title>
-        <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
       </head>
       <body className="relative min-h-screen flex flex-col bg-gray-900 text-white font-sans">
