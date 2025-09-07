@@ -8,40 +8,50 @@ import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-
 export default function Navbar() {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollY } = useScroll({ target: ref })
-  const [visible, setVisible] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    setVisible(latest > 70)
+    setScrolled(latest > 70)
   })
 
   const navLinks = [
+    { text: 'Home', href: '/' },
     { text: 'About', href: '/about' },
     { text: 'Speakers', href: '/speakers' },
+    { text: 'Team', href: '/team' },
     { text: 'Schedule', href: '/schedule' },
-  ]
+  ];
+
+  // Dropdown state for Previous Events
+  const [prevEventsOpen, setPrevEventsOpen] = useState(false);
+  const prevEventsLinks = [
+    { text: 'Speakers', href: '/2024/speakers' },
+    { text: 'Team', href: '/2024/team' },
+    { text: 'Gallery', href: '/2024/gallery' },
+  ];
 
   return (
     <motion.header
       ref={ref}
       animate={{
-        width: visible ? '70%' : '98%',
-        backdropFilter: visible ? 'blur(12px)' : 'none',
-        backgroundColor: visible ? 'rgba(0,0,0,0.75)' : 'rgba(0,0,0,0)',
-        boxShadow: visible ? '0 3px 15px rgba(225,29,72,0.6)' : 'none',
-        borderRadius: visible ? '1rem' : '0.5rem',
-        y: visible ? 4 : 0,
+        backgroundColor: scrolled ? 'rgba(0,0,0,1)' : 'rgba(0,0,0,0)',
+        boxShadow: scrolled
+          ? '0px 2px 6px rgba(225,29,72,0.4)'
+          : 'none',
+        backdropFilter: scrolled ? 'blur(8px)' : 'none',
+             
         padding: '0.8rem 1.5rem',
       }}
-      transition={{ type: 'spring', stiffness: 30, damping: 20 }}
-      className="fixed top-3 left-1/2 -translate-x-1/2 max-w-7xl w-full z-50"
+      transition={{ type: 'spring', stiffness: 40, damping: 20 }}
+      className="fixed  w-[100%] z-50"
     >
       <nav className="flex items-center justify-between w-full text-white">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/assets/tedxvjlogo.png"
+            src="/navbar/navlogo.png"
             alt="TEDxVJIT Logo"
             width={180}
             height={180}
@@ -61,18 +71,54 @@ export default function Navbar() {
                     const target = document.getElementById(item.href.replace('#', ''))
                     target?.scrollIntoView({ behavior: 'smooth' })
                   }
-                  setDropdownOpen(false) // close dropdown if open
+                  setDropdownOpen(false)
                 }}
                 className="relative z-10 text-white transition-colors duration-200 group-hover:text-red-400"
               >
                 {item.text}
               </Link>
-              <motion.span
-                layoutId="hovered"
-                className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-all duration-200"
-              />
+              {/* Removed gray background span for active/hovered nav option */}
             </li>
           ))}
+          {/* Previous Events Dropdown (Desktop) */}
+          <li
+            className="relative group px-3 py-1"
+            onMouseEnter={() => setPrevEventsOpen(true)}
+            onMouseLeave={() => setPrevEventsOpen(false)}
+          >
+            <button
+              className="relative z-10 text-white transition-colors duration-200 group-hover:text-red-400 flex items-center gap-1"
+              type="button"
+            >
+              Previous Events
+              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <AnimatePresence>
+              {prevEventsOpen && (
+                <motion.ul
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute left-0 mt-2 w-48 bg-black/90 backdrop-blur-md rounded-xl p-2 shadow-lg space-y-1 z-50"
+                >
+                  {prevEventsLinks.map((item, idx) => (
+                    <li key={idx}>
+                      <Link
+                        href={item.href}
+                        className="block px-4 py-2 text-white hover:bg-red-600/20 rounded-lg"
+                        onClick={() => setPrevEventsOpen(false)}
+                      >
+                        {item.text}
+                      </Link>
+                    </li>
+                  ))}
+                </motion.ul>
+              )}
+            </AnimatePresence>
+          </li>
         </ul>
 
         {/* Desktop CTA Dropdown */}
@@ -80,7 +126,7 @@ export default function Navbar() {
           <button
             onClick={() => setDropdownOpen(!dropdownOpen)}
             className="px-5 py-2.5 rounded-full text-sm font-semibold transition-transform duration-300
-             bg-red-600 text-white shadow-md hover:scale-105 hover:shadow-red-600/50 flex items-center gap-2"
+             bg-red-600 text-white shadow-md hover:scale-105 hover:shadow-red-600/40 flex items-center gap-2"
           >
             Register Now
             <motion.svg
@@ -104,6 +150,7 @@ export default function Navbar() {
                 transition={{ duration: 0.2 }}
                 className="absolute right-0 mt-2 w-64 bg-black/90 backdrop-blur-md rounded-xl p-3 shadow-lg space-y-2 z-50"
               >
+                {/* Audience */}
                 <Link
                   href="/#register-audience"
                   onClick={() => setDropdownOpen(false)}
@@ -120,6 +167,7 @@ export default function Navbar() {
                   </div>
                 </Link>
 
+                {/* Speaker */}
                 <Link
                   href="/#register-speaker"
                   onClick={() => setDropdownOpen(false)}
@@ -175,7 +223,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu + Backdrop */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <>
@@ -205,7 +253,47 @@ export default function Navbar() {
                 </Link>
               ))}
 
-              {/* Mobile CTA Buttons */}
+              {/* Previous Events Dropdown (Mobile) */}
+              <div className="relative">
+                <button
+                  className="w-full flex items-center justify-between px-4 py-3 text-white font-semibold text-lg hover:text-red-500 focus:outline-none"
+                  onClick={() => setPrevEventsOpen((open) => !open)}
+                  type="button"
+                >
+                  Previous Events
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <AnimatePresence>
+                  {prevEventsOpen && (
+                    <motion.ul
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="mt-1 bg-black/90 backdrop-blur-md rounded-xl shadow-lg p-2 space-y-1 z-50"
+                    >
+                      {prevEventsLinks.map((item, idx) => (
+                        <li key={idx}>
+                          <Link
+                            href={item.href}
+                            className="block px-4 py-2 text-white hover:bg-red-600/20 rounded-lg"
+                            onClick={() => {
+                              setPrevEventsOpen(false);
+                              setMenuOpen(false);
+                            }}
+                          >
+                            {item.text}
+                          </Link>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Mobile CTA */}
               <div className="space-y-2">
                 <Link
                   href="/#register-audience"
