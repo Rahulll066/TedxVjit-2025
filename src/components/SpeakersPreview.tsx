@@ -192,7 +192,9 @@ export default function SpeakersPreview() {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     appendDots: (dots: React.ReactNode) => (
-      <div style={{ bottom: "-45px" }}>
+      <div 
+       style={{ bottom: "-47px",right: "0px",left: "0px" }}
+       >
         <ul className="flex justify-center gap-3">{dots}</ul>
       </div>
     ),
