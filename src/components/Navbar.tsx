@@ -41,7 +41,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/assets/tedxvjlogo.png"
+            src="/navbar/navlogo.png"
             alt="TEDxVJIT Logo"
             width={180}
             height={180}
