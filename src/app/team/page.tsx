@@ -34,6 +34,7 @@ interface Member {
 export default function TeamsPage() {
     const [activeTeam, setActiveTeam] = useState<TeamName>('Organising')
 
+
     const teams: Record<TeamName, Member[]> = {
         Core: [
             { id: 1, name: "Person 1", title: "Lead Organizer", company: "TEDxVJIT", image: "/assets/2.png", bio: "", description: "", expertise: [], social: { linkedin: "#", twitter: "#", website: "#" } },
@@ -42,6 +43,8 @@ export default function TeamsPage() {
             { id: 4, name: "Person 4", title: "Organizer", company: "TEDxVJIT", image: "/assets/6.png", bio: "", description: "", expertise: [], social: { linkedin: "#", twitter: "#", website: "#" } },
             { id: 5, name: "Person 5", title: "Organizer", company: "TEDxVJIT", image: "/assets/2.png", bio: "", description: "", expertise: [], social: { linkedin: "#", twitter: "#", website: "#" } },
             { id: 6, name: "Person 6", title: "Organizer", company: "TEDxVJIT", image: "/assets/6.png", bio: "", description: "", expertise: [], social: { linkedin: "#", twitter: "#", website: "#" } },
+            { id: 7, name: "Person 5", title: "Organizer", company: "TEDxVJIT", image: "/assets/2.png", bio: "", description: "", expertise: [], social: { linkedin: "#", twitter: "#", website: "#" } },
+            { id: 8, name: "Person 6", title: "Organizer", company: "TEDxVJIT", image: "/assets/6.png", bio: "", description: "", expertise: [], social: { linkedin: "#", twitter: "#", website: "#" } },
         ],
         Organising: [
             { id: 10, name: "Organiser 1", title: "Team Member", company: "Organising Team", image: "/assets/hero-banner.png", bio: "", description: "", expertise: [], social: { linkedin: "#", twitter: "#", website: "#" } },
@@ -105,22 +108,24 @@ export default function TeamsPage() {
         ],
     }
 
-    // Framer Motion variants
+    // Variants
     const cardVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 10, transition: { duration: 2, ease: "easeOut" } },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
     }
-    const buttonsVariants: Variants = {
-        hidden: { opacity: 0, y: 22 },
-        visible: { opacity: 1, y: 10, transition: { duration: 1, ease: "easeOut" } },
+
+    const buttonVariants: Variants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
     }
+
     const heroVariants: Variants = {
         hidden: { opacity: 0, y: 50 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
     }
 
     const sectionRef = useRef(null)
-    const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
+    const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 my-auto">
@@ -129,7 +134,7 @@ export default function TeamsPage() {
                 className="relative min-h-screen flex flex-col justify-center py-20 px-4 overflow-hidden"
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: '-100px' }}
                 variants={heroVariants}
             >
                 <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 to-red-800/10" />
@@ -152,66 +157,72 @@ export default function TeamsPage() {
             <section ref={sectionRef} className="py-10 px-4">
                 <div className="max-w-5xl mx-auto">
                     <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">Core Team</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
-                        {teams.Core.map((member, index) => (
+                    <motion.div
+                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center"
+                        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+                        initial="hidden"
+                        animate={isInView ? 'visible' : 'hidden'}
+                    >
+                        {teams.Core.map((member) => (
                             <motion.div
                                 key={member.id}
-                                variants={buttonsVariants}
-                                initial="hidden"
-                                animate={isInView ? "visible" : "hidden"}
-                                transition={{ delay: index * 0.1 }}
-                                className="transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-red-900 rounded-xl"
+                                variants={cardVariants}
+                                whileHover={{ scale: 1.05, boxShadow: '0 10px 25px rgba(225,29,72,0.5)' }}
+                                className="rounded-xl bg-gray-800 overflow-hidden"
                             >
                                 <SpeakerCard speaker={member} />
                             </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Other Teams Section */}
-            <section className="my-10 py-10 px-4 ">
+            <section className="my-10 py-10 px-4">
                 <div className="max-w-6xl mx-auto">
                     {/* Team Tabs */}
-                    <div className="flex flex-wrap justify-center gap-5 mb-8">
+                    <motion.div
+                        className="flex flex-wrap justify-center gap-5 mb-8"
+                        initial="hidden"
+                        animate={isInView ? 'visible' : 'hidden'}
+                        variants={{ visible: { transition: { staggerChildren: 0.05 } } }}
+                    >
                         {Object.keys(teams)
-                            .filter(team => team !== 'Core')
-                            .map(team => (
+                            .filter((team) => team !== 'Core')
+                            .map((team) => (
                                 <motion.button
                                     key={team}
                                     onClick={() => setActiveTeam(team as TeamName)}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-50px" }}
-                                    transition={{ duration: 0.4 }}
-                                    className={`relative px-5.5 py-2.5 text-sm md:text-base font-medium rounded-full transition-all duration-400 overflow-hidden cursor-pointer ${activeTeam === team
-                                        ? 'bg-gradient-to-r border-none from-red-500 via-red-600 to-red-700 text-white shadow-md'
-                                        : 'bg-white/10 text-gray-300 border border-white/10 hover:bg-white/20 hover:text-white'
+                                    variants={buttonVariants}
+                                    whileHover={{ scale: 1.05 }}
+                                    className={`relative px-5.5 py-2.5 text-sm md:text-base font-medium rounded-full overflow-hidden cursor-pointer transition-all duration-300 ${activeTeam === team
+                                            ? 'bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white shadow-md'
+                                            : 'bg-white/10 text-gray-300 border border-white/10 hover:bg-white/20 hover:text-white'
                                         }`}
                                 >
-                                    <span className="relative z-10">{team}</span>
+                                    {team}
                                 </motion.button>
                             ))}
-                    </div>
+                    </motion.div>
 
                     {/* Active Team Grid */}
-                    <div className="max-w-5xl mx-auto">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
-                            {teams[activeTeam].map((member, index) => (
-                                <motion.div
-                                    key={member.id}
-                                    variants={cardVariants}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className="transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-red-900 rounded-xl"
-                                >
-                                    <SpeakerCard speaker={member} />
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
+                    <motion.div
+                        className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center"
+                        variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
+                        initial="hidden"
+                        animate={isInView ? 'visible' : 'hidden'}
+                    >
+                        {teams[activeTeam].map((member) => (
+                            <motion.div
+                                key={member.id}
+                                variants={cardVariants}
+                                whileHover={{ scale: 1.05, boxShadow: '0 10px 25px rgba(225,29,72,0.5)' }}
+                                className="rounded-xl bg-gray-800 overflow-hidden"
+                            >
+                                <SpeakerCard speaker={member} />
+                            </motion.div>
+                        ))}
+                    </motion.div>
                 </div>
             </section>
         </div>
