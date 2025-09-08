@@ -27,9 +27,7 @@ export default function Navbar() {
   // Dropdown state for Previous Events
   const [prevEventsOpen, setPrevEventsOpen] = useState(false);
   const prevEventsLinks = [
-    { text: 'Speakers', href: '/2024/speakers' },
-    { text: 'Team', href: '/2024/team' },
-    { text: 'Gallery', href: '/2024/gallery' },
+    { text: '2024', href: '/2024' },
   ];
 
   return (
