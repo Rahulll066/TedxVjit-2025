@@ -39,7 +39,7 @@ export default function Navbar() {
           ? '0px 2px 6px rgba(225,29,72,0.4)'
           : 'none',
         backdropFilter: scrolled ? 'blur(8px)' : 'none',
-             
+
         padding: '0.8rem 1.5rem',
       }}
       transition={{ type: 'spring', stiffness: 40, damping: 20 }}
@@ -53,12 +53,12 @@ export default function Navbar() {
             alt="TEDxVJIT Logo"
             width={180}
             height={180}
-            className="object-contain"
+            className="object-contain "
           />
         </Link>
 
         {/* Desktop Links */}
-        <ul className="hidden md:flex gap-8 text-md font-semibold tracking-wide relative">
+        <ul className="hidden xl:flex gap-8 text-md 2xl:text-2xl font-semibold tracking-wide relative">
           {navLinks.map((item, idx) => (
             <li key={idx} className="relative group px-3 py-1">
               <Link
@@ -120,7 +120,7 @@ export default function Navbar() {
         </ul>
 
         {/* Desktop CTA Dropdown */}
-        <div className="relative hidden md:block ml-4">
+        <div className="relative hidden xl:block ml-4">
           <button
             onClick={() => setDropdownOpen(!dropdownOpen)}
             className="px-5 py-2.5 rounded-full text-sm font-semibold transition-transform duration-300
@@ -169,9 +169,9 @@ export default function Navbar() {
                 <Link
                   href="/#register-speaker"
                   onClick={() => setDropdownOpen(false)}
-                  className="flex items-center px-4 py-3 text-white hover:bg-red-600/20 rounded-lg group"
+                  className=" flex items-center px-4 py-3 text-white hover:bg-red-600/20 rounded-lg group"
                 >
-                  <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-red-500/40">
+                  <div className=" w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-red-500/40">
                     <svg className="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.543 12.674a1 1 0 000 1.652l5.914 3.674a1 1 0 001.543-.868V8.738a1 1 0 00-1.543-.868l-5.914 3.674a1 1 0 000 1.652z" />
                     </svg>
@@ -187,7 +187,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Hamburger */}
-        <div className="md:hidden ml-5">
+        <div className="xl:hidden ml-5">
           <motion.button
             onClick={() => setMenuOpen(!menuOpen)}
             className="relative w-8 h-8 flex flex-col justify-between items-center focus:outline-none z-50"
@@ -233,12 +233,16 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className="fixed inset-0 bg-black z-40"
             />
+
             {/* Menu */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="md:hidden mt-4 bg-black/90 rounded-xl shadow-lg p-4 space-y-4 z-50 relative"
+              className="fixed top-16 left-0 w-full h-[calc(100vh-4rem)] 
+                   xl:hidden bg-black/95 backdrop-blur-lg 
+                   rounded-t-2xl shadow-lg p-6 space-y-4 z-50 
+                   overflow-y-auto md:pl-8"
             >
               {navLinks.map((item, idx) => (
                 <Link
@@ -254,7 +258,7 @@ export default function Navbar() {
               {/* Previous Events Dropdown (Mobile) */}
               <div className="relative">
                 <button
-                  className="w-full flex items-center justify-between px-4 py-3 text-white font-semibold text-lg hover:text-red-500 focus:outline-none"
+                  className="w-full flex items-center justify-between py-3 text-white font-semibold text-lg hover:text-red-500"
                   onClick={() => setPrevEventsOpen((open) => !open)}
                   type="button"
                 >
@@ -296,10 +300,10 @@ export default function Navbar() {
                 <Link
                   href="/#register-audience"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center px-4 py-3 text-white hover:bg-red-600/20 rounded-lg group"
+                  className="flex items-center px-0 py-2 text-white hover:bg-red-600/20 rounded-lg group transition-all duration-300"
                 >
-                  <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-red-500/40">
-                    <svg className="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className=" w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-red-500/40">
+                    <svg className="w-4 h-4 text-red-400 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                   </div>
@@ -312,7 +316,7 @@ export default function Navbar() {
                 <Link
                   href="/#register-speaker"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center px-4 py-3 text-white hover:bg-red-600/20 rounded-lg group"
+                  className="flex items-center px-0 py-3 text-white hover:bg-red-600/20 rounded-lg group  transition-all duration-300"
                 >
                   <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-red-500/40">
                     <svg className="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -329,6 +333,7 @@ export default function Navbar() {
           </>
         )}
       </AnimatePresence>
+
     </motion.header>
   )
 }
