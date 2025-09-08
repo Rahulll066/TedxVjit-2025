@@ -23,7 +23,7 @@ interface SpeakerCardProps {
 
 export default function SpeakerCard({ speaker }: SpeakerCardProps) {
   return (
-    <div className="w-[320px] h-[420px] rounded-2xl overflow-hidden shadow-lg flex flex-col justify-end relative group cursor-pointer border border-gray-700/50 hover:border-red-500/50 transition-all duration-300">
+    <div className="w-[320px] h-[420px] rounded-2xl overflow-hidden shadow-lg flex flex-col justify-end relative group border border-gray-700/50 hover:border-red-500/50 transition-all duration-300">
       <Image
         src={speaker.image}
         alt={speaker.name}
