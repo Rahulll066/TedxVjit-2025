@@ -32,8 +32,7 @@ interface Member {
 }
 
 export default function TeamsPage() {
-    const [activeTeam, setActiveTeam] = useState<TeamName>('Organising')
-
+    const [activeTeam, setActiveTeam] = useState<TeamName>('Web Dev')
 
     const teams: Record<TeamName, Member[]> = {
         Core: [
@@ -154,9 +153,12 @@ export default function TeamsPage() {
             </motion.section>
 
             {/* Core Team Section */}
-            <section ref={sectionRef} className="py-10 px-4">
+            <section ref={sectionRef} className="py-2 px-4">
                 <div className="max-w-5xl mx-auto">
-                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">Core Team</h2>
+                    <div className="text-center my-8">
+                        <h2 className="text-2xl lg:text-3xl font-bold">Core Team</h2>
+                        <hr className="mx-auto mt-2 w-24 lg:w-28 border-t-2 border-red-500" />
+                    </div>
                     <motion.div
                         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center"
                         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
@@ -177,9 +179,40 @@ export default function TeamsPage() {
                 </div>
             </section>
 
+            {/* Organising Team Section */}
+            <section className="py-10 px-4">
+                <div className="max-w-5xl mx-auto">
+                    <div className="text-center my-8">
+                        <h2 className="text-2xl lg:text-3xl font-bold">Organising Team</h2>
+                        <hr className="mx-auto mt-2 w-36 lg:w-40 border-t-2 border-red-500" />
+                    </div>
+                    <motion.div
+                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center"
+                        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+                        initial="hidden"
+                        animate={isInView ? 'visible' : 'hidden'}
+                    >
+                        {teams.Organising.map((member) => (
+                            <motion.div
+                                key={member.id}
+                                variants={cardVariants}
+                                whileHover={{ scale: 1.05, boxShadow: '0 10px 25px rgba(225,29,72,0.5)' }}
+                                className="rounded-xl bg-gray-800 overflow-hidden"
+                            >
+                                <SpeakerCard speaker={member} />
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
+            </section>
+
             {/* Other Teams Section */}
             <section className="my-10 py-10 px-4">
                 <div className="max-w-6xl mx-auto">
+                        <div className="text-center my-8">
+                        <h2 className="text-2xl lg:text-3xl font-bold">Other Teams</h2>
+                        <hr className="mx-auto mt-2 w-30 lg:w-36 border-t-2 border-red-500" />
+                    </div>
                     {/* Team Tabs */}
                     <motion.div
                         className="flex flex-wrap justify-center gap-5 mb-8"
@@ -188,7 +221,7 @@ export default function TeamsPage() {
                         variants={{ visible: { transition: { staggerChildren: 0.05 } } }}
                     >
                         {Object.keys(teams)
-                            .filter((team) => team !== 'Core')
+                            .filter((team) => team !== 'Core' && team !== 'Organising')
                             .map((team) => (
                                 <motion.button
                                     key={team}
@@ -196,8 +229,8 @@ export default function TeamsPage() {
                                     variants={buttonVariants}
                                     whileHover={{ scale: 1.05 }}
                                     className={`relative px-5.5 py-2.5 text-sm md:text-base font-medium rounded-full overflow-hidden cursor-pointer transition-all duration-300 ${activeTeam === team
-                                            ? 'bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white shadow-md'
-                                            : 'bg-white/10 text-gray-300 border border-white/10 hover:bg-white/20 hover:text-white'
+                                        ? 'bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white shadow-md'
+                                        : 'bg-white/10 text-gray-300 border border-white/10 hover:bg-white/20 hover:text-white'
                                         }`}
                                 >
                                     {team}
