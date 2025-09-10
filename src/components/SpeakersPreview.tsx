@@ -4,6 +4,7 @@ import SpeakerCard from "./SpeakerCard";
 import Slider from "react-slick";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Settings, CustomArrowProps } from "react-slick";
+import React, { useState, useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -174,11 +175,20 @@ const sampleSpeakers = [
 ];
 
 export default function SpeakersPreview() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const settings: Settings = {
     dots: true,
     infinite: true,
     speed: 350,
-    slidesToShow: 3,
+    slidesToShow: isMobile ? 1 : 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -188,30 +198,36 @@ export default function SpeakersPreview() {
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
       { breakpoint: 640, settings: { slidesToShow: 1 } },
     ],
-    arrows: true,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    arrows: !isMobile,
+    nextArrow: !isMobile ? <NextArrow /> : undefined,
+    prevArrow: !isMobile ? <PrevArrow /> : undefined,
     appendDots: (dots: React.ReactNode) => (
       <div 
-       style={{ bottom: "-47px",right: "0px",left: "0px" }}
-       >
-        <ul className="flex justify-center gap-3">{dots}</ul>
+        style={{ bottom: "-30px", right: "0px", left: "0px" }}
+      >
+        <ul className="flex justify-center gap-2">{dots}</ul>
       </div>
     ),
     customPaging: () => (
-      <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-gray-600 hover:bg-red-400 transition-all duration-300"></div>
+      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gray-600 hover:bg-red-400 transition-all duration-300"></div>
     ),
   };
 
   return (
-  <section className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 relative">
+    <section className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 relative">
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 text-center text-white px-2">
         Featured Speakers
       </h2>
-  <Slider {...settings} className="max-w-6xl mx-auto relative px-18">
+      <Slider {...settings} className="max-w-6xl mx-auto relative px-18">
         {sampleSpeakers.map((speaker) => (
           <div key={speaker.id} className="flex justify-center items-stretch">
-            <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xs xl:max-w-xs h-[420px] flex items-stretch mx-2">
+            <div
+              className={`h-[420px] flex items-stretch ${
+                isMobile
+                  ? "w-full max-w-full mx-0 px-0"
+                  : "w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xs xl:max-w-xs mx-2"
+              }`}
+            >
               <SpeakerCard speaker={speaker} />
             </div>
           </div>
