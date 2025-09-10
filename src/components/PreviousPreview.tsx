@@ -2,7 +2,9 @@
 "use client";
 
 import React, { useState, useRef } from "react";
+import Image from "next/image";
 import Slider from "react-slick";
+import type { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -17,9 +19,9 @@ export default function PreviousPreview() {
   ];
 
   const [active, setActive] = useState(0);
-  const sliderRef = useRef<any>(null);
+  const sliderRef = useRef<Slider | null>(null);
 
-  const settings = {
+  const settings: Settings = {
     dots: false, // We'll render our own dots below
     infinite: true,
     speed: 400,
@@ -39,11 +41,14 @@ export default function PreviousPreview() {
             <Slider ref={sliderRef} {...settings} className="w-full h-full">
               {images.map((src, idx) => (
                 <div key={idx} className="w-full h-full flex items-center justify-center">
-                  <img
+                  <Image
                     src={src}
                     alt={`TEDxVJIT 2024 event ${idx + 1}`}
                     className="w-full h-full object-cover"
                     draggable={false}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 640px"
+                    priority={idx === 0}
                   />
                 </div>
               ))}
