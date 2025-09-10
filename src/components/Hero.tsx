@@ -9,7 +9,7 @@ export default function Hero() {
       {/* Background butterflies */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.6 }}
+        animate={{ opacity: 0.8 }}
         transition={{ duration: 2, ease: "easeOut" }}
         className="absolute inset-0 z-0"
       >
@@ -79,3 +79,4 @@ export default function Hero() {
     </section>
   )
 }
+
