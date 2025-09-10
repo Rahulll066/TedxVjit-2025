@@ -21,7 +21,7 @@ export default function Navbar() {
     { text: 'About', href: '/about' },
     { text: 'Speakers', href: '/speakers' },
     { text: 'Team', href: '/team' },
-    { text: 'Schedule', href: '/schedule' },
+    { text: 'Gallery', href: '/gallery' },
   ];
 
   // Dropdown state for Previous Events
@@ -58,7 +58,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Links */}
-        <ul className="hidden xl:flex gap-8 text-md 2xl:text-2xl font-semibold tracking-wide relative">
+          <ul className="hidden xl:flex gap-7 text-xs 2xl:text-lg font-semibold tracking-wide relative">
           {navLinks.map((item, idx) => (
             <li key={idx} className="relative group px-3 py-1">
               <Link
@@ -248,7 +248,7 @@ export default function Navbar() {
                 <Link
                   key={idx}
                   href={item.href}
-                  className="block text-white font-semibold text-lg hover:text-red-500"
+                  className="block text-white font-semibold text-base hover:text-red-500"
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.text}
@@ -258,7 +258,7 @@ export default function Navbar() {
               {/* Previous Events Dropdown (Mobile) */}
               <div className="relative">
                 <button
-                  className="w-full flex items-center justify-between py-3 text-white font-semibold text-lg hover:text-red-500"
+                  className="w-full flex items-center justify-between py-3 text-white font-semibold text-base hover:text-red-500"
                   onClick={() => setPrevEventsOpen((open) => !open)}
                   type="button"
                 >
