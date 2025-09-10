@@ -1,42 +1,36 @@
-'use client'
-
-import Lottie from 'lottie-react'
-import butterfly from '../../public/lottie/butterfly.json'
+"use client"
+import ButterflySwarm from "./ButterflySwarm"
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden font-['Playfair Display',serif] bg-gradient-to-br from-black to-zinc-900 flex items-center justify-center">
-      {/* Subtle Butterfly Lottie Background */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none select-none">
-        <Lottie 
-          animationData={butterfly} 
-          loop={false} 
-          autoplay={true}
-          style={{ width: '120vw', height: '120vw', maxWidth: 1100, maxHeight: 1100, minWidth: 350, minHeight: 350, opacity: 0.5, filter: 'blur(0.1px)' }}
-        />
+    <section className="grid min-h-screen w-full bg-gradient-to-b from-black via-zinc-900 to-black">
+      {/* Background butterflies */}
+      <div className="row-start-1 col-start-1 z-0 opacity-60">
+        <ButterflySwarm />
       </div>
-      {/* Hero Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center w-full">
-        <h1 className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-extrabold tracking-tight mb-6 drop-shadow-lg text-center px-2">
+
+      {/* Foreground content */}
+      <div className="row-start-1 col-start-1 z-10 flex flex-col items-center justify-center text-center px-6">
+        <h1 className="bg-gradient-to-r from-red-900 via-red-400 to-red-900 bg-clip-text text-transparent 
+                       text-3xl md:text-8xl lg:text-7xl font-extrabold leading-tight mb-6 drop-shadow-lg">
           Metamorphosis
         </h1>
-        <p className="text-base sm:text-lg md:text-2xl text-zinc-200 font-medium tracking-wide mt-2 text-center px-2">
+
+        <p className="text-xl md:text-2xl text-zinc-300 font-medium max-w-2xl mx-auto mb-10">
           Inspire, Transform, Evolve
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-16">
-          <button
-            className="flex items-center justify-center bg-red-600 hover:bg-red-700 text-white font-semibold px-7 py-3 rounded-[10px] text-base md:text-lg transition-colors duration-200 shadow-md"
-          >
-            Register Now
-            <span className="ml-2 text-xl">→</span>
+
+        <div className="flex flex-col sm:flex-row gap-5 mt-4">
+          <button className="px-8 py-4 bg-red-600 text-white rounded-xl font-semibold 
+                             hover:bg-red-700 transition shadow-lg hover:shadow-red-600/40">
+            Register Now →
           </button>
-          <button
-            className="flex items-center justify-center bg-white hover:bg-zinc-300 text-black font-semibold px-7 py-3 rounded-[10px] text-base md:text-lg transition-colors duration-200 shadow-md border border-zinc-700"
-          >
+          <button className="px-8 py-4 bg-white/90 text-black rounded-xl font-semibold 
+                             hover:bg-zinc-200 transition border border-zinc-400 shadow-lg">
             Learn More
           </button>
         </div>
       </div>
     </section>
-  );
+  )
 }
