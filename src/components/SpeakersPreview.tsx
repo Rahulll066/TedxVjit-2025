@@ -228,7 +228,7 @@ export default function SpeakersPreview() {
                   : "w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xs xl:max-w-xs mx-4"
               }`}
             >
-              <SpeakerCard speaker={speaker} isMobile={isMobile} />
+              <SpeakerCard speaker={speaker} />
             </div>
           </div>
         ))}
