@@ -214,21 +214,21 @@ export default function SpeakersPreview() {
   };
 
   return (
-    <section className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 relative">
+    <section className="w-full mx-auto px-2 xs:px-3 sm:px-6 py-12 sm:py-16 md:py-20 relative">
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 text-center text-white px-2">
         Featured Speakers
       </h2>
-      <Slider {...settings} className="max-w-6xl mx-auto relative px-18">
+      <Slider {...settings} className="max-w-6xl pb-6 mx-auto relative px-0 sm:px-4 md:px-8">
         {sampleSpeakers.map((speaker) => (
           <div key={speaker.id} className="flex justify-center items-stretch">
             <div
-              className={`h-[420px] flex items-stretch ${
+              className={`flex items-stretch ${
                 isMobile
-                  ? "w-full max-w-full mx-0 px-0"
-                  : "w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xs xl:max-w-xs mx-2"
+                  ? "w-full mx-auto px-2 py-2 justify-center" // parent centers; child card controls its own width via clamp
+                  : "w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xs xl:max-w-xs mx-4"
               }`}
             >
-              <SpeakerCard speaker={speaker} />
+              <SpeakerCard speaker={speaker} isMobile={isMobile} />
             </div>
           </div>
         ))}
