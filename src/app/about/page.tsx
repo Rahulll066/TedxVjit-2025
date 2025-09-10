@@ -1,5 +1,6 @@
 "use client";
 import Slider from "react-slick";
+import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -69,15 +70,17 @@ export default function AboutPage() {
                At a TEDx event, speakers combine live talks and recorded TED Talks to inspire deep reflection and discussion. These events are fully planned and coordinated independently by volunteers, under a free license granted by TED. 
               </p>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                While the format follows TED's principles, the content and design are unique to each community,giving every TEDx event its own identity and local relevance. 
+                While the format follows TED&apos;s principles, the content and design are unique to each community,giving every TEDx event its own identity and local relevance. 
               </p>
             </div>
             
             <div className="relative animate-fade-in-delay-1">
-              <img 
-              src="/gallery/TEDimage.JPG"
-              alt="TEDxVJIT Event"
-              className="rounded-2xl shadow-lg border border-red-500/30"
+              <Image 
+                src="/gallery/TEDimage.JPG"
+                alt="TEDxVJIT Event"
+                width={800}
+                height={600}
+                className="rounded-2xl shadow-lg border border-red-500/30"
               />
             </div>
           </div>
@@ -85,9 +88,11 @@ export default function AboutPage() {
           {/* Previous Theme Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative animate-fade-in-delay-2">
-              <img
+              <Image
                 src="/gallery/_DSC8353.JPG"
                 alt="TEDxVJIT Event"
+                width={800}
+                height={600}
                 className="rounded-2xl shadow-lg border border-red-500/30"
               />
             </div>
@@ -96,7 +101,7 @@ export default function AboutPage() {
                 <span className="text-red-600">2024:</span> Power of Persistence
               </h2>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                The theme for TEDxVJIT 2024, "Power of Persistence," celebrates the unwavering spirit of individuals who have overcome monumental challenges to achieve their goals. It's a tribute to the silent strength that fuels success and innovation.
+                The theme for TEDxVJIT 2024, &quot;Power of Persistence,&quot; celebrates the unwavering spirit of individuals who have overcome monumental challenges to achieve their goals. It&apos;s a tribute to the silent strength that fuels success and innovation.
               </p>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed">
                 Through compelling stories and groundbreaking ideas, our speakers explored how resilience, determination, and consistency can shape destinies and inspire communities.
@@ -129,23 +134,29 @@ export default function AboutPage() {
               arrows={false}
             >
             <div>
-              <img
+              <Image
                 src="/gallery/_DSC7571.JPG"
                 alt="TEDxVJIT Event"
+                width={800}
+                height={600}
                 className="rounded-2xl shadow-lg border border-red-500/30 mx-auto"
               />
             </div>
             <div>
-              <img
+              <Image
                 src="/gallery/KVK_3670.JPG"
                 alt="TEDxVJIT Event"
+                width={800}
+                height={600}
                 className="rounded-2xl shadow-lg border border-red-500/30 mx-auto"
               />
             </div>
             <div>
-              <img
+              <Image
                 src="/gallery/KVK_3568.JPG"
                 alt="TEDxVJIT Event"
+                width={800}
+                height={600}
                 className="rounded-2xl shadow-lg border border-red-500/30 mx-auto"
               />
             </div>

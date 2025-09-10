@@ -7,16 +7,14 @@ export default function Stars({ count = 3000 }) {
     const pointsRef = useRef<THREE.Points>(null!)
 
     // Positions & twinkle offsets
-    const { positions, twinkles } = useMemo(() => {
+    const positions = useMemo(() => {
         const pos = new Float32Array(count * 3)
-        const tw = new Float32Array(count)
         for (let i = 0; i < count; i++) {
             pos[i * 3] = (Math.random() - 0.5) * 800
             pos[i * 3 + 1] = (Math.random() - 0.5) * 600
             pos[i * 3 + 2] = -50 - Math.random() * 600
-            tw[i] = Math.random() * Math.PI * 2
         }
-        return { positions: pos, twinkles: tw }
+        return pos
     }, [count])
 
     useFrame(({ clock }) => {
