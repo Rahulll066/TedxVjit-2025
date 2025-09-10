@@ -21,7 +21,7 @@ export default function Navbar() {
     { text: 'About', href: '/about' },
     { text: 'Speakers', href: '/speakers' },
     { text: 'Team', href: '/team' },
-    { text: 'Schedule', href: '/schedule' },
+    { text: 'Gallery', href: '/gallery' },
   ];
 
   // Dropdown state for Previous Events
