@@ -98,7 +98,7 @@ export default function SpeakerCard({ speaker }: SpeakerCardProps) {
           alt={speaker.name}
           width={imgSize}
           height={imgSize}
-          className={`object-cover rounded-full ${imgClass}`}
+          className={`object-cover rounded-full ${imgClass} ${!(active || hovered) ? 'grayscale' : ''}`}
         />
       </div>
       <div
