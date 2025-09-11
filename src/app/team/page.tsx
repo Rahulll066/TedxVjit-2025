@@ -153,11 +153,10 @@ export default function TeamsPage() {
             </motion.section>
 
             {/* Core Team Section */}
-            {/* Core Team Section */}
             <section ref={sectionRef} className="py-2 px-4">
                 <div className="max-w-5xl mx-auto">
                     <div className="text-center my-8">
-                        <h2 className="text-2xl lg:text-3xl font-bold">Core Team</h2>
+                        <h2 className="text-2xl lg:text-3xl font-bold text-white">Core Team</h2>
                         <hr className="mx-auto mt-2 w-24 lg:w-28 border-t-2 border-red-500" />
                     </div>
                     <motion.div
@@ -187,7 +186,7 @@ export default function TeamsPage() {
             <section className="py-10 px-4">
                 <div className="max-w-5xl mx-auto">
                     <div className="text-center my-8">
-                        <h2 className="text-2xl lg:text-3xl font-bold">Organising Team</h2>
+                        <h2 className="text-2xl lg:text-3xl font-bold text-white">Organising Team</h2>
                         <hr className="mx-auto mt-2 w-36 lg:w-40 border-t-2 border-red-500" />
                     </div>
                     <motion.div
@@ -214,10 +213,10 @@ export default function TeamsPage() {
             </section>
 
             {/* Other Teams Section */}
-            <section className="my-10 py-10 px-4">
+            <section className="py-10 px-4">
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center my-8">
-                        <h2 className="text-2xl lg:text-3xl font-bold">Other Teams</h2>
+                        <h2 className="text-2xl lg:text-3xl font-bold text-white">Other Teams</h2>
                         <hr className="mx-auto mt-2 w-30 lg:w-36 border-t-2 border-red-500" />
                     </div>
                     {/* Team Tabs */}
@@ -268,7 +267,6 @@ export default function TeamsPage() {
                     </motion.div>
                 </div>
             </section>
-
         </div>
     )
 }
