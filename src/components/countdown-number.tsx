@@ -69,7 +69,7 @@ export default function AnimatedNumberCountdown({
       }, {
         value: timeLeft.seconds,
         label: 'SECONDS'
-      }].map((item, idx) => (
+      }].map((item) => (
         <div
           key={item.label}
           className="flex flex-col items-center justify-center bg-black rounded-2xl shadow-[0_0_16px_4px_rgba(225,29,72,0.5)] px-8 py-8 min-w-[100px] aspect-square"
