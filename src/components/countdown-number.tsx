@@ -56,42 +56,34 @@ export default function AnimatedNumberCountdown({
   }, [endDate, startDate])
 
   return (
-    <div className={`flex items-center justify-center gap-4 ${className}`}>
-      <div className="flex flex-col items-center">
-        <MotionNumberFlow
-          value={timeLeft.days}
-          className="text-5xl font-semibold tracking-tighter"
-          format={{ minimumIntegerDigits: 2 }}
-        />
-        <span className="text-sm text-gray-500">Days</span>
-      </div>
-      <div className="text-2xl font-bold">:</div>
-      <div className="flex flex-col items-center">
-        <MotionNumberFlow
-          value={timeLeft.hours}
-          className="text-5xl font-semibold tracking-tighter"
-          format={{ minimumIntegerDigits: 2 }}
-        />
-        <span className="text-sm text-gray-500">Hours</span>
-      </div>
-      <div className="text-2xl font-bold">:</div>
-      <div className="flex flex-col items-center">
-        <MotionNumberFlow
-          value={timeLeft.minutes}
-          className="text-5xl font-semibold tracking-tighter"
-          format={{ minimumIntegerDigits: 2 }}
-        />
-        <span className="text-sm text-gray-500">Minutes</span>
-      </div>
-      <div className="text-2xl font-bold">:</div>
-      <div className="flex flex-col items-center">
-        <MotionNumberFlow
-          value={timeLeft.seconds}
-          className="text-5xl font-semibold tracking-tighter"
-          format={{ minimumIntegerDigits: 2 }}
-        />
-        <span className="text-sm text-gray-500">Seconds</span>
-      </div>
+    <div className={`flex items-center justify-center gap-8 ${className}`}>
+      {[{
+        value: timeLeft.days,
+        label: 'DAYS'
+      }, {
+        value: timeLeft.hours,
+        label: 'HOURS'
+      }, {
+        value: timeLeft.minutes,
+        label: 'MINUTES'
+      }, {
+        value: timeLeft.seconds,
+        label: 'SECONDS'
+      }].map((item, idx) => (
+        <div
+          key={item.label}
+          className="flex flex-col items-center justify-center bg-black rounded-2xl shadow-[0_0_16px_4px_rgba(225,29,72,0.5)] px-8 py-8 min-w-[100px] aspect-square"
+        >
+          <MotionNumberFlow
+            value={item.value}
+            className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-lg"
+            format={{ minimumIntegerDigits: 2 }}
+          />
+          <span className="mt-2 text-base md:text-lg font-bold tracking-widest text-white uppercase opacity-90">
+            {item.label}
+          </span>
+        </div>
+      ))}
     </div>
   )
 }
