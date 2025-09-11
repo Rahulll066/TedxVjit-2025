@@ -2,11 +2,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import Image from "next/image";
-import Slider from "react-slick";
-import type { Settings } from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import PreviousCarousel from "./PreviousCarousel";
 
 export default function PreviousPreview() {
   const images = [
@@ -18,60 +14,13 @@ export default function PreviousPreview() {
     "/gallery/TEDimage.JPG" // duplicate for demo, replace with unique if available
   ];
 
-  const [active, setActive] = useState(0);
-  const sliderRef = useRef<Slider | null>(null);
-
-  const settings: Settings = {
-    dots: false, // We'll render our own dots below
-    infinite: true,
-    speed: 400,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3500,
-    arrows: false,
-    beforeChange: (_: number, next: number) => setActive(next),
-  };
+  // moved carousel logic into PreviousCarousel for cleaner SSR + hydration
 
   return (
     <section className="relative w-full min-h-[90vh] bg-black flex flex-col lg:flex-row items-center justify-center px-4 sm:px-8 py-16 sm:py-24 gap-8">
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center mb-8 lg:mb-0">
         <div className="relative max-w-xl w-full flex flex-col items-center">
-          <div className="rounded-2xl overflow-hidden shadow-2xl border border-red-800 bg-black/80 aspect-video w-full flex items-center">
-            <Slider ref={sliderRef} {...settings} className="w-full h-full">
-              {images.map((src, idx) => (
-                <div key={idx} className="w-full h-full flex items-center justify-center">
-                  <Image
-                    src={src}
-                    alt={`TEDxVJIT 2024 event ${idx + 1}`}
-                    className="w-full h-full object-cover"
-                    draggable={false}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 640px"
-                    priority={idx === 0}
-                  />
-                </div>
-              ))}
-            </Slider>
-          </div>
-          {/* Custom Dots */}
-          <div className="w-full flex justify-center z-30 mt-6" style={{ position: 'relative' }}>
-            <ul className="flex gap-4">
-              {images.map((_, i) => (
-                <li key={i}>
-                  <button
-                    type="button"
-                    aria-label={`Go to slide ${i + 1}`}
-                    className={`w-4 h-4 rounded-full border-2 border-red-600 focus:outline-none cursor-pointer ${
-                      i === active ? "bg-red-600" : "bg-black"
-                    } transition-all duration-300`}
-                    style={{ boxShadow: i === active ? '0 0 0 2px #fff' : undefined }}
-                    onClick={() => sliderRef.current?.slickGoTo(i)}
-                  ></button>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <PreviousCarousel images={images.map(src => ({ src }))} />
         </div>
       </div>
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-start max-w-2xl">
