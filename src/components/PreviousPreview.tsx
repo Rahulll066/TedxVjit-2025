@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState, useRef } from "react";
+import React from "react";
 import PreviousCarousel from "./PreviousCarousel";
 
 export default function PreviousPreview() {
@@ -11,10 +11,8 @@ export default function PreviousPreview() {
     "/gallery/KVK_3568.JPG",
     "/gallery/KVK_3670.JPG",
     "/gallery/TEDimage.JPG",
-    "/gallery/TEDimage.JPG" // duplicate for demo, replace with unique if available
+    "/gallery/TEDimage.JPG"
   ];
-
-  // moved carousel logic into PreviousCarousel for cleaner SSR + hydration
 
   return (
     <section className="relative w-full min-h-[90vh] bg-black flex flex-col lg:flex-row items-center justify-center px-4 sm:px-8 py-16 sm:py-24 gap-8">
