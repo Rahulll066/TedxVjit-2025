@@ -223,7 +223,7 @@ export default function SpeakersPreview() {
   };
 
   return (
-    <section className="w-full mx-auto px-2 xs:px-3 sm:px-6 py-12 sm:py-16 md:py-20 relative">
+    <section className="w-full mx-auto px-2 xs:px-3 sm:px-6 py-12 sm:py-16 md:py-20 relative bg-black">
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 text-center text-white px-2">
         Featured Speakers
       </h2>
