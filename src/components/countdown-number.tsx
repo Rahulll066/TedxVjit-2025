@@ -56,7 +56,9 @@ export default function AnimatedNumberCountdown({
   }, [endDate, startDate])
 
   return (
-    <div className={`flex items-center justify-center gap-8 ${className}`}>
+    <div
+      className={`flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 md:gap-14 w-full ${className}`}
+    >
       {[{
         value: timeLeft.days,
         label: 'DAYS'
@@ -72,14 +74,14 @@ export default function AnimatedNumberCountdown({
       }].map((item) => (
         <div
           key={item.label}
-          className="flex flex-col items-center justify-center bg-black rounded-2xl shadow-[0_0_16px_4px_rgba(225,29,72,0.5)] px-8 py-8 min-w-[100px] aspect-square"
+          className="flex flex-col items-center justify-center bg-black rounded-2xl shadow-[0_0_16px_4px_rgba(225,29,72,0.5)] px-8 py-4 min-w-[100px] aspect-[5/6] max-w-[130px] sm:px-12 sm:py-6 sm:min-w-[140px] sm:aspect-[5/6] sm:max-w-[180px] md:px-8 md:py-4 md:min-w-[110px] md:aspect-[5/6] md:max-w-[130px] w-full"
         >
           <MotionNumberFlow
             value={item.value}
-            className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-lg"
+            className="text-5xl xs:text-6xl sm:text-5xl md:text-4xl lg:text-7xl font-extrabold text-white drop-shadow-lg"
             format={{ minimumIntegerDigits: 2 }}
           />
-          <span className="mt-2 text-base md:text-lg font-bold tracking-widest text-white uppercase opacity-90">
+          <span className="mt-2 text-sm xs:text-base md:text-lg font-bold tracking-widest text-white uppercase opacity-90">
             {item.label}
           </span>
         </div>
