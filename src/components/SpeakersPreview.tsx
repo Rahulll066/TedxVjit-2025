@@ -184,23 +184,32 @@ export default function SpeakersPreview() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  const [isTablet, setIsTablet] = useState(false);
+
+  useEffect(() => {
+    const checkTablet = () => setIsTablet(window.innerWidth <= 1024);
+    checkTablet();
+    window.addEventListener("resize", checkTablet);
+    return () => window.removeEventListener("resize", checkTablet);
+  }, []);
+
   const settings: Settings = {
     dots: true,
     infinite: true,
     speed: 350,
-    slidesToShow: isMobile ? 1 : 3,
+    slidesToShow: isMobile || isTablet ? 1 : 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
     cssEase: "linear",
     pauseOnHover: false,
     responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 1024, settings: { slidesToShow: 1 } },
       { breakpoint: 640, settings: { slidesToShow: 1 } },
     ],
-    arrows: !isMobile,
-    nextArrow: !isMobile ? <NextArrow /> : undefined,
-    prevArrow: !isMobile ? <PrevArrow /> : undefined,
+    arrows: !isMobile && !isTablet,
+    nextArrow: !isMobile && !isTablet ? <NextArrow /> : undefined,
+    prevArrow: !isMobile && !isTablet ? <PrevArrow /> : undefined,
     appendDots: (dots: React.ReactNode) => (
       <div 
         style={{ bottom: "-30px", right: "0px", left: "0px" }}
@@ -223,8 +232,8 @@ export default function SpeakersPreview() {
           <div key={speaker.id} className="flex justify-center items-stretch">
             <div
               className={`flex items-stretch ${
-                isMobile
-                  ? "w-full mx-auto px-2 py-2 justify-center" // parent centers; child card controls its own width via clamp
+                isMobile || isTablet
+                  ? "w-full mx-auto px-2 py-2 justify-center"
                   : "w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xs xl:max-w-xs mx-4"
               }`}
             >
