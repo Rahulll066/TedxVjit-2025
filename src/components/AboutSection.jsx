@@ -17,10 +17,10 @@ export default function AboutSection() {
           About <span className="text-white">TEDxVJIT</span>
         </h2>
   <div className="w-16 h-1 bg-gradient-to-r from-red-500 to-red-700 rounded-full mb-14" />
-  <p className="text-lg sm:text-xl text-white-300 mb-8">
+  <p className="text-lg sm:text-xl text-white mb-8">
           TEDxVJIT is an independently organized TED event that brings together innovators, thinkers, and doers from various fields to share ideas worth spreading. In the spirit of TED’s mission, our goal is to spark deep discussions and connections in our community.
         </p>
-  <p className="text-lg sm:text-xl text-white-300 mb-10">
+  <p className="text-lg sm:text-xl text-white mb-10">
           Organized by the students of VJIT, TEDxVJIT showcases innovative ideas and inspiring stories that challenge conventional thinking and spark meaningful conversations.
         </p>
 
