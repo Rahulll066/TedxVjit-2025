@@ -1,7 +1,7 @@
 "use client"
 import { Canvas } from "@react-three/fiber"
 import Butterfly from "./butterfly"
-import Stars from "./Stars"
+// import Stars from "./Stars"
 
 export default function ButterflySwarm() {
   const butterflyCount = 8
@@ -24,7 +24,7 @@ export default function ButterflySwarm() {
       <pointLight position={[10, 10, 10]} intensity={0.6} />
 
       {/* Stars */}
-      <Stars count={2000} />
+      {/* <Stars count={2000} /> */}
 
       {/* Butterflies */}
       

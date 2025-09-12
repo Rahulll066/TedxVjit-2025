@@ -17,12 +17,12 @@ export default function Butterfly({ position = [0, 0, 3] }: { position?: [number
     ref.current.rotation.z = Math.sin(t * 0.8) * 0.05
 
     // Wing flap
-    const flap = 1 + Math.sin(t * 3) * 0.1
-    ref.current.scale.set(flap, 1, 1)
+    const flap = 1 + Math.sin(t * 2) * 0.1
+    ref.current.scale.set(flap, 1, 1) 
   })
 
   // Scale based on breakpoints (stable across devices)
-  const size = Math.min(viewport.width, viewport.height) * 0.9
+  const size = Math.min(viewport.width, viewport.height) * 0.7
 
   return (
     <mesh ref={ref} position={position}>
