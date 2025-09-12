@@ -114,8 +114,8 @@ export default function SpeakersPage() {
       </section>
 
       {/* Speakers Grid Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 px-4 flex justify-center">
+        <div className="w-full max-w-6xl">
           {/* Section Header */}
           <div
             className="text-center mb-16 animate-fade-in"
@@ -130,11 +130,11 @@ export default function SpeakersPage() {
           </div>
 
           {/* Speakers Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 justify-items-center">
             {speakers.map((speaker, index) => (
               <div
                 key={speaker.id}
-                className="animate-fade-in-up"
+                className="w-[280px] md:w-[300px] lg:w-[320px] animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <SpeakerCard speaker={speaker} />
