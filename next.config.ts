@@ -3,7 +3,20 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["vjit.edu.in","ik.imagekit.io","media.licdn.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "vjit.edu.in",
+      },
+      {
+        protocol: "https",
+        hostname: "ik.imagekit.io",
+      },
+      {
+        protocol: "https",
+        hostname: "media.licdn.com",
+      },
+    ],
   },
 };
 
