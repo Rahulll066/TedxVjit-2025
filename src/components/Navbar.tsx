@@ -22,9 +22,8 @@ export default function Navbar() {
     { text: 'Speakers', href: '/speakers' },
     { text: 'Team', href: '/team' },
     { text: 'Gallery', href: '/gallery' },
-    { text: 'Previous Events', href: '/previous-events' },
   ];
-  
+
   return (
     <motion.header
       ref={ref}
@@ -41,7 +40,6 @@ export default function Navbar() {
       className="fixed  w-[100%] z-50"
     >
       <nav className="flex items-center justify-between w-full text-white">
-        {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/navbar/navlogo.png"
@@ -52,8 +50,7 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Desktop Links */}
-          <ul className="hidden xl:flex gap-7 text-base 2xl:text-xl font-semibold tracking-wide relative">
+        <ul className="hidden xl:flex gap-7 text-base 2xl:text-xl font-semibold tracking-wide relative">
           {navLinks.map((item, idx) => (
             <li key={idx} className="relative group px-3 py-1">
               <Link
@@ -70,13 +67,46 @@ export default function Navbar() {
               >
                 {item.text}
               </Link>
-              {/* Removed gray background span for active/hovered nav option */}
             </li>
           ))}
-          {/* ...existing code... */}
+
+          <li className="relative group/nav px-3 py-1">
+            <button
+              className="relative z-10 text-white transition-colors duration-200 group-hover/nav:text-red-400 text-lg 2xl:text-xl flex items-center gap-1"
+              tabIndex={0}
+            >
+              Previous Events
+              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <div className="absolute left-0 top-full min-w-[200px] bg-black/90 backdrop-blur-md rounded-xl shadow-lg z-40 opacity-0 group-hover/nav:opacity-100 group-focus-within/nav:opacity-100 pointer-events-none group-hover/nav:pointer-events-auto group-focus-within/nav:pointer-events-auto transition-opacity duration-200 border-t-4 border-transparent pt-0" style={{ marginTop: 0 }}>
+              <div className="relative group/2024">
+                <button
+                  className="w-full text-left px-6 py-3 text-white hover:bg-red-600/20 rounded-lg flex items-center justify-between group-hover/2024:text-red-400 group-focus/2024:text-red-400 text-base"
+                  tabIndex={0}
+                  style={{ minWidth: '180px' }}
+                >
+                  2024
+                  <svg className="w-3 h-3 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+
+                <div className="absolute left-full top-0 min-w-[180px] bg-black/90 backdrop-blur-md rounded-xl shadow-lg z-50 opacity-0 group-hover/2024:opacity-100 group-focus-within/2024:opacity-100 pointer-events-none group-hover/2024:pointer-events-auto group-focus-within/2024:pointer-events-auto transition-opacity duration-200 border-l-4 border-transparent pl-0"
+                  style={{ marginTop: 0 }}
+                  onMouseEnter={e => { e.currentTarget.parentElement?.parentElement?.classList.add('group-hover'); }}
+                  onMouseLeave={e => { e.currentTarget.parentElement?.parentElement?.classList.remove('group-hover'); }}
+                >
+                  <Link href="/2024/speakers" className="block px-6 py-3 text-white hover:bg-red-600/20 rounded-lg text-base" style={{ minWidth: '160px' }}>Speakers</Link>
+                  <Link href="/2024/team" className="block px-6 py-3 text-white hover:bg-red-600/20 rounded-lg text-base" style={{ minWidth: '160px' }}>Team</Link>
+                </div>
+              </div>
+            </div>
+          </li>
         </ul>
 
-        {/* Desktop CTA Dropdown */}
         <div className="relative hidden xl:block ml-4">
           <button
             onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -105,7 +135,7 @@ export default function Navbar() {
                 transition={{ duration: 0.2 }}
                 className="absolute right-0 mt-2 w-64 bg-black/90 backdrop-blur-md rounded-xl p-3 shadow-lg space-y-2 z-50"
               >
-                {/* Audience */}
+
                 <Link
                   href="/#register-audience"
                   onClick={() => setDropdownOpen(false)}
@@ -122,7 +152,6 @@ export default function Navbar() {
                   </div>
                 </Link>
 
-                {/* Speaker */}
                 <Link
                   href="/#register-speaker"
                   onClick={() => setDropdownOpen(false)}
@@ -143,7 +172,6 @@ export default function Navbar() {
           </AnimatePresence>
         </div>
 
-        {/* Mobile Hamburger */}
         <div className="xl:hidden ml-5">
           <motion.button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -178,11 +206,9 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.6 }}
@@ -190,8 +216,6 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className="fixed inset-0 bg-black z-40"
             />
-
-            {/* Menu */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -212,9 +236,31 @@ export default function Navbar() {
                 </Link>
               ))}
 
-              {/* ...existing code... */}
+              <div className="mt-2">
+                <details className="group">
+                  <summary className="cursor-pointer text-white font-semibold text-lg 2xl:text-xl hover:text-red-500 flex items-center justify-between px-0 py-2 rounded-lg">
+                    Previous Events
+                    <svg className="w-4 h-4 ml-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div className="ml-4 mt-2 min-w-[180px]">
+                    <details className="group">
+                      <summary className="cursor-pointer text-white font-semibold text-base hover:text-red-400 flex items-center justify-between px-0 py-3 rounded-lg" style={{ minWidth: '160px' }}>
+                        2024
+                        <svg className="w-3 h-3 ml-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </summary>
+                      <div className="ml-4 mt-1 flex flex-col gap-1 min-w-[160px]">
+                        <Link href="/previous-events/2024/speakers" className="block text-white text-base hover:text-red-400 px-0 py-2" style={{ minWidth: '140px' }} onClick={() => setMenuOpen(false)}>Speakers</Link>
+                        <Link href="/previous-events/2024/team" className="block text-white text-base hover:text-red-400 px-0 py-2" style={{ minWidth: '140px' }} onClick={() => setMenuOpen(false)}>Team</Link>
+                      </div>
+                    </details>
+                  </div>
+                </details>
+              </div>
 
-              {/* Mobile CTA */}
               <div className="space-y-2">
                 <Link
                   href="/#register-audience"
@@ -252,7 +298,6 @@ export default function Navbar() {
           </>
         )}
       </AnimatePresence>
-
     </motion.header>
   )
 }
