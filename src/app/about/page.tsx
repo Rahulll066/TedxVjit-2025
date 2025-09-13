@@ -60,16 +60,16 @@ export default function AboutPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 What is <span className="text-red-600">TEDx</span>?
               </h2>
-              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
                 TEDx is a grassroots initiative, created in the spirit of TED&apos;s overall mission to research and discover &quot;ideas worth spreading.&quot; TEDx brings the spirit of TED to local communities around the globe through TEDx events.
               </p>
-              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
                 These events are organized by passionate individuals who seek to uncover new ideas and to share the latest research in their local areas that spark conversations in their communities.
               </p>
-              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
                At a TEDx event, speakers combine live talks and recorded TED Talks to inspire deep reflection and discussion. These events are fully planned and coordinated independently by volunteers, under a free license granted by TED. 
               </p>
-              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
                 While the format follows TED&apos;s principles, the content and design are unique to each community,giving every TEDx event its own identity and local relevance. 
               </p>
             </div>
@@ -100,18 +100,18 @@ export default function AboutPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 <span className="text-red-600">2024:</span> Power of Persistence
               </h2>
-              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
                 The theme for TEDxVJIT 2024, &quot;Power of Persistence,&quot; celebrates the unwavering spirit of individuals who have overcome monumental challenges to achieve their goals. It&apos;s a tribute to the silent strength that fuels success and innovation.
               </p>
-              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
                 Through compelling stories and groundbreaking ideas, our speakers explored how resilience, determination, and consistency can shape destinies and inspire communities.
               </p>
-              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
                 The theme reminded us that success is rarely instant — it is the outcome of dedication resilience, and an unshakable belief in the journey.
               </p>
-              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                At TEDxVJIT 2024, our stage became a platform for remarkable individuals who embodied this spirit. From innovators who turned repeated failures into groundbreaking success, to changemakers who stood firm in their vision despite 
-                resistance, every story reminded us of the strength that comes from never giving up. 
+              <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
+                At TEDxVJIT 2024, our stage became a platform for remarkable individuals who embodied this spirit. From innovators who turned repeated failures into groundbreaking success, to changemakers who stood firm in their vision despite
+                resistance, every story reminded us of the strength that comes from never giving up.
               </p>
             </div>
           </div>
