@@ -176,7 +176,7 @@ export default function TeamsPage() {
 
             {/* Core Team Section */}
             <section ref={sectionRef} className="py-2 px-4">
-                <div className="max-w-5xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <div className="text-center my-8">
                         <h2 className="text-2xl lg:text-3xl font-bold text-white">Core Team</h2>
                         <hr className="mx-auto mt-2 w-24 lg:w-28 border-t-2 border-red-500" />
@@ -195,9 +195,11 @@ export default function TeamsPage() {
                                     scale: 1.05,
                                     boxShadow: '0 10px 25px rgba(225,29,72,0.5)',
                                 }}
-                                className="w-full max-w-xs rounded-2xl overflow-hidden"
+                                className="flex justify-center"
                             >
-                                <SpeakerCard speaker={member} />
+                                <div className="w-[280px] md:w-[300px] lg:w-[320px] rounded-2xl overflow-hidden">
+                                    <SpeakerCard speaker={member} />
+                                </div>                               
                             </motion.div>
                         ))}
                     </motion.div>
@@ -206,7 +208,7 @@ export default function TeamsPage() {
 
             {/* Organising Team Section */}
             <section className="py-10 px-4">
-                <div className="max-w-5xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <div className="text-center my-8">
                         <h2 className="text-2xl lg:text-3xl font-bold text-white">Organising Team</h2>
                         <hr className="mx-auto mt-2 w-36 lg:w-40 border-t-2 border-red-500" />
@@ -225,9 +227,12 @@ export default function TeamsPage() {
                                     scale: 1.05,
                                     boxShadow: '0 10px 25px rgba(225,29,72,0.5)',
                                 }}
-                                className="w-full max-w-xs rounded-2xl overflow-hidden"
+                                className="flex justify-center"
                             >
-                                <SpeakerCard speaker={member} />
+                                <div className="w-[280px] md:w-[300px] lg:w-[320px] rounded-2xl overflow-hidden">
+                                    <SpeakerCard speaker={member} />
+                                </div>
+                                
                             </motion.div>
                         ))}
                     </motion.div>
@@ -281,9 +286,11 @@ export default function TeamsPage() {
                                     scale: 1.05,
                                     boxShadow: '0 10px 25px rgba(225,29,72,0.5)',
                                 }}
-                                className="w-full max-w-xs rounded-2xl overflow-hidden"
+                                className="flex justify-center"
                             >
-                                <SpeakerCard speaker={member} />
+                                <div className="w-[280px] md:w-[300px] lg:w-[320px] rounded-2xl overflow-hidden">
+                                    <SpeakerCard speaker={member} />
+                                </div>                               
                             </motion.div>
                         ))}
                     </motion.div>
