@@ -54,8 +54,8 @@ export default function TeamsPage() {
         "Web Dev": [
             { id: 20, name: "Varshith Reddy", title: "Team Lead", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Tech/Varshith.jpg?updatedAt=1757798704189", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
             { id: 21, name: "Vijay Guttula", title: "Co - Lead", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Tech/Vijay%20Guttula.jpg?updatedAt=1757798815754", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
-            { id: 22, name: "Rahul Sai Nadh", title: "Team Member", company: "VJIT", image: "/assets/2.png", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
-            { id: 23, name: "Syed Rizwan", title: "Team Member", company: "VJIT", image: "/assets/2.png", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
+            { id: 22, name: "Rahul Sai Nadh", title: "Team Member", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Tech/Rahul.jpg?updatedAt=1757828582345", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
+            { id: 23, name: "Syed Rizwan", title: "Team Member", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Tech/Syed%20Rizwan.JPG?updatedAt=1757828581648", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
             { id: 24, name: "Shivasai Pondurthi", title: "Team Member", company: "VJIT", image: "/assets/2.png", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
         ],
         Marketing: [
