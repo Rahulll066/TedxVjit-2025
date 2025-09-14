@@ -6,6 +6,8 @@ import SpeakersPreview from '../components/SpeakersPreview'
 import SchedulePreview from '../components/SchedulePreview'
 import PreviousPreview from '../components/PreviousPreview'
 import CountdownPreview from '@/components/CountdownPreview'
+import SponsorsPreview from '@/components/SponsorsPreview'
+
 
 export default function Home() {
 
@@ -18,6 +20,7 @@ export default function Home() {
       <SchedulePreview />
       <PreviousPreview />
       <CountdownPreview />
+      <SponsorsPreview />
     </>
   )
 }
