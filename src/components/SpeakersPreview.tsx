@@ -2,7 +2,7 @@
 
 import SpeakerCard from "./SpeakerCard";
 import Slider from "react-slick";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Youtube } from "lucide-react";
 import { Settings, CustomArrowProps } from "react-slick";
 import React, { useState, useEffect } from "react";
 import "slick-carousel/slick/slick.css";
@@ -42,135 +42,124 @@ function PrevArrow(props: CustomArrowProps) {
 const sampleSpeakers = [
   {
     id: 1,
-    name: 'Alice Johnson',
-    title: 'Transforming Ideas',
-    company: 'Innovation Labs',
-    image: '/assets/2.png',
+    name: 'JD Laxmi Narayana',
+    title: 'Ex-Joint Director, CBI',
+    company: '',
+    image: 'https://ik.imagekit.io/tedxvjit/public/speakers/jd_laxmi_narayana.png?updatedAt=1729522774797',
     bio: 'Alice is a visionary leader in innovation and storytelling.',
-    description: 'Alice Johnson is a visionary leader in innovation and storytelling, with over 15 years of experience in transforming ideas into reality. She has led numerous successful projects and inspired countless individuals to think creatively and act boldly.',
-    expertise: ['Innovation', 'Storytelling', 'Leadership'],
-    social: { linkedin: '#', twitter: '#', website: '#' }
+    description: 'VV (popularly known as) JD Lakshminarayana, a former Joint Director of the Central Bureau of Investigation (CBI) and the current president of the Jai Bharat National Party (JBNP), is a prominent figure in Indian law enforcement and politics. Currently pursuing a Ph.D. in Rural Development. A retired Indian Police Service (IPS) officer from Andhra Pradesh, he has served in key positions, including as the Additional Director General of Police in Mumbai.',
+    expertise: "",
+    social: { instagram: 'https://www.instagram.com/jdlakshminarayana?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', twitter: 'https://x.com/VVL_Official?t=3S_xt5j8dePVlVmVsf_2wA&s=08', website: '' }
   },
   {
     id: 2,
-    name: 'Bob Smith',
-    title: 'Shaping Futures',
-    company: 'Future Tech Institute',
-    image: '/assets/6.png',
-    bio: 'Bob explores future tech and youth empowerment.',
-    description: 'Bob Smith is a forward-thinking technologist who explores the intersection of future technology and youth empowerment. His work focuses on preparing the next generation for the challenges and opportunities of tomorrow.',
-    expertise: ['Future Tech', 'Youth Empowerment', 'Technology Education'],
-    social: { linkedin: '#', twitter: '#', website: '#' }
+    name: 'Vanitha Datla',
+    title: 'Vice Chairperson & MD',
+    company: 'ELICO Ltd.',
+    image: 'https://ik.imagekit.io/tedxvjit/public/speakers/vanitha_datla.png?updatedAt=1729522782340',
+    bio: 'Vice Chairperson & Managing Director of ELICO Ltd.',
+    description: 'Vanitha Datla is a highly accomplished professional with nearly three decades of experience in diverse sectors, including financial services, insurance, cement, power, security printing, instrumentation, BPO services, and healthcare in the USA and India. She serves as the Vice Chairperson of Elico and the Managing Director of Elico Healthcare Services Ltd, a Hyderabad-based company. She is a Chartered Financial Analyst and is pursuing a doctoral program at ISB on the Role of Women in Family Businesses. She also serves as treasurer of Women in Network, mentoring children from urban slums to enhance their education and quality of life.',
+    expertise: "['Future Tech', 'Youth Empowerment', 'Technology Education']",
+    social: { linkedin: 'https://www.linkedin.com/in/vanithadatla/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BantXG80GSYyhoQ%2BRvXbfPg%3D%3D', twitter: 'https://twitter.com/vanitha_datla', }
   },
   {
     id: 3,
-    name: 'Catherine Lee',
-    title: 'The Power of Change',
-    company: 'Education Reform Foundation',
-    image: '/assets/hero-banner.png',
-    bio: 'Catherine is known for social reform through education.',
-    description: 'Catherine Lee is a passionate advocate for social reform through education. She has dedicated her career to creating positive change in communities through innovative educational approaches and inclusive learning environments.',
-    expertise: ['Education Reform', 'Social Change', 'Community Development'],
-    social: { linkedin: '#', twitter: '#', website: '#' }
+    name: 'Dasaraj Centhimil Tarun',
+    title: 'DCT Eats food blogger',
+    company: '',
+    image: 'https://ik.imagekit.io/tedxvjit/public/speakers/dasaraj_centhamli_tarun.png?updatedAt=1729522774024',
+    bio: 'MBA graduate from IIM Calcutta DCT Eats food blogger',
+    description: 'Dasaraj Centhamil Tarun is the creator of DCT Eats, a rapidly growing food channel with over 1 million subscribers. He holds a B.Com (H) from SRCC and an MBA from IIM Calcutta. DCT initially worked at leading companies like Zomato, Oyo, and Bain. After a brief return to Zomato, he decided to leave corporate life to pursue his passion for food content creation.His channel experienced explosive growth during IPL 2023, gaining 110,000 subscribers in just one month. Today, DCT Eats is celebrated for its engaging and flavorful culinarycontent, attracting food lovers from around the globe.',
+    expertise: "",
+    social: { instagram: 'https://www.instagram.com/dctarun/?utm_source=ig_web_button_share_sheet', Youtube:"https://www.youtube.com/@DCT_EATS" }
   },
   {
     id: 4,
-    name: 'David Kim',
-    title: 'AI for Good',
-    company: 'AI Impact',
-    image: '/assets/2.png',
-    bio: 'David leverages AI for social impact.',
-    description: 'David Kim is a data scientist focused on leveraging artificial intelligence for social good, working on projects that address real-world problems.',
-    expertise: ['AI', 'Data Science', 'Social Impact'],
-    social: { linkedin: '#', twitter: '#', website: '#' }
+    name: 'S Krithivasan',
+    title: 'Career Catalyst & HR Innovator',
+    company: '',
+    image: 'https://ik.imagekit.io/tedxvjit/public/speakers/krithivasam_s.png?updatedAt=1729522774110',
+    bio: 'Career Catalyst & HR Innovator.',
+    description: 'Krithivasan impressive background highlights his extensive 17+ years of HR experience and leadership in team building and growth initiatives. His roles at Virtusa and Pickyourtrail demonstrate his global reach and strategic acumen in campus strategy and partnerships. As Vice President of HR at YourTribe, he effectively combines his expertise in talent acquisition and HR services with a passion for advising startups. His educational background with an Executive MBA from XLRI Jamshedpur further complements his professional experience. Additionally, his love for travel and commitment to advising academic institutions reflect a well-rounded individual dedicated to fostering innovation and a people-centric HR approach.',
+    expertise: '',
+    social: { linkedin: 'https://www.linkedin.com/in/krithivasans/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BVfIq0H%2FZRu2ooWW76Z2lAg%3D%3D' }
   },
   {
     id: 5,
-    name: 'Elena Garcia',
-    title: 'Designing the Future',
-    company: 'NextGen Design',
-    image: '/assets/6.png',
-    bio: 'Elena is a creative designer and futurist.',
-    description: 'Elena Garcia is a creative designer and futurist, passionate about blending technology and art to create meaningful experiences.',
-    expertise: ['Design', 'Futurism', 'Art'],
-    social: { linkedin: '#', twitter: '#', website: '#' }
+    name: 'Dr. S. Bakhtiar',
+    title: 'ports Medicine specialist',
+    company: '',
+    image: 'https://ik.imagekit.io/tedxvjit/public/speakers/BAKHTIAR.png?updatedAt=1729522766052',
+    bio: 'Frank pioneers health tech solutions.',
+    description: 'Prof. Major Dr. S. Bakhtiar Choudhary (Retd.) is a renowned war veteran and sports medicine specialist with over 40 years of experience, having served both the Indian Army and Apollo Hospitals for a decade each. He has been a visiting faculty member at top institutions, training IPS, IAS, and IRS officers, and advising MNCs and universities. A pioneer in occupational health, he identified and described conditions such as Straight Spine Syndrome and Urban Neck Syndrome. His groundbreaking research has saved thousands from undergoing spinal surgeries. Dr. Choudhary has made significant contributions to sports medicine, advising international athletes, and has been an active promoter of environmental conservation. Additionally, he is a martial artist, an award-winning researcher, an author, and a passionate advocate for ecological education',
+    expertise: "",
+    social: { linkedin: 'https://www.linkedin.com/in/bakhtiar-choudhary-4203b015/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BfJHkPaAPTQOYS%2Beh759S0A%3D%3D'}
   },
   {
     id: 6,
-    name: 'Frank Wu',
-    title: 'Health Innovator',
-    company: 'Wellness Tech',
-    image: '/assets/hero-banner.png',
-    bio: 'Frank pioneers health tech solutions.',
-    description: 'Frank Wu pioneers health tech solutions that improve patient outcomes and healthcare accessibility.',
-    expertise: ['Health Tech', 'Innovation', 'Wellness'],
-    social: { linkedin: '#', twitter: '#', website: '#' }
+    name: 'Debabrata Sarkar',
+    title: 'CMD at MicroAlgae Solutions',
+    company: '',
+    image: 'https://ik.imagekit.io/tedxvjit/public/speakers/debabrata_sarkar.png?updatedAt=1729522774116',
+    bio: 'Elena is a creative designer and futurist.',
+    description: 'Mr. Debabrata Sarkar, a TEDx speaker and accomplished C-level executive, boasts over 26 years of experience in the International Agriculture sector. An IIM Kolkata alumnus, he has held leadership roles at Monsanto, Chemtura, and Syngenta. Currently, he serves as CMD of MicroAlgae Solutions India Pvt Ltd, Director of AGMA Energy, and Vice President - APAC for AE Biologicals. Featured in top publications like Forbes and Fortune, Mr. Sarkar won back-to-back Best Bio Ag CEO Awards in 2022 and 2023, presented by Central Agriculture Minister Mr. Narendra Singh Tomar, recognizing his contributions to sustainable agriculture.',
+    expertise: "",
+    social: { linkedin: 'https://www.linkedin.com/in/debabrata-sarkar-r-20772415/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3ByqHQFwhBQ9iDk16AszGFSA%3D%3D ' }
   },
   {
     id: 7,
-    name: 'Grace Patel',
-    title: 'Women in STEM',
-    company: 'STEM Forward',
-    image: '/assets/2.png',
-    bio: 'Grace advocates for women in STEM fields.',
-    description: 'Grace Patel is a passionate advocate for women in STEM, working to close the gender gap and inspire future generations.',
-    expertise: ['STEM', 'Advocacy', 'Education'],
-    social: { linkedin: '#', twitter: '#', website: '#' }
+    name: 'Hasvi Muriki',
+    title: 'Mountaineer - World Record holder*4 ',
+    company: '',
+    image: 'https://ik.imagekit.io/tedxvjit/public/speakers/hasvi.png?updatedAt=1729522771831',
+    bio: 'Passionate Photographer l Cyclist and Runner l Badminton player l National Skater',
+    description: 'I am Muriki Pulakita Hasvi, a 16-year-old DexSchool graduate, sports enthusiast, avid cyclist, runner, blogger, MUNer, and TEDx speaker. I have already climbed 3 of the 7 summits and dream of conquering all seven before I turn 19. I hold records as the youngest girl to climb Mt. UT Kangri, Mt. Kang Yatse, and Mt. Dzo Jongo within 70 hours. Additionally, I am the youngest girl to have climbed Mt. Elbrus (the highest mountain in Europe) West and East within 24 hours, as well as Island Peak in Nepal (6,189m). To date, I have completed a total of 12 expeditions. I plan to become a lawyer in the future, as I love reading books and conducting research.',
+    expertise: "",
+    social: { linkedin: 'https://www.linkedin.com/in/hasvi-muriki-9088b5225/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BlYcQwuotREWZEQzHJrY%2Bxg%3D%3D'}
   },
   {
     id: 8,
-    name: 'Hassan Ali',
-    title: 'Green Energy Visionary',
+    name: 'Likitha Yalamanchili',
+    title: 'Miss India AP 2022 Finalist and Doctor',
     company: 'EcoPower',
-    image: '/assets/6.png',
-    bio: 'Hassan drives green energy initiatives.',
-    description: 'Hassan Ali is a green energy visionary, leading projects that promote sustainability and renewable energy adoption.',
-    expertise: ['Green Energy', 'Sustainability', 'Leadership'],
-    social: { linkedin: '#', twitter: '#', website: '#' }
+    image: 'https://ik.imagekit.io/tedxvjit/public/speakers/likitha.png?updatedAt=1729522773211',
+    bio: 'Doctor and Miss India AP 2022 Finalist',
+    description: 'Likhita Yalamanchili is Miss India Andhra Pradesh 2022 and has also earned the prestigious titles of Times Miss Beauty with a Purpose and Moj Miss Rising Star. She is an MBBS graduate and a successful model, who is now set to make her debut as an actor in the Telugu film industry with her upcoming movie Euphoria, slated for release in early 2025.',
+    expertise: "",
+    social: { instagram: 'https://www.instagram.com/likhita_yalamanchili?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='}
   },
   {
     id: 9,
-    name: 'Isabella Rossi',
-    title: 'Cultural Connector',
-    company: 'Global Voices',
-    image: '/assets/hero-banner.png',
-    bio: 'Isabella connects cultures through dialogue.',
-    description: 'Isabella Rossi connects cultures through dialogue and storytelling, fostering understanding and collaboration.',
-    expertise: ['Culture', 'Dialogue', 'Storytelling'],
-    social: { linkedin: '#', twitter: '#', website: '#' }
+    name: 'Nikhil Desai',
+    title: 'International motivator speaker',
+    company: '',
+    image: 'https://ik.imagekit.io/tedxvjit/public/speakers/nikhil_desai.png?updatedAt=1729522775652',
+    bio: 'International motivator speaker',
+    description: 'Nikhil Desai is dedicated to empowering individuals and organizations to unlock their true potential. Known for his energetic speaking style, he inspires and motivates participants to create lasting change in their lives and work environments. With over 33 years of experience, Nikhil has positively impacted more than a quarter-million participants across 42 countries, including India, the USA, Canada, Sweden, the UAE, and Singapore. His programs are designed to foster personal growth and organizational development. Nikhil has been featured in the media across multiple countries and has appeared on television and radio in India, the USA, the Philippines, South Africa, and Oman, making a global impact with his work.',
+    expertise: "",
+    social: { linkedin: 'https://www.linkedin.com/in/nikhilpdesai/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BCdiy%2BXh0RFKeBgjnHYhcuA%3D%3D', }
   },
   {
     id: 10,
-    name: 'Jin Park',
-    title: 'Urban Innovator',
-    company: 'CityLab',
-    image: '/assets/2.png',
-    bio: 'Jin reimagines urban spaces.',
-    description: 'Jin Park is an urban innovator, reimagining city spaces for better living and community engagement.',
-    expertise: ['Urban Design', 'Innovation', 'Community'],
-    social: { linkedin: '#', twitter: '#', website: '#' }
+    name: 'Naveen Samala',
+    title: 'Founder-The Guiding Voice"',
+    company: '',
+    image: 'https://ik.imagekit.io/tedxvjit/public/speakers/naveen_samala.png?updatedAt=1729522774666',
+    bio: 'Global Portfolio Management Leader-Diebold, Founder-The Guiding Voice',
+    description: 'Naveen Samala is a remarkable individual whose journey is a powerful testament to perseverance and the relentless pursuit of dreams. Rising from a modest background, he has become a first-generation post-graduate, showcasing his ambition and dedication. Now a Global Portfolio Manager for Business Transformation, Naveen is also an Udemy instructor, author, career coach, CXO resume writer, guest faculty at BITS Pilani, and podcast visionary. His podcast, The Guiding Voice, ranked in the Global Top 2.5%, is the worlds only Quadrilingual podcast, inspiring millions. With expertise in leadership, productivity, and public speaking, his podcast recently won the Asia Podcast Award for Education, further amplifying his impact globally.',
+    expertise: '',
+    social: { linkedin: 'https://www.linkedin.com/in/naveensamala/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BT4wuo2idQOKI7rUPra%2FnIw%3D%3D'}
   },
   {
     id: 11,
-    name: 'Kavya Singh',
-    title: 'Digital Educator',
-    company: 'EdTech Now',
-    image: '/assets/6.png',
+    name: 'Kraveenthar Kamal',
+    title: 'Director & Founder Maker Global',
+    company: '',
+    image: 'https://ik.imagekit.io/tedxvjit/public/speakers/kamal.png?updatedAt=1729522775238',
     bio: 'Kavya transforms digital learning.',
-    description: 'Kavya Singh transforms digital learning with innovative tools and inclusive teaching strategies.',
-    expertise: ['EdTech', 'Digital Learning', 'Inclusion'],
-    social: { linkedin: '#', twitter: '#', website: '#' }
-  },
-  {
-    id: 12,
-    name: 'Liam O’Connor',
-    title: 'Entrepreneurship Catalyst',
-    company: 'Startup Hub',
-    image: '/assets/hero-banner.png',
-    bio: 'Liam empowers entrepreneurs.',
-    description: 'Liam O’Connor empowers entrepreneurs to launch and scale impactful startups.',
-    expertise: ['Entrepreneurship', 'Startups', 'Mentorship'],
-    social: { linkedin: '#', twitter: '#', website: '#' }
+    description: '',
+    expertise: '',
+    social: { linkedin: 'https://www.linkedin.com/in/kraveentharkamal/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BVu4Ve0irR2SJXUdTcw5GyQ%3D%3D' }
   },
 ];
 
@@ -222,10 +211,15 @@ export default function SpeakersPreview() {
     ),
   };
 
+  const handleViewAllClick = () => {
+    // Navigate to speakers page - adjust the path as needed
+    window.location.href = '/speakers';
+  };
+
   return (
     <section className="w-full mx-auto px-2 xs:px-3 sm:px-6 py-12 sm:py-16 md:py-20 relative bg-black">
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 text-center text-white px-2">
-        Featured Speakers
+        Last Edition Speakers
       </h2>
       <Slider {...settings} className="max-w-6xl pb-6 mx-auto relative px-0 sm:px-4 md:px-12">
         {sampleSpeakers.map((speaker) => (
@@ -242,6 +236,16 @@ export default function SpeakersPreview() {
           </div>
         ))}
       </Slider>
+      
+      {/* View All Button */}
+      <div className="flex justify-center mt-8 sm:mt-12">
+        <button
+          onClick={handleViewAllClick}
+          className="inline-flex items-center px-7 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-[10px] text-base sm:text-lg transition-all duration-300 hover:from-red-700 hover:to-red-800 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/25 mt-4"
+        >
+          View All Speakers
+        </button>
+      </div>
     </section>
   );
 }
