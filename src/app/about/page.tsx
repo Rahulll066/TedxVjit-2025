@@ -2,10 +2,12 @@
 import Slider from "react-slick";
 import Image from "next/image";
 import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick-theme.css";  
+import { useRouter } from "next/navigation";
 
 
 export default function AboutPage() {
+   const router = useRouter();
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
       {/* Hero Section */}
@@ -109,10 +111,14 @@ export default function AboutPage() {
               <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
                 The theme reminded us that success is rarely instant — it is the outcome of dedication resilience, and an unshakable belief in the journey.
               </p>
-              <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
-                At TEDxVJIT 2024, our stage became a platform for remarkable individuals who embodied this spirit. From innovators who turned repeated failures into groundbreaking success, to changemakers who stood firm in their vision despite
-                resistance, every story reminded us of the strength that comes from never giving up.
-              </p>
+              <button
+              onClick={() =>
+              router.push("../2024/speakers")
+            }
+              className="px-6 py-2.5 bg-red-600 text-white font-semibold rounded-md transition-colors duration-300"
+              >
+              Know More
+              </button> 
             </div>
           </div>
           
@@ -130,7 +136,7 @@ export default function AboutPage() {
               slidesToShow={1}
               slidesToScroll={1}
               autoplay={true}
-              autoplaySpeed={2500}
+              autoplaySpeed={2000}
               arrows={false}
             >
             <div>
@@ -154,6 +160,24 @@ export default function AboutPage() {
             <div>
               <Image
                 src="/gallery/KVK_3568.JPG"
+                alt="TEDxVJIT Event"
+                width={800}
+                height={600}
+                className="rounded-2xl shadow-lg border border-red-500/30 mx-auto"
+              />
+            </div>
+            <div>
+              <Image
+                src="/gallery/DSC00943.JPG"
+                alt="TEDxVJIT Event"
+                width={800}
+                height={600}
+                className="rounded-2xl shadow-lg border border-red-500/30 mx-auto"
+              />
+            </div>
+            <div>
+              <Image
+                src="/gallery/_DSC7474.JPG"
                 alt="TEDxVJIT Event"
                 width={800}
                 height={600}
