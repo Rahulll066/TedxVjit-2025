@@ -3,6 +3,9 @@
 @import 'slick-carousel/slick/slick-theme.css';
 @import "tailwindcss";
 
+
+
+
 /* Custom thick red scrollbar */
 ::-webkit-scrollbar {
   width: 16px;

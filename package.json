@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@cloudinary/html": "^1.13.4",
     "@number-flow/react": "^0.5.10",
     "@react-three/drei": "^10.7.5",
     "@react-three/fiber": "^9.3.0",
     "@tabler/icons-react": "^3.34.1",
     "class-variance-authority": "^0.7.1",
+    "cloudinary-video-player": "^3.4.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.12",
     "lottie-react": "^2.4.1",
