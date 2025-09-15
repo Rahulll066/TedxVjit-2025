@@ -1,82 +1,92 @@
-"use client"
+'use client'
+
 import { motion } from "framer-motion"
-import ButterflySwarm from "./ButterflySwarm"
-import TypingText from "./TypingText"
+import MetamorphosisScene from "./MetamorphosisScene"
+import { ArrowRight } from "lucide-react"
 
 export default function Hero() {
-  return (
-    <section className="relative min-h-screen w-full bg-gradient-to-b from-black via-zinc-900 to-black overflow-hidden">
-      {/* Background butterflies */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.8 }}
-        transition={{ duration: 2, ease: "easeOut" }}
-        className="absolute inset-0 z-0"
-      >
-        <ButterflySwarm />
-      </motion.div>
+  const title = "Metamorphosis"
+  const tagline = "Embracing Change, Igniting Growth..✨"
+  const paragraph = "Move, Transform, Evolve — witness the power of radical transformation"
 
-      {/* Foreground content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 md:px-10 text-center">
-        
-        {/* Title */}
+  return (
+    <section className="relative w-full h-screen overflow-hidden">
+      {/* Background */}
+      <MetamorphosisScene />
+
+      {/* Overlay */}
+      <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 sm:px-6 gap-6 sm:gap-8 md:gap-10">
+
+        {/* Main Title */}
         <motion.h1
-          initial={{ opacity: 0, y: -40, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl 
-                     font-extrabold leading-snug sm:leading-tight mb-4 sm:mb-6 
-                     bg-gradient-to-r from-red-900 via-red-400 to-red-900 
-                     bg-clip-text text-transparent 
-                     drop-shadow-[0_0_12px_rgba(255,0,0,0.5)]"
+          className="text-3xl sm:text-5xl md:text-8xl lg:text-8xl font-extrabold bg-clip-text text-transparent 
+                     bg-gradient-to-r from-red-700 via-red-400 to-red-700 uppercase tracking-wide"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
         >
-          <span className="animate-text-shimmer bg-gradient-to-r from-red-700 via-red-300 to-red-700 bg-clip-text text-transparent">
-            Metamorphosis
-          </span>
+          {title}
         </motion.h1>
 
-        {/* Subtitle */}
-        <motion.div
+        {/* Tagline */}
+        <motion.h2
+          className="text-lg sm:text-2xl md:text-4xl font-semibold text-white tracking-wide"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 1 }}
-          className="w-full"
+          transition={{ duration: 1.2, delay: 0.5 }}
         >
-          <TypingText
-            text="Embracing Change, Igniting Growth..✨"
-            className="text-base sm:text-lg md:text-xl lg:text-2xl 
-                       text-zinc-300 font-medium 
-                       max-w-md sm:max-w-xl md:max-w-2xl 
-                       mx-auto mb-8 sm:mb-10 animate-glow px-2"
-            speed={70}
-          />
-        </motion.div>
+          {tagline}
+        </motion.h2>
 
-        {/* Buttons */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { staggerChildren: 0.2, delayChildren: 1 },
-            },
-          }}
-          className="flex items-center justify-center gap-4 sm:gap-5 mt-2 sm:mt-4 w-full sm:w-auto max-w-xs sm:max-w-none"
+        {/* Paragraph */}
+        <motion.p
+          className="hidden md:block text-xs  md:text-lg text-white/80 max-w-sm sm:max-w-md md:max-w-3xl leading-relaxed"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 1 }}
         >
-          <motion.button
-            whileHover={{ scale: 1.05, boxShadow: "0 0 16px rgba(220,38,38,0.7)" }}
-            className="px-6 sm:px-8 py-3 sm:py-4 
-                       bg-red-600 text-white rounded-lg sm:rounded-xl font-semibold 
-                       hover:bg-red-700 transition shadow-lg hover:shadow-red-600/40 text-xs sm:text-base"
+          {paragraph.split(" ").map((word, i) => (
+            <span key={i} className={word.match(/Transform|Evolve/) ? "text-red-400 font-semibold" : ""}>
+              {word}{" "}
+            </span>
+          ))}
+        </motion.p>
+
+        {/* Button */}
+        <motion.button
+          className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer
+             bg-red-600 px-[1.2em] pr-[3em] py-[0.35em] h-[2.8em] shadow-[inset_0_0_1.6em_-0.6em_rgba(180,0,0,0.5)]] min-w-[150px] sm:min-w-[200px]"
+          initial="initial"
+          animate="initial"
+          whileHover="hovered"
+          whileTap={{ scale: 0.95 }}
+        >
+          {/* Button Text */}
+          <motion.span
+            className="relative z-10 text-sm sm:text-base"
+            variants={{
+              initial: { opacity: 1 },
+              hovered: { opacity: 0 },
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            Register Now →
-          </motion.button>
-        </motion.div>
+            Register Now
+          </motion.span>
+
+          {/* Arrow Container */}
+          <motion.div
+            className="absolute top-0 right-0 h-full flex items-center justify-center bg-red-600 rounded-[0.9em]"
+            variants={{
+              initial: { width: 44 },
+              hovered: { width: "100%" },
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <ArrowRight className="text-white w-5 h-5 sm:w-6 sm:h-6" />
+          </motion.div>
+        </motion.button>
+
       </div>
     </section>
   )
 }
-
