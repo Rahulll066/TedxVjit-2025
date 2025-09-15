@@ -26,10 +26,10 @@ export default function PreviousPreview() {
           <span className="text-red-600">2024:</span> Power of Persistence
         </h2>
         <div className="w-16 h-1 bg-gradient-to-r from-red-600 to-white rounded-full mb-14" />
-        <p className="text-lg sm:text-xl text-white mb-8">
+        <p className="text-lg sm:text-xl text-white mb-8 text-justify">
           The 2024 edition of TEDxVJIT celebrated the unwavering spirit of persistence. Our speakers shared stories of resilience, innovation, and the relentless pursuit of dreams, inspiring everyone to push beyond boundaries.
         </p>
-        <p className="text-lg sm:text-xl text-white mb-10">
+        <p className="text-lg sm:text-xl text-white mb-10 text-justify">
           From breakthrough ideas to personal journeys, the event was a testament to the power of never giving up. Relive the highlights and discover what made TEDxVJIT 2024 unforgettable.
         </p>
         <a

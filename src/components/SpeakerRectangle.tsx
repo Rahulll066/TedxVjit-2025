@@ -48,7 +48,7 @@ const SpeakerRectangle: React.FC<SpeakerRectangleProps> = ({ speaker }) => {
                 <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">{speaker.name}</h3>
                 <div className="text-lg text-red-400 font-semibold mb-1">{speaker.company}</div>
                 <div className="text-base text-gray-300 mb-4">{speaker.title}</div>
-                <p className="text-white text-base mb-4">{speaker.description}</p>
+            <p className="text-white text-base mb-4 text-justify">{speaker.description}</p>
                 {/* Social Links */}
                 <div className="flex gap-4 mt-2">
                     {speaker.social.linkedin && speaker.social.linkedin !== '#' && (
