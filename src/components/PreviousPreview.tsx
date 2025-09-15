@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -10,8 +9,8 @@ export default function PreviousPreview() {
     "/gallery/_DSC8353.JPG",
     "/gallery/KVK_3568.JPG",
     "/gallery/KVK_3670.JPG",
-    "/gallery/TEDimage.JPG",
-    "/gallery/TEDimage.JPG"
+    "/gallery/DSC00943.JPG",
+    "/gallery/_DSC7474.JPG"
   ];
 
   return (
@@ -25,7 +24,7 @@ export default function PreviousPreview() {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white">
           <span className="text-red-600">2024:</span> Power of Persistence
         </h2>
-        <div className="w-16 h-1 bg-gradient-to-r from-red-600 to-white rounded-full mb-14" />
+        <div className="w-16 h-1 bg-gradient-to-r from-red-500 to-red-700 rounded-full mb-14" />
         <p className="text-lg sm:text-xl text-white mb-8 text-justify">
           The 2024 edition of TEDxVJIT celebrated the unwavering spirit of persistence. Our speakers shared stories of resilience, innovation, and the relentless pursuit of dreams, inspiring everyone to push beyond boundaries.
         </p>
@@ -34,13 +33,13 @@ export default function PreviousPreview() {
         </p>
         <a
           href="/gallery"
-          className="inline-flex items-center px-7 py-3 bg-gradient-to-r from-red-600 to-white text-black font-semibold rounded-[10px] text-base sm:text-lg transition-all duration-300 hover:from-white hover:to-red-700 hover:text-white hover:scale-105 hover:shadow-2xl hover:shadow-red-500/25 mt-4"
+          className="inline-flex items-center px-7 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-[10px] text-base sm:text-lg transition-all duration-300 hover:from-red-700 hover:to-red-800 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/25 mt-4"
         >
-          View 2024 Highlights
+        View 2024 Highlights
           <span className="ml-2">→</span>
         </a>
+
       </div>
     </section>
   );
-//
 }
