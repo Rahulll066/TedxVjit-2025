@@ -47,7 +47,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 const HeroSection: React.FC = () => {
-  const [speed, setSpeed] = useState(20); // slider-controlled speed
+  const speed = 20; // animation speed
 
   // Reusable rotating circle
   const RotatingCircle = ({

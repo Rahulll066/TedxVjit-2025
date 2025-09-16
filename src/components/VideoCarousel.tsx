@@ -15,19 +15,10 @@ export default function VideoCarousel({
   autoplayDuration = 5000 
 }: VideoCarouselProps) {
   const [active, setActive] = useState(0);
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-
-  // Return early if no videos provided
-  if (!videos || videos.length === 0) {
-    return (
-      <div className="relative w-full h-[600px] flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-        <div className="text-white text-xl">No videos available</div>
-      </div>
-    );
-  }
+  const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
 
   const handleNext = () => {
-    setActive((prev) => (prev + 1) % videos.length);
+    setActive((prev) => (prev + 1) % (videos?.length || 1));
   };
 
   const isActive = (index: number) => {
@@ -35,24 +26,28 @@ export default function VideoCarousel({
   };
 
   useEffect(() => {
+    if (!videos || videos.length === 0) return;
+    
     if (autoplay) {
       const interval = setInterval(handleNext, autoplayDuration);
       return () => clearInterval(interval);
     }
-  }, [autoplay, autoplayDuration]);
+  }, [autoplay, autoplayDuration, videos, handleNext]);
 
   useEffect(() => {
+    if (!videos || videos.length === 0) return;
+
     // Play the active video and pause others
-    videoRefs.current.forEach((video, index) => {
+    Object.entries(videoRefs.current).forEach(([index, video]) => {
       if (video) {
-        if (index === active) {
+        if (Number(index) === active) {
           video.play().catch(() => {});
         } else {
           video.pause();
         }
       }
     });
-  }, [active]);
+  }, [active, videos]);
 
   const randomRotateY = () => {
     return Math.floor(Math.random() * 21) - 10;

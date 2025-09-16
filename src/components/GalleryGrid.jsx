@@ -81,8 +81,9 @@ const sections = {
   // 👇 Visual Stories is only videos
   "Visual Stories": [
     "/animations/Tedxvjit.mp4",
-    "/animations/Tedxvjit.mp4",
-    "/animations/Tedxvjit.mp4",
+     "/animations/Tedxvjit.mp4",
+      "/animations/Tedxvjit.mp4",
+    
   ],
 };
 
