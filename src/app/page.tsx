@@ -7,7 +7,7 @@ import SchedulePreview from '../components/SchedulePreview'
 import PreviousPreview from '../components/PreviousPreview'
 import CountdownPreview from '@/components/CountdownPreview'
 import SponsorsPreview from '@/components/SponsorsPreview'
-
+import MapSection from '@/components/MapSection'
 
 export default function Home() {
 
@@ -21,6 +21,7 @@ export default function Home() {
       <PreviousPreview />
       <CountdownPreview />
       <SponsorsPreview />
+      <MapSection />
     </>
   )
 }
