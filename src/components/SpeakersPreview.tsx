@@ -5,10 +5,10 @@ import Slider from "react-slick";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Settings, CustomArrowProps } from "react-slick";
 import React, { useState, useEffect } from "react";
+import { useRouter } from 'next/navigation';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// 🔴 Custom Arrow Components
 function NextArrow(props: CustomArrowProps) {
   const { onClick } = props;
   return (
@@ -219,6 +219,7 @@ const sampleSpeakers = [
 ];
 
 export default function SpeakersPreview() {
+  const router = useRouter();
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -267,8 +268,7 @@ export default function SpeakersPreview() {
   };
 
   const handleViewAllClick = () => {
-    // Navigate to speakers page - adjust the path as needed
-    window.location.href = '/speakers';
+    router.push('/2024/speakers');
   };
 
   return (
