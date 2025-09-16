@@ -8,6 +8,7 @@ import PreviousPreview from '../components/PreviousPreview'
 import CountdownPreview from '@/components/CountdownPreview'
 import SponsorsPreview from '@/components/SponsorsPreview'
 import MapSection from '@/components/MapSection'
+import JoinTedxSection from '../components/JoinTedxSection'
 
 export default function Home() {
 
@@ -21,6 +22,7 @@ export default function Home() {
       <PreviousPreview />
       <CountdownPreview />
       <SponsorsPreview />
+      <JoinTedxSection />
       <MapSection />
     </>
   )
