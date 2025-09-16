@@ -5,7 +5,7 @@ import GalleryGrid from "../../components/GalleryGrid";
 
 
 
-import { useState } from "react";
+// ...existing code...
 import { motion } from "framer-motion";
 
 const HeroSection: React.FC = () => {
