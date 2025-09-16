@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import { Badge } from "@/components/ui/badge";
 import AnimatedNumberCountdown from "@/components/countdown-number";
 
@@ -29,12 +31,38 @@ const CountdownPreview = () => {
           </svg>
           <span className="text-lg font-semibold text-white">25th October 2025</span>
         </Badge>
-        <a
-          href="#book-tickets"
-          className="inline-block px-8 py-4 rounded-full bg-[#ff1b3c] text-white font-bold text-lg shadow-lg hover:bg-[#e11d48] transition-all duration-200"
+        <motion.button
+          className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer bg-[#ff1b3c] px-[1.2em] pr-[3em] py-[0.35em] h-[2.8em] shadow-[inset_0_0_1.6em_-0.6em_rgba(180,0,0,0.5)] min-w-[150px] sm:min-w-[200px] mt-4"
+          initial="initial"
+          animate="initial"
+          whileHover="hovered"
+          whileTap={{ scale: 0.95 }}
+          onClick={() => window.location.href = '#book-tickets'}
         >
-          Book Your Ticket Now
-        </a>
+          {/* Button Text */}
+          <motion.span
+            className="relative z-10 text-sm sm:text-base"
+            variants={{
+              initial: { opacity: 1 },
+              hovered: { opacity: 0 },
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            Book Your Ticket Now
+          </motion.span>
+
+          {/* Arrow Container */}
+          <motion.div
+            className="absolute top-0 right-0 h-full flex items-center justify-center bg-[#ff1b3c] rounded-[0.9em]"
+            variants={{
+              initial: { width: 44 },
+              hovered: { width: "100%" },
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <ArrowRight className="text-white w-5 h-5 sm:w-6 sm:h-6" />
+          </motion.div>
+        </motion.button>
       </div>
     </section>
   );
