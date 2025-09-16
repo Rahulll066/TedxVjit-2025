@@ -99,7 +99,7 @@ export default function JoinTedxSection() {
             <p className="text-lg md:text-xl text-right leading-relaxed">
               Whether you want to share your story as a speaker or experience the event as an attendee, <span className="text-red-400 font-semibold">TEDxVJIT 2025</span> welcomes you.<br className="hidden md:block" />
               <span className="text-red-400 font-semibold">Connect, learn, and grow</span> with a community passionate about ideas worth spreading.<br className="hidden md:block" />
-              <span className="text-white/70">Don't miss out on a day of inspiration, networking, and transformative talks!</span>
+              <span className="text-white/70">Don&apos;t miss out on a day of inspiration, networking, and transformative talks!</span>
             </p>
           </div>
         </div>
