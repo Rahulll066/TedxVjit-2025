@@ -6,7 +6,7 @@ export default function AboutSection() {
       <div className="w-full lg:w-1/2 flex justify-center items-center mb-8 lg:mb-0">
         <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-800 bg-black/60 max-w-xl w-full aspect-video">
           <img
-            src="/gallery/_DSC7571.JPG"
+            src="/gallery/G-images-2.JPG"
             alt="TEDxVJIT event"
             className="w-full h-full object-cover"
           />
