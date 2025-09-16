@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import PreviousCarousel from "./PreviousCarousel";
 
 export default function PreviousPreview() {
@@ -31,13 +33,38 @@ export default function PreviousPreview() {
         <p className="text-lg sm:text-xl text-white mb-10 text-justify">
           From breakthrough ideas to personal journeys, the event was a testament to the power of never giving up. Relive the highlights and discover what made TEDxVJIT 2024 unforgettable.
         </p>
-        <a
-          href="/gallery"
-          className="inline-flex items-center px-7 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-[10px] text-base sm:text-lg transition-all duration-300 hover:from-red-700 hover:to-red-800 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/25 mt-4"
+        <motion.button
+          className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer bg-red-600 px-[1.2em] pr-[3em] py-[0.35em] h-[2.8em] shadow-[inset_0_0_1.6em_-0.6em_rgba(180,0,0,0.5)] min-w-[150px] sm:min-w-[200px] mt-4"
+          initial="initial"
+          animate="initial"
+          whileHover="hovered"
+          whileTap={{ scale: 0.95 }}
+          onClick={() => window.location.href = '/gallery'}
         >
-        View 2024 Highlights
-          <span className="ml-2">→</span>
-        </a>
+          {/* Button Text */}
+          <motion.span
+            className="relative z-10 text-sm sm:text-base"
+            variants={{
+              initial: { opacity: 1 },
+              hovered: { opacity: 0 },
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            View 2024 Highlights
+          </motion.span>
+
+          {/* Arrow Container */}
+          <motion.div
+            className="absolute top-0 right-0 h-full flex items-center justify-center bg-red-600 rounded-[0.9em]"
+            variants={{
+              initial: { width: 44 },
+              hovered: { width: "100%" },
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <ArrowRight className="text-white w-5 h-5 sm:w-6 sm:h-6" />
+          </motion.div>
+        </motion.button>
 
       </div>
     </section>

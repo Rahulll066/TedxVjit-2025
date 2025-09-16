@@ -4,6 +4,8 @@ import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";  
 import { useRouter } from "next/navigation";
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 
 export default function AboutPage() {
@@ -41,14 +43,37 @@ export default function AboutPage() {
           </p>
 
           {/* Know More Button */}
-          <button
-          onClick={() =>
-            document.getElementById("about-section")?.scrollIntoView({ behavior:"smooth"})
-          }
-          className="px-8 py-3 bg-red-600 text-white font-semibold rounded-md transition-colors duration-300"
-          >
-          Know More
-          </button>    
+          <div className="flex justify-center mt-4">
+            <motion.button
+              className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer bg-red-600 px-[1.2em] pr-[3em] py-[0.35em] h-[2.8em] shadow-[inset_0_0_1.6em_-0.6em_rgba(180,0,0,0.5)] min-w-[150px] sm:min-w-[200px]"
+              initial="initial"
+              animate="initial"
+              whileHover="hovered"
+              whileTap={{ scale: 0.95 }}
+              onClick={() => document.getElementById("about-section")?.scrollIntoView({ behavior:"smooth"})}
+            >
+              <motion.span
+                className="relative z-10 text-sm sm:text-base"
+                variants={{
+                  initial: { opacity: 1 },
+                  hovered: { opacity: 0 },
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                Know More
+              </motion.span>
+              <motion.div
+                className="absolute top-0 right-0 h-full flex items-center justify-center bg-red-600 rounded-[0.9em]"
+                variants={{
+                  initial: { width: 44 },
+                  hovered: { width: "100%" },
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                <ArrowRight className="text-white w-5 h-5 sm:w-6 sm:h-6" />
+              </motion.div>
+            </motion.button>
+          </div>
         </div>
       </section>
 
@@ -111,14 +136,35 @@ export default function AboutPage() {
               <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
                 The theme reminded us that success is rarely instant — it is the outcome of dedication resilience, and an unshakable belief in the journey.
               </p>
-              <button
-              onClick={() =>
-              router.push("../2024/speakers")
-            }
-              className="px-6 py-2.5 bg-red-600 text-white font-semibold rounded-md transition-colors duration-300"
+              <motion.button
+                className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer bg-red-600 px-[1.2em] pr-[3em] py-[0.35em] h-[2.8em] shadow-[inset_0_0_1.6em_-0.6em_rgba(180,0,0,0.5)] min-w-[150px] sm:min-w-[200px] mt-4"
+                initial="initial"
+                animate="initial"
+                whileHover="hovered"
+                whileTap={{ scale: 0.95 }}
+                onClick={() => router.push("../2024/speakers")}
               >
-              Know More
-              </button> 
+                <motion.span
+                  className="relative z-10 text-sm sm:text-base"
+                  variants={{
+                    initial: { opacity: 1 },
+                    hovered: { opacity: 0 },
+                  }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                  Know More
+                </motion.span>
+                <motion.div
+                  className="absolute top-0 right-0 h-full flex items-center justify-center bg-red-600 rounded-[0.9em]"
+                  variants={{
+                    initial: { width: 44 },
+                    hovered: { width: "100%" },
+                  }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                  <ArrowRight className="text-white w-5 h-5 sm:w-6 sm:h-6" />
+                </motion.div>
+              </motion.button>
             </div>
           </div>
           
@@ -186,15 +232,38 @@ export default function AboutPage() {
             </div>
             </Slider>
           </div>
-
-          <button
-            onClick={() => (window.location.href = "/gallery")}
-            className="px-8 py-3 bg-red-600 text-white font-semibold rounded-md transition-colors duration-300"
-          >
-          View Full Gallery
-          </button>
           </div>
-
+          <div className="flex justify-center mt-4">
+          <motion.button
+            className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer bg-red-600 px-[1.2em] pr-[3em] py-[0.35em] h-[2.8em] shadow-[inset_0_0_1.6em_-0.6em_rgba(180,0,0,0.5)] min-w-[150px] sm:min-w-[200px] mt-4"
+            initial="initial"
+            animate="initial"
+            whileHover="hovered"
+            whileTap={{ scale: 0.95 }}
+            onClick={() => window.location.href = "/gallery"}
+          >
+            <motion.span
+              className="relative z-10 text-sm sm:text-base"
+              variants={{
+                initial: { opacity: 1 },
+                hovered: { opacity: 0 },
+              }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              View Full Gallery
+            </motion.span>
+            <motion.div
+              className="absolute top-0 right-0 h-full flex items-center justify-center bg-red-600 rounded-[0.9em]"
+              variants={{
+                initial: { width: 44 },
+                hovered: { width: "100%" },
+              }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <ArrowRight className="text-white w-5 h-5 sm:w-6 sm:h-6" />
+            </motion.div>
+          </motion.button>
+          </div>
           {/* Call to Action */}
           <div className="text-center animate-fade-in-delay-3">
             <div className="bg-gradient-to-r from-red-600/20 to-red-800/20 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
