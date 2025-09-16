@@ -16,28 +16,27 @@ export default function VideoCarousel({
 }: VideoCarouselProps) {
   const [active, setActive] = useState(0);
   const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
+  const hasVideos = videos && videos.length > 0;
 
   const handleNext = () => {
-    setActive((prev) => (prev + 1) % (videos?.length || 1));
+    if (!hasVideos) return;
+    setActive((prev) => (prev + 1) % videos.length);
   };
 
   const isActive = (index: number) => {
     return index === active;
   };
 
+  // Run autoplay
   useEffect(() => {
-    if (!videos || videos.length === 0) return;
-    
-    if (autoplay) {
-      const interval = setInterval(handleNext, autoplayDuration);
-      return () => clearInterval(interval);
-    }
-  }, [autoplay, autoplayDuration, videos, handleNext]);
+    if (!hasVideos || !autoplay) return;
+    const interval = setInterval(handleNext, autoplayDuration);
+    return () => clearInterval(interval);
+  }, [autoplay, autoplayDuration, hasVideos, handleNext]);
 
+  // Control video playback
   useEffect(() => {
-    if (!videos || videos.length === 0) return;
-
-    // Play the active video and pause others
+    if (!hasVideos) return;
     Object.entries(videoRefs.current).forEach(([index, video]) => {
       if (video) {
         if (Number(index) === active) {
@@ -47,7 +46,15 @@ export default function VideoCarousel({
         }
       }
     });
-  }, [active, videos]);
+  }, [active, hasVideos]);
+
+  if (!hasVideos) {
+    return (
+      <div className="relative w-full h-[600px] flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+        <div className="text-white text-xl">No videos available</div>
+      </div>
+    );
+  }
 
   const randomRotateY = () => {
     return Math.floor(Math.random() * 21) - 10;
@@ -91,7 +98,13 @@ export default function VideoCarousel({
                   className="absolute inset-0 origin-bottom"
                 >
                   <video
-                    ref={(el) => (videoRefs.current[index] = el)}
+                    ref={(el: HTMLVideoElement | null) => {
+                      if (el) {
+                        videoRefs.current[index] = el;
+                      } else {
+                        delete videoRefs.current[index];
+                      }
+                    }}
                     src={video}
                     muted
                     loop
