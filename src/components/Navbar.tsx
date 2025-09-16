@@ -253,8 +253,8 @@ export default function Navbar() {
                         </svg>
                       </summary>
                       <div className="ml-4 mt-1 flex flex-col gap-1 min-w-[160px]">
-                        <Link href="/previous-events/2024/speakers" className="block text-white text-base hover:text-red-400 px-0 py-2" style={{ minWidth: '140px' }} onClick={() => setMenuOpen(false)}>Speakers</Link>
-                        <Link href="/previous-events/2024/team" className="block text-white text-base hover:text-red-400 px-0 py-2" style={{ minWidth: '140px' }} onClick={() => setMenuOpen(false)}>Team</Link>
+                        <Link href="/2024/speakers" className="block text-white text-base hover:text-red-400 px-0 py-2" style={{ minWidth: '140px' }} onClick={() => setMenuOpen(false)}>Speakers</Link>
+                        <Link href="/2024/team" className="block text-white text-base hover:text-red-400 px-0 py-2" style={{ minWidth: '140px' }} onClick={() => setMenuOpen(false)}>Team</Link>
                       </div>
                     </details>
                   </div>
