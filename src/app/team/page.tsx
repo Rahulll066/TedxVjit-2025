@@ -37,11 +37,11 @@ export default function TeamsPage() {
 
     const teams: Record<TeamName, Member[]> = {
         Core: [
-            { id: 1, name: "Person 1", title: "Lead Organizer", company: "VJIT", image: "/assets/2.png", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
-            { id: 2, name: "Person 2", title: "Co-Organizer", company: "VJIT", image: "/assets/6.png", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
-            { id: 3, name: "Person 3", title: "Organizer", company: "VJIT", image: "/assets/2.png", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
-            { id: 4, name: "Person 4", title: "Organizer", company: "VJIT", image: "/assets/6.png", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
-            { id: 5, name: "Person 5", title: "Organizer", company: "VJIT", image: "/assets/2.png", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
+            { id: 1, name: "Palla Rajeswar Reddy", title: "Chairman", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Team/Rajeswar%20Reddy.jpg?updatedAt=1758099508501", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
+            { id: 2, name: "Dr. A. Srujana", title: "Principal", company: "VJIT", image: "https://ik.imagekit.io/tedxvjit/public/teams/core/srujana.jpg?updatedAt=1729522759124", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
+            { id: 3, name: "Dr. A. Padmaja", title: "Dean", company: "VJIT", image: "https://ik.imagekit.io/tedxvjit/public/teams/core/WhatsApp%20Image%202024-10-21%20at%2017.24.34_ff68359b.jpg?updatedAt=1729534845207", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
+            { id: 4, name: "Mrs. G. Srilatha", title: "Academic Coordinator", company: "VJIT", image: "https://ik.imagekit.io/tedxvjit/public/teams/core/srilatha.jpg?updatedAt=1729522759229", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
+            { id: 5, name: "Mr. R. Venkata Chalam", title: "Sr. Administrative Officer", company: "VJIT", image: "https://ik.imagekit.io/tedxvjit/public/teams/core/chalam.jpg?updatedAt=1729522756976", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
             { id: 6, name: "Person 6", title: "Organizer", company: "VJIT", image: "/assets/6.png", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
             { id: 7, name: "Person 5", title: "Organizer", company: "VJIT", image: "/assets/2.png", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
             { id: 8, name: "Person 6", title: "Organizer", company: "VJIT", image: "/assets/6.png", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
