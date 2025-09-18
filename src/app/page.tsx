@@ -21,8 +21,8 @@ export default function Home() {
       <SchedulePreview />
       <PreviousPreview />
       <CountdownPreview />
-      <SponsorsPreview />
       <JoinTedxSection />
+      <SponsorsPreview />
       <MapSection />
     </>
   )
