@@ -13,7 +13,7 @@ export default function Hero() {
   const scrollToJoinSection = () => {
     const joinSection = document.getElementById('join-tedx')
     if (joinSection) {
-      joinSection.scrollIntoView({ 
+      joinSection.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       })
@@ -66,8 +66,8 @@ export default function Hero() {
         {/* Button */}
         <motion.button
           className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer
-             bg-gradient-to-r from-red-600 to-red-700 px-[1.2em] pr-[3em] py-[0.35em] h-[2.8em] min-w-[150px] sm:min-w-[200px]
-             shadow-[0_0_20px_rgba(220,38,38,0.4)] border border-red-500/30"
+     bg-gradient-to-r from-red-600 to-red-700 px-[1.2em] pr-[3em] py-[0.35em] h-[2.8em] min-w-[150px] sm:min-w-[200px]
+     shadow-[0_0_20px_rgba(220,38,38,0.4)] border border-red-500/30"
           initial="initial"
           animate="pulse"
           whileHover="hovered"
@@ -78,6 +78,7 @@ export default function Hero() {
               opacity: 0,
               y: 30,
               scale: 0.9,
+              transition: { duration: 0.8, delay: 1.5, ease: "easeOut" }
             },
             pulse: {
               opacity: 1,
@@ -87,26 +88,20 @@ export default function Hero() {
                 "0 0 20px rgba(220,38,38,0.4)",
                 "0 0 40px rgba(220,38,38,0.6)",
                 "0 0 20px rgba(220,38,38,0.4)"
-              ]
+              ],
+              transition: {
+                boxShadow: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+              }
             },
             hovered: {
               scale: 1.05,
               boxShadow: "0 0 50px rgba(220,38,38,0.8)",
-              background: "linear-gradient(45deg, #dc2626, #b91c1c, #991b1b)"
+              background: "linear-gradient(45deg, #dc2626, #b91c1c, #991b1b)",
+              transition: { duration: 0.2, ease: "easeOut" }
             }
           }}
-          transition={{
-            initial: { duration: 0.8, delay: 1.5, ease: "easeOut" },
-            pulse: { 
-              boxShadow: { 
-                duration: 2, 
-                repeat: Infinity, 
-                ease: "easeInOut" 
-              }
-            },
-            hovered: { duration: 0.2, ease: "easeOut" }
-          }}
         >
+
           {/* Shimmer Effect */}
           <motion.div
             className="absolute inset-0 -top-1 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
@@ -123,7 +118,7 @@ export default function Hero() {
             variants={{
               initial: { opacity: 1, x: 0 },
               pulse: { opacity: 1, x: 0 },
-              hovered: { 
+              hovered: {
                 opacity: 0,
                 x: -10,
                 filter: "blur(2px)"
@@ -160,7 +155,7 @@ export default function Hero() {
               key={i}
               className="absolute w-1 h-1 bg-red-300 rounded-full"
               variants={{
-                initial: { 
+                initial: {
                   opacity: 0,
                   scale: 0,
                   x: Math.random() * 200 - 100,
