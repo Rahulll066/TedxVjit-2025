@@ -25,7 +25,7 @@ export default function JoinTedxSection() {
       <div className="w-full max-w-3xl flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 mb-16">
         <div className="flex items-center gap-3 bg-black/60 px-5 py-3 rounded-xl shadow-md border border-red-900/30">
           <CalendarDays className="text-red-400 w-6 h-6" />
-          <span className="text-white text-lg font-medium">September 28, 2025</span>
+          <span className="text-white text-lg font-medium">October 25, 2025</span>
         </div>
         <div className="flex items-center gap-3 bg-black/60 px-5 py-3 rounded-xl shadow-md border border-red-900/30">
           <MapPin className="text-red-400 w-6 h-6" />
