@@ -75,7 +75,7 @@ export default function JoinTedxSection() {
             animate="initial"
             whileHover="hovered"
             whileTap={{ scale: 0.95 }}
-            onClick={() => window.open('https://forms.gle/attendee-external-link', '_blank')}
+            onClick={() => window.open('https://vpulse.campx.in/vpulse/ums/public/form/68c93a448c6af42941ea051b', '_blank')}
           >
             <motion.span
               className="relative z-10 text-base sm:text-2xl"

@@ -137,7 +137,7 @@ export default function Navbar() {
               >
 
                 <Link
-                  href="/#register-audience"
+                  href="https://vpulse.campx.in/vpulse/ums/public/form/68c93a448c6af42941ea051b"
                   onClick={() => setDropdownOpen(false)}
                   className="flex items-center px-4 py-3 text-white hover:bg-red-600/20 rounded-lg group"
                 >
@@ -153,7 +153,7 @@ export default function Navbar() {
                 </Link>
 
                 <Link
-                  href="/#register-speaker"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSd_XTYzOb5QbG7ZmtZWCrAPeyCR-mJQflKzSdgs0x5SGonWJw/viewform"
                   onClick={() => setDropdownOpen(false)}
                   className=" flex items-center px-4 py-3 text-white hover:bg-red-600/20 rounded-lg group"
                 >
