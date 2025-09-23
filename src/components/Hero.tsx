@@ -3,8 +3,14 @@
 import { motion } from "framer-motion"
 import MetamorphosisScene from "./MetamorphosisScene"
 import { ArrowRight } from "lucide-react"
+import { useState, useEffect } from "react"
 
 export default function Hero() {
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
   const title = "Metamorphosis"
   const tagline = "Embracing Change, Igniting Growth..✨"
   const paragraph = "Move, Transform, Evolve — witness the power of radical transformation"
@@ -23,7 +29,7 @@ export default function Hero() {
   return (
     <section className="relative w-full h-screen overflow-hidden">
       {/* Background */}
-      <MetamorphosisScene />
+      {isClient && <MetamorphosisScene />}
 
       {/* Overlay */}
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 sm:px-6 gap-6 sm:gap-8 md:gap-10">
@@ -150,7 +156,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Particle Effects */}
-          {[...Array(3)].map((_, i) => (
+          {isClient && [...Array(3)].map((_, i) => (
             <motion.div
               key={i}
               className="absolute w-1 h-1 bg-red-300 rounded-full"
