@@ -59,17 +59,39 @@ const CountdownPreview = () => {
 
         {/* Animated Button */}
         <motion.button
-          className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer bg-[#ff1b3c] px-[1.2em] pr-[3em] py-[0.35em] h-[2.8em] shadow-[inset_0_0_1.6em_-0.6em_rgba(180,0,0,0.5)] min-w-[150px] sm:min-w-[200px]"
-          initial={{ scale: 0.95, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => (window.location.href = "#book-tickets")}
+          onClick={() => {
+            const section = document.getElementById('join-tedx')
+            if (section) section.scrollIntoView({ behavior: 'smooth' })
+          }}
+          className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer
+            bg-red-600 px-[1.2em] pr-[3em] py-[0.35em] h-[2.8em] min-w-[150px] sm:min-w-[200px]
+            shadow-lg hover:shadow-red-500/50 hover:scale-105 transition-all duration-300"
+          initial="initial"
+          animate="initial"
+          whileHover="hovered"
+          whileTap={{ scale: 0.96 }}
         >
-          Book Your Ticket Now
-          <ArrowRight className="ml-2 w-5 h-5 sm:w-6 sm:h-6" />
+          <motion.span
+            className="relative z-10 text-sm sm:text-base"
+            variants={{
+              initial: { opacity: 1 },
+              hovered: { opacity: 0 },
+            }}
+            transition={{ duration: 0.28, ease: 'easeInOut' }}
+          >
+            Book Your Ticket Now
+          </motion.span>
+
+          <motion.div
+            className="absolute top-0 right-0 h-full flex items-center justify-center bg-red-600 rounded-[0.9em]"
+            variants={{
+              initial: { width: 44 },
+              hovered: { width: '100%' },
+            }}
+            transition={{ duration: 0.28, ease: 'easeInOut' }}
+          >
+            <ArrowRight className="text-white w-5 h-5 sm:w-6 sm:h-6" />
+          </motion.div>
         </motion.button>
       </motion.div>
     </section>

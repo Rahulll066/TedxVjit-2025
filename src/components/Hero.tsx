@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function Hero() {
   const title = 'METAMORPHOSIS'
-  const tagline = 'Embracing Change, Igniting Growth..✨'
+  const tagline = 'The Journey of Becoming..'
   const paragraph =
     'Move, Transform, Evolve — witness the power of radical transformation'
 
@@ -42,11 +42,9 @@ export default function Hero() {
         '<0.1'
       )
 
-    // tagline + button: play immediately
     tl.fromTo(tagWrapRef.current, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.25')
     tl.fromTo(btnRef.current, { opacity: 0, y: 8, scale: 0.98 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'elastic.out(1,0.6)' }, '-=0.2')
 
-    // --- ScrollTrigger animations for paragraph ---
     if (paragraphRef.current) {
       gsap.from(paragraphRef.current, {
         scrollTrigger: {
@@ -64,17 +62,27 @@ export default function Hero() {
 
   return (
     <section ref={heroRef} className="relative w-full h-screen overflow-hidden">
+      {/* Background Scene */}
       <MetamorphosisScene />
+
+      {/* Layered Glow Background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-red-600/30 blur-[180px] rounded-full animate-pulse-slow" />
+        <div className="absolute top-40 right-1/4 w-[300px] h-[300px] bg-yellow-500/20 blur-[150px] rounded-full animate-pulse-slow" />
+      </div>
+
+      {/* Content */}
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 sm:px-6 gap-6 sm:gap-8 md:gap-10">
+        {/* Title */}
         <h1
           ref={titleRef}
-          className="text-lg sm:text-xl md:text-6xl lg:text-8xl font-extrabold uppercase tracking-wide flex flex-wrap justify-center gap-x-2"
+          className="text-lg sm:text-xl md:text-6xl lg:text-7xl font-extrabold uppercase tracking-wide flex flex-wrap justify-center gap-x-2"
           aria-label={title}
         >
           {title.split('').map((char, i) => (
             <span key={i} className="char inline-block overflow-hidden leading-[0.85]">
               <span
-                className="charInner inline-block bg-clip-text text-transparent bg-gradient-to-r from-red-700 via-red-400 to-red-700"
+                className="charInner inline-block bg-clip-text text-transparent bg-gradient-to-r from-red-600 via-red-400 to-yellow-400 animate-gradient-x"
                 style={{ backgroundSize: '200% 100%' }}
               >
                 {char}
@@ -83,18 +91,20 @@ export default function Hero() {
           ))}
         </h1>
 
+        {/* Tagline */}
         <div ref={tagWrapRef}>
           <TypingText
             prefix=""
             text={tagline}
-            className="text-lg sm:text-2xl md:text-4xl font-semibold text-white tracking-wide"
-            speed={80}
+            className="text-lg sm:text-2xl md:text-5xl font-semibold text-white tracking-wide drop-shadow-xl animate-pulse-slow"
+            speed={100}
           />
         </div>
 
+        {/* Paragraph */}
         <motion.p
           ref={paragraphRef}
-          className="hidden md:block text-xs md:text-lg text-white/80 max-w-sm sm:max-w-md md:max-w-3xl leading-relaxed"
+          className="hidden md:block text-md md:font-bold text-white/80 max-w-sm sm:max-w-md md:max-w-3xl leading-relaxed text-center"
         >
           {paragraph.split(' ').map((word, i) => (
             <span
@@ -106,10 +116,16 @@ export default function Hero() {
           ))}
         </motion.p>
 
+        {/* CTA Button */}
         <motion.button
           ref={btnRef}
+          onClick={() => {
+            const section = document.getElementById('join-tedx')
+            if (section) section.scrollIntoView({ behavior: 'smooth' })
+          }}
           className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer
-             bg-red-600 px-[1.2em] pr-[3em] py-[0.35em] h-[2.8em] shadow-[inset_0_0_1.6em_-0.6em_rgba(180,0,0,0.5)]] min-w-[150px] sm:min-w-[200px]"
+            bg-red-600 px-[1.2em] pr-[3em] py-[0.35em] h-[2.8em] min-w-[150px] sm:min-w-[200px]
+            shadow-lg hover:shadow-red-500/50 hover:scale-105 transition-all duration-300"
           initial="initial"
           animate="initial"
           whileHover="hovered"
