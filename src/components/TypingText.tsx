@@ -31,7 +31,7 @@ export default function TypingText({
   return (
     <p
       className={`${className} animate-fade-in`}
-      style={{ animationDelay: '0.5s' }}
+      style={{ animationDelay: '0.3s' }}
     >
       <span className="inline-block font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-500 to-red-700 animate-shimmer">
         {prefix}
