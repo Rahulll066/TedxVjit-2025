@@ -1,27 +1,52 @@
 "use client";
 
 import React from "react";
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import AnimatedNumberCountdown from "@/components/countdown-number";
 
 const CountdownPreview = () => {
   return (
     <section
-      className="w-full flex flex-col items-center justify-center py-24"
+      className="w-full flex flex-col items-center justify-center py-24 px-4 sm:px-8"
       style={{
-        background: "radial-gradient(circle at 50% 40%, #ff1b3c 0%, #1a0a0a 100%)"
+        background: "radial-gradient(circle at 50% 40%, #ff1b3c 0%, #1a0a0a 100%)",
       }}
     >
-      <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-10 text-center drop-shadow-lg tracking-tight">
+      {/* Heading Animation */}
+      <motion.h2
+        initial={{ opacity: 0, y: -20, scale: 0.95 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="text-4xl md:text-5xl font-extrabold text-white mb-10 text-center drop-shadow-lg tracking-tight"
+      >
         Event Starts in
-      </h2>
-      <AnimatedNumberCountdown
-        endDate={new Date("2025-10-25T00:00:00")}
-        className="my-4 text-white text-6xl md:text-7xl font-extrabold gap-8"
-      />
-      <div className="flex flex-col items-center mt-8">
+      </motion.h2>
+
+      {/* Countdown Numbers */}
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+        className="text-center"
+      >
+        <AnimatedNumberCountdown
+          endDate={new Date("2025-10-25T00:00:00")}
+          className="my-4 text-white text-6xl md:text-7xl font-extrabold gap-8"
+        />
+      </motion.div>
+
+      {/* Badge & Button */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="flex flex-col items-center mt-8"
+      >
         <Badge
           variant="outline"
           className="rounded-[14px] border border-red-600 text-base text-white bg-black/80 mb-6 px-4 py-2 flex items-center gap-2 shadow-lg"
@@ -31,39 +56,22 @@ const CountdownPreview = () => {
           </svg>
           <span className="text-lg font-semibold text-white">25th October 2025</span>
         </Badge>
-        <motion.button
-          className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer bg-[#ff1b3c] px-[1.2em] pr-[3em] py-[0.35em] h-[2.8em] shadow-[inset_0_0_1.6em_-0.6em_rgba(180,0,0,0.5)] min-w-[150px] sm:min-w-[200px] mt-4"
-          initial="initial"
-          animate="initial"
-          whileHover="hovered"
-          whileTap={{ scale: 0.95 }}
-          onClick={() => window.location.href = '#book-tickets'}
-        >
-          {/* Button Text */}
-          <motion.span
-            className="relative z-10 text-sm sm:text-base"
-            variants={{
-              initial: { opacity: 1 },
-              hovered: { opacity: 0 },
-            }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            Book Your Ticket Now
-          </motion.span>
 
-          {/* Arrow Container */}
-          <motion.div
-            className="absolute top-0 right-0 h-full flex items-center justify-center bg-[#ff1b3c] rounded-[0.9em]"
-            variants={{
-              initial: { width: 44 },
-              hovered: { width: "100%" },
-            }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            <ArrowRight className="text-white w-5 h-5 sm:w-6 sm:h-6" />
-          </motion.div>
+        {/* Animated Button */}
+        <motion.button
+          className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer bg-[#ff1b3c] px-[1.2em] pr-[3em] py-[0.35em] h-[2.8em] shadow-[inset_0_0_1.6em_-0.6em_rgba(180,0,0,0.5)] min-w-[150px] sm:min-w-[200px]"
+          initial={{ scale: 0.95, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => (window.location.href = "#book-tickets")}
+        >
+          Book Your Ticket Now
+          <ArrowRight className="ml-2 w-5 h-5 sm:w-6 sm:h-6" />
         </motion.button>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -1,46 +1,44 @@
 "use client";
 
-import SpeakerCard from "./SpeakerCard";
-import Slider from "react-slick";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Settings, CustomArrowProps } from "react-slick";
 import React, { useState, useEffect } from "react";
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import Slider, { Settings, CustomArrowProps } from "react-slick";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import SpeakerCard from "./SpeakerCard";
+import { useRouter } from "next/navigation";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function NextArrow(props: CustomArrowProps) {
-  const { onClick } = props;
+// Custom Arrows
+function NextArrow({ onClick }: CustomArrowProps) {
   return (
     <button
       onClick={onClick}
       className="absolute -right-8 top-1/2 -translate-y-1/2 
                  bg-red-600 hover:bg-red-700 text-white rounded-full p-3 
                  shadow-lg shadow-red-600/40 transition-all duration-300 z-20"
-      style={{ outline: 'none' }}
+      style={{ outline: "none" }}
     >
       <ChevronRight className="w-6 h-6" />
     </button>
   );
 }
 
-function PrevArrow(props: CustomArrowProps) {
-  const { onClick } = props;
+function PrevArrow({ onClick }: CustomArrowProps) {
   return (
     <button
       onClick={onClick}
       className="absolute -left-8 top-1/2 -translate-y-1/2 
                  bg-red-600 hover:bg-red-700 text-white rounded-full p-3 
                  shadow-lg shadow-red-600/40 transition-all duration-300 z-20"
-      style={{ outline: 'none' }}
+      style={{ outline: "none" }}
     >
       <ChevronLeft className="w-6 h-6" />
     </button>
   );
 }
 
+// Sample Speakers Data (keep your full data here)
 const sampleSpeakers = [
   {
     id: 1,
@@ -220,24 +218,20 @@ const sampleSpeakers = [
   },
 ];
 
+
 export default function SpeakersPreview() {
   const router = useRouter();
   const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 640);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
   const [isTablet, setIsTablet] = useState(false);
 
   useEffect(() => {
-    const checkTablet = () => setIsTablet(window.innerWidth <= 1024);
-    checkTablet();
-    window.addEventListener("resize", checkTablet);
-    return () => window.removeEventListener("resize", checkTablet);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 640);
+      setIsTablet(window.innerWidth <= 1024);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const settings: Settings = {
@@ -250,17 +244,11 @@ export default function SpeakersPreview() {
     autoplaySpeed: 3000,
     cssEase: "linear",
     pauseOnHover: false,
-    responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 1 } },
-      { breakpoint: 640, settings: { slidesToShow: 1 } },
-    ],
     arrows: !isMobile && !isTablet,
     nextArrow: !isMobile && !isTablet ? <NextArrow /> : undefined,
     prevArrow: !isMobile && !isTablet ? <PrevArrow /> : undefined,
     appendDots: (dots: React.ReactNode) => (
-      <div 
-        style={{ bottom: "-30px", right: "0px", left: "0px" }}
-      >
+      <div style={{ bottom: "-30px", left: 0, right: 0 }}>
         <ul className="flex justify-center gap-2">{dots}</ul>
       </div>
     ),
@@ -269,63 +257,48 @@ export default function SpeakersPreview() {
     ),
   };
 
-  const handleViewAllClick = () => {
-    router.push('/2024/speakers');
-  };
+  const handleViewAllClick = () => router.push("/2024/speakers");
 
   return (
     <section className="w-full mx-auto px-2 xs:px-3 sm:px-6 py-12 sm:py-16 md:py-20 relative bg-black">
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 text-center text-white px-2">
         Last Edition Speakers
       </h2>
+
       <Slider {...settings} className="max-w-6xl pb-6 mx-auto relative px-0 sm:px-4 md:px-12">
         {sampleSpeakers.map((speaker) => (
-          <div key={speaker.id} className="flex justify-center items-stretch">
+          <motion.div
+            key={speaker.id}
+            className="flex justify-center items-stretch px-2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             <div
               className={`flex items-stretch ${
                 isMobile || isTablet
-                  ? "w-full mx-auto px-2 py-2 justify-center"
+                  ? "w-full mx-auto py-2 justify-center"
                   : "w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xs xl:max-w-xs mx-4"
               }`}
             >
               <SpeakerCard speaker={speaker} />
             </div>
-          </div>
+          </motion.div>
         ))}
       </Slider>
-      
-      {/* View All Button */}
+
       <div className="flex justify-center mt-8 sm:mt-12">
         <motion.button
-          className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer bg-red-600 px-[1.2em] pr-[3em] py-[0.35em] h-[2.8em] shadow-[inset_0_0_1.6em_-0.6em_rgba(180,0,0,0.5)] min-w-[150px] sm:min-w-[200px] mt-4"
-          initial="initial"
-          animate="initial"
-          whileHover="hovered"
+          className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer bg-red-600 px-[1.2em] pr-[3em] py-[0.35em] h-[2.8em] shadow-[inset_0_0_1.6em_-0.6em_rgba(180,0,0,0.5)] min-w-[150px] sm:min-w-[200px]"
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={handleViewAllClick}
         >
-          {/* Button Text */}
-          <motion.span
-            className="relative z-10 text-sm sm:text-base"
-            variants={{
-              initial: { opacity: 1 },
-              hovered: { opacity: 0 },
-            }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            View All Speakers
-          </motion.span>
-
-          <motion.div
-            className="absolute top-0 right-0 h-full flex items-center justify-center bg-red-600 rounded-[0.9em]"
-            variants={{
-              initial: { width: 44 },
-              hovered: { width: "100%" },
-            }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
+          <span className="relative z-10 text-sm sm:text-base">View All Speakers</span>
+          <div className="absolute top-0 right-0 h-full flex items-center justify-center bg-red-600 rounded-[0.9em]">
             <ArrowRight className="text-white w-5 h-5 sm:w-6 sm:h-6" />
-          </motion.div>
+          </div>
         </motion.button>
       </div>
     </section>
