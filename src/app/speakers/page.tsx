@@ -1,4 +1,8 @@
+'use client'
 import SpeakerCard from '../../components/SpeakerCard'
+import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
+import { useRouter } from 'next/navigation' // use next/navigation in app dir
 
 export default function SpeakersPage() {
   // Comprehensive speaker data - replace with real data
@@ -71,96 +75,193 @@ export default function SpeakersPage() {
     }
   ]
 
+  const router = useRouter()
+
+  const handleExploreClick = () => {
+    router.push('/2024/speakers') // programmatic navigation works now
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col justify-center py-20 px-4 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 to-red-800/10" />
-        <div className="absolute top-0 left-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl" />
+    // <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
+    //   {/* Hero Section */}
+    //   <section className="relative min-h-screen flex flex-col justify-center py-20 px-4 overflow-hidden">
+    //     {/* Background Elements */}
+    //     <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 to-red-800/10" />
+    //     <div className="absolute top-0 left-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl" />
+    //     <div className="absolute bottom-0 right-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl" />
 
-        <div className="relative max-w-7xl mx-auto text-center">
-          <h1
-            className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in"
-          >
-            Meet Our
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-600">
-              Speakers
-            </span>
-          </h1>
+    //     <div className="relative max-w-7xl mx-auto text-center">
+    //       <h1
+    //         className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in"
+    //       >
+    //         Meet Our
+    //         <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-600">
+    //           Speakers
+    //         </span>
+    //       </h1>
 
-          <p
-            className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed animate-fade-in-delay-1"
-          >
-            Discover thought leaders, innovators, and visionaries who will share their insights,
-            experiences, and groundbreaking ideas that will inspire and challenge your perspective.
-          </p>
+    //       <p
+    //         className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed animate-fade-in-delay-1"
+    //       >
+    //         Discover thought leaders, innovators, and visionaries who will share their insights,
+    //         experiences, and groundbreaking ideas that will inspire and challenge your perspective.
+    //       </p>
 
-          <div
-            className="flex flex-wrap justify-center gap-4 text-sm text-gray-400 animate-fade-in-delay-2"
-          >
-            <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-              {speakers.length} Inspiring Speakers
-            </span>
-            <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-              Diverse Perspectives
-            </span>
-            <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-              Interactive Sessions
-            </span>
-          </div>
-        </div>
-      </section>
+    //       <div
+    //         className="flex flex-wrap justify-center gap-4 text-sm text-gray-400 animate-fade-in-delay-2"
+    //       >
+    //         <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+    //           {speakers.length} Inspiring Speakers
+    //         </span>
+    //         <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+    //           Diverse Perspectives
+    //         </span>
+    //         <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+    //           Interactive Sessions
+    //         </span>
+    //       </div>
+    //     </div>
+    //   </section>
 
-      {/* Speakers Grid Section */}
-      <section className="py-16 px-4 flex justify-center">
-        <div className="w-full max-w-6xl">
-          {/* Section Header */}
-          <div
-            className="text-center mb-16 animate-fade-in"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Featured Speakers
-            </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Each speaker brings unique expertise and insights that will expand your horizons
-              and inspire new ways of thinking.
-            </p>
-          </div>
+    //   {/* Speakers Grid Section */}
+    //   <section className="py-16 px-4 flex justify-center">
+    //     <div className="w-full max-w-6xl">
+    //       {/* Section Header */}
+    //       <div
+    //         className="text-center mb-16 animate-fade-in"
+    //       >
+    //         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+    //           Featured Speakers
+    //         </h2>
+    //         <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+    //           Each speaker brings unique expertise and insights that will expand your horizons
+    //           and inspire new ways of thinking.
+    //         </p>
+    //       </div>
 
-          {/* Speakers Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 justify-items-center">
-            {speakers.map((speaker, index) => (
-              <div
-                key={speaker.id}
-                className="w-[280px] md:w-[300px] lg:w-[320px] animate-fade-in-up"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <SpeakerCard speaker={speaker} />
-              </div>
-            ))}
-          </div>
+    //       {/* Speakers Grid */}
+    //       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 justify-items-center">
+    //         {speakers.map((speaker, index) => (
+    //           <div
+    //             key={speaker.id}
+    //             className="w-[280px] md:w-[300px] lg:w-[320px] animate-fade-in-up"
+    //             style={{ animationDelay: `${index * 100}ms` }}
+    //           >
+    //             <SpeakerCard speaker={speaker} />
+    //           </div>
+    //         ))}
+    //       </div>
 
-          {/* Call to Action */}
-          <div
-            className="text-center mt-16 animate-fade-in-delay-3"
-          >
-            <div className="bg-gradient-to-r from-red-600/20 to-red-800/20 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Ready to Be Inspired?
-              </h3>
-              <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                Join us for an unforgettable experience where ideas come to life and
-                inspiration meets action. Register now to secure your spot.
-              </p>
-              <button className="px-8 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-red-600/25">
-                Register for Event
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+    //       {/* Call to Action */}
+    //       <div
+    //         className="text-center mt-16 animate-fade-in-delay-3"
+    //       >
+    //         <div className="bg-gradient-to-r from-red-600/20 to-red-800/20 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+    //           <h3 className="text-2xl font-bold text-white mb-4">
+    //             Ready to Be Inspired?
+    //           </h3>
+    //           <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+    //             Join us for an unforgettable experience where ideas come to life and
+    //             inspiration meets action. Register now to secure your spot.
+    //           </p>
+    //           <button className="px-8 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-full hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-red-600/25">
+    //             Register for Event
+    //           </button>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </section>
+    // </div>
+    <section className="relative min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-black via-gray-900 to-black text-center overflow-hidden px-6">
+      {/* Background glows */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-red-600/20 rounded-full blur-[200px] animate-pulse-slow" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-yellow-500/10 rounded-full blur-[150px] animate-pulse-slow" />
+      <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-red-500/10 rounded-full blur-[100px]" />
+
+      {/* Heading */}
+      <motion.h1
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: 'easeOut' }}
+        className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-400 "
+      >
+        Speakers To Be Announced
+      </motion.h1>
+
+      {/* Subtitle */}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 1 }}
+        className="text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed mb-10"
+      >
+        This year’s theme <span className="font-semibold text-red-400">“Metamorphosis”</span> celebrates transformation, growth, and the power of change.
+        Our upcoming lineup will feature visionaries who embody this journey of becoming — stay tuned for an inspiring reveal!
+      </motion.p>
+
+      {/* Animated Divider */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ delay: 0.6, duration: 1, ease: 'easeInOut' }}
+        className="w-32 h-1 bg-gradient-to-r from-red-500 to-yellow-400 rounded-full mb-10"
+      />
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8, duration: 1 }}
+        className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 max-w-2xl mx-auto shadow-lg mb-12"
+      >
+        <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+          The TEDxVJIT 2025 stage is being carefully curated with changemakers, innovators,
+          and storytellers who are redefining the world through their metamorphosis.
+          Stay connected as we unveil the speakers who will ignite your imagination and inspire transformation.
+        </p>
+      </motion.div>
+
+      <motion.button
+        onClick={() => router.push('/2024/speakers')} // navigate on same page
+        className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer
+    bg-red-600 px-[1.75em] pr-[3em] py-[0.55em] h-[2.8em] shadow-lg min-w-[150px] sm:min-w-[200px] mt-6 mb-12"
+        initial="initial"
+        animate="initial"
+        whileHover="hovered"
+        whileTap={{ scale: 0.96 }}
+      >
+        <motion.span
+          className="relative z-10 text-sm sm:text-base"
+          variants={{
+            initial: { opacity: 1 },
+            hovered: { opacity: 0 },
+          }}
+          transition={{ duration: 0.28, ease: 'easeInOut' }}
+        >
+          Explore Last Edition’s Speakers
+        </motion.span>
+
+        <motion.div
+          className="absolute top-0 right-0 h-full flex items-center justify-center bg-red-600 rounded-[0.9em]"
+          variants={{
+            initial: { width: 44 },
+            hovered: { width: '100%' },
+          }}
+          transition={{ duration: 0.28, ease: 'easeInOut' }}
+        >
+          <ArrowRight className="text-white w-5 h-5 sm:w-6 sm:h-6" />
+        </motion.div>
+      </motion.button>
+
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1.5, ease: 'easeInOut' }}
+        className="text-sm text-gray-500"
+      >
+        Stay tuned for updates ✨
+      </motion.span>
+
+
+    </section>
   )
 }

@@ -12,14 +12,11 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function Hero() {
   const title = 'METAMORPHOSIS'
-  const tagline = 'The Journey of Becoming..'
-  const paragraph =
-    'Move, Transform, Evolve — witness the power of radical transformation'
+  const tagline = 'The Journey of Becoming...'
 
   const heroRef = useRef<HTMLDivElement | null>(null)
   const titleRef = useRef<HTMLHeadingElement | null>(null)
   const tagWrapRef = useRef<HTMLDivElement | null>(null)
-  const paragraphRef = useRef<HTMLParagraphElement | null>(null)
   const btnRef = useRef<HTMLButtonElement | null>(null)
 
   useEffect(() => {
@@ -44,20 +41,6 @@ export default function Hero() {
 
     tl.fromTo(tagWrapRef.current, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.25')
     tl.fromTo(btnRef.current, { opacity: 0, y: 8, scale: 0.98 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'elastic.out(1,0.6)' }, '-=0.2')
-
-    if (paragraphRef.current) {
-      gsap.from(paragraphRef.current, {
-        scrollTrigger: {
-          trigger: paragraphRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none none',
-        },
-        opacity: 0,
-        y: 25,
-        duration: 1,
-        ease: 'power3.out',
-      })
-    }
   }, [])
 
   return (
@@ -100,21 +83,6 @@ export default function Hero() {
             speed={100}
           />
         </div>
-
-        {/* Paragraph */}
-        <motion.p
-          ref={paragraphRef}
-          className="hidden md:block text-md md:font-bold text-white/80 max-w-sm sm:max-w-md md:max-w-3xl leading-relaxed text-center"
-        >
-          {paragraph.split(' ').map((word, i) => (
-            <span
-              key={i}
-              className={word.match(/Transform|Evolve/) ? 'text-red-400 font-semibold' : ''}
-            >
-              {word}{' '}
-            </span>
-          ))}
-        </motion.p>
 
         {/* CTA Button */}
         <motion.button
