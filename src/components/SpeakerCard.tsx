@@ -95,7 +95,7 @@ export default function SpeakerCard({ speaker }: SpeakerCardProps) {
         className={`object-cover w-full h-full absolute inset-0 z-0 transition-transform duration-300 filter grayscale${(active || hovered ? ' opacity-0' : '')}`}
         sizes="(max-width:640px) 90vw, 320px"
       />
-      <div className={`absolute left-1/2 -translate-x-1/2 ${circleClass} z-10 rounded-full overflow-hidden border-4 border-red-500 bg-black/80 flex items-center justify-center transition-all duration-500${(active || hovered ? ' opacity-100 scale-100' : ' opacity-0 scale-0')}`}
+      <div className={`absolute left-1/2 -translate-x-1/2 ${circleClass} z-10 rounded-full overflow-hidden border-4 border-red-500 transition-all duration-500${(active || hovered ? ' opacity-100 scale-100' : ' opacity-0 scale-0')}`}
         style={{ pointerEvents: 'none' }}
       >
         <Image
