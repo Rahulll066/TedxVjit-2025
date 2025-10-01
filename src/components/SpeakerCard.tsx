@@ -28,8 +28,10 @@ export default function SpeakerCard({ speaker }: SpeakerCardProps) {
   const [active, setActive] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [device, setDevice] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
+  const [mounted, setMounted] = useState(false);
 
   React.useEffect(() => {
+    setMounted(true);
     const checkDevice = () => {
       if (window.innerWidth < 640) {
         setDevice('mobile');
@@ -45,35 +47,38 @@ export default function SpeakerCard({ speaker }: SpeakerCardProps) {
   }, []);
 
   const handleCardClick = () => {
-    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+    if (mounted && window.innerWidth < 768) {
       setActive((prev) => !prev);
     }
   };
 
-  // Responsive values
+  // Responsive values - only apply after mount to avoid hydration mismatch
   let imgSize = 176, imgClass = 'w-44 h-44', circleClass = 'w-44 h-44 top-8', yOffset = -35;
   let nameClass = 'text-[1.35rem]';
   let titleClass = 'text-lg';
   let companyClass = 'text-sm';
   let iconClass = 'text-xl';
-  if (device === 'mobile') {
-    imgSize = 120;
-    imgClass = 'w-30 h-30';
-    circleClass = 'w-28 h-28 top-6';
-    yOffset = -20;
-    nameClass = 'text-[1.7rem]';
-    titleClass = 'text-[1.25rem]';
-    companyClass = 'text-base';
-    iconClass = 'text-2xl';
-  } else if (device === 'tablet') {
-    imgSize = 145;
-    imgClass = 'w-36 h-36';
-    circleClass = 'w-36 h-36 top-7';
-    yOffset = -28;
-    nameClass = 'text-[1.5rem]';
-    titleClass = 'text-[1.1rem]';
-    companyClass = 'text-base';
-    iconClass = 'text-[1.6rem]';
+  
+  if (mounted) {
+    if (device === 'mobile') {
+      imgSize = 120;
+      imgClass = 'w-30 h-30';
+      circleClass = 'w-28 h-28 top-6';
+      yOffset = -20;
+      nameClass = 'text-[1.7rem]';
+      titleClass = 'text-[1.25rem]';
+      companyClass = 'text-base';
+      iconClass = 'text-2xl';
+    } else if (device === 'tablet') {
+      imgSize = 145;
+      imgClass = 'w-36 h-36';
+      circleClass = 'w-36 h-36 top-7';
+      yOffset = -28;
+      nameClass = 'text-[1.5rem]';
+      titleClass = 'text-[1.1rem]';
+      companyClass = 'text-base';
+      iconClass = 'text-[1.6rem]';
+    }
   }
 
   return (
