@@ -172,96 +172,110 @@ export default function SpeakersPage() {
     //     </div>
     //   </section>
     // </div>
-    <section className="relative min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-black via-gray-900 to-black text-center overflow-hidden px-6">
+    <section className="relative min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-black via-gray-900 to-black text-center overflow-hidden px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
       {/* Background glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-red-600/20 rounded-full blur-[200px] animate-pulse-slow" />
-      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-yellow-500/10 rounded-full blur-[150px] animate-pulse-slow" />
-      <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-red-500/10 rounded-full blur-[100px]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-red-600/20 rounded-full blur-[150px] sm:blur-[200px] animate-pulse"
+        style={{ animationDuration: '4s' }} />
+      <div className="absolute bottom-0 right-1/4 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-yellow-500/10 rounded-full blur-[100px] sm:blur-[150px] animate-pulse"
+        style={{ animationDuration: '5s' }} />
+      <div className="absolute top-1/4 left-1/4 w-[200px] sm:w-[300px] h-[200px] sm:h-[300px] bg-red-500/10 rounded-full blur-[80px] sm:blur-[100px]" />
 
-      {/* Heading */}
-      <motion.h1
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: 'easeOut' }}
-        className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-400 "
-      >
-        Speakers To Be Announced
-      </motion.h1>
-
-      {/* Subtitle */}
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 1 }}
-        className="text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed mb-10"
-      >
-        This year’s theme <span className="font-semibold text-red-400">“Metamorphosis”</span> celebrates transformation, growth, and the power of change.
-        Our upcoming lineup will feature visionaries who embody this journey of becoming — stay tuned for an inspiring reveal!
-      </motion.p>
-
-      {/* Animated Divider */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ delay: 0.6, duration: 1, ease: 'easeInOut' }}
-        className="w-32 h-1 bg-gradient-to-r from-red-500 to-yellow-400 rounded-full mb-10"
-      />
-
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 1 }}
-        className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 max-w-2xl mx-auto shadow-lg mb-12"
-      >
-        <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-          The TEDxVJIT 2025 stage is being carefully curated with changemakers, innovators,
-          and storytellers who are redefining the world through their metamorphosis.
-          Stay connected as we unveil the speakers who will ignite your imagination and inspire transformation.
-        </p>
-      </motion.div>
-
-      <motion.button
-        onClick={() => router.push('/2024/speakers')} // navigate on same page
-        className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer
-    bg-red-600 px-[1.75em] pr-[3em] py-[0.55em] h-[2.8em] shadow-lg min-w-[150px] sm:min-w-[200px] mt-6 mb-12"
-        initial="initial"
-        animate="initial"
-        whileHover="hovered"
-        whileTap={{ scale: 0.96 }}
-      >
-        <motion.span
-          className="relative z-10 text-sm sm:text-base"
-          variants={{
-            initial: { opacity: 1 },
-            hovered: { opacity: 0 },
-          }}
-          transition={{ duration: 0.28, ease: 'easeInOut' }}
+      {/* Content Container */}
+      <div className="relative z-10 max-w-5xl mx-auto w-full">
+        {/* Heading */}
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-400 mb-6 sm:mb-8 leading-tight"
         >
-          Explore Last Edition’s Speakers
-        </motion.span>
+          Countdown to Brilliance: Speakers Coming Soon!
+        </motion.h1>
 
+        {/* Subtitle - First Paragraph */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 1 }}
+          className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-4 sm:mb-5 px-2"
+        >
+          We're getting ready to unveil the incredible minds who will take the TEDxVJIT 2025 stage.
+          This year's theme, <span className="font-semibold text-red-400">"Metamorphosis"</span>, is all about transformation, reinvention, and growth.
+        </motion.p>
+
+        {/* Subtitle - Second Paragraph */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 1 }}
+          className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8 sm:mb-10 px-2"
+        >
+          Our upcoming lineup will feature changemakers and storytellers who have embraced change and turned it into something extraordinary.
+          Their journeys will inspire you to turn challenges into opportunities and embrace your own transformation.
+        </motion.p>
+
+        {/* Animated Divider */}
         <motion.div
-          className="absolute top-0 right-0 h-full flex items-center justify-center bg-red-600 rounded-[0.9em]"
-          variants={{
-            initial: { width: 44 },
-            hovered: { width: '100%' },
-          }}
-          transition={{ duration: 0.28, ease: 'easeInOut' }}
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ delay: 0.8, duration: 1, ease: 'easeInOut' }}
+          className="w-20 sm:w-24 md:w-32 h-1 bg-gradient-to-r from-red-600 to-slate-800 rounded-full mb-8 sm:mb-10 mx-auto"
+        />
+
+        {/* Info Box */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 1 }}
+          className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 max-w-2xl mx-auto shadow-lg mb-8 sm:mb-10 md:mb-12"
         >
-          <ArrowRight className="text-white w-5 h-5 sm:w-6 sm:h-6" />
+          <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed">
+            Stay tuned the speaker reveal is just around the corner!
+          </p>
         </motion.div>
-      </motion.button>
 
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1.5, ease: 'easeInOut' }}
-        className="text-sm text-gray-500"
-      >
-        Stay tuned for updates ✨
-      </motion.span>
+        {/* Button */}
+        <motion.button
+          onClick= {handleExploreClick}
+          className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer bg-red-600 px-5 sm:px-6 pr-12 sm:pr-14 py-2.5 sm:py-3 shadow-lg hover:shadow-red-600/30 transition-shadow mx-auto"
+          initial="initial"
+          animate="initial"
+          whileHover="hovered"
+          whileTap={{ scale: 0.96 }}
+        >
+          <motion.span
+            className="relative z-10 text-xs sm:text-sm md:text-base whitespace-nowrap"
+            variants={{
+              initial: { opacity: 1 },
+              hovered: { opacity: 0 },
+            }}
+            transition={{ duration: 0.28, ease: 'easeInOut' }}
+          >
+            Explore Last Edition's Speakers
+          </motion.span>
 
+          <motion.div
+            className="absolute top-0 right-0 h-full flex items-center justify-center bg-red-700 rounded-[0.9em]"
+            variants={{
+              initial: { width: '40px' },
+              hovered: { width: '100%' },
+            }}
+            transition={{ duration: 0.28, ease: 'easeInOut' }}
+          >
+            <ArrowRight className="text-white w-4 h-4 sm:w-5 sm:h-5" />
+          </motion.div>
+        </motion.button>
 
+        {/* Footer Text */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1.5, ease: 'easeInOut' }}
+          className="text-xs sm:text-sm text-gray-500 mt-6 sm:mt-8"
+        >
+          Stay tuned for updates ✨
+        </motion.p>
+      </div>
     </section>
   )
 }
