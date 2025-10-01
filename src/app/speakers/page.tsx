@@ -174,10 +174,14 @@ export default function SpeakersPage() {
     // </div>
     <section className="relative min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-black via-gray-900 to-black text-center overflow-hidden px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
       {/* Background glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-red-600/20 rounded-full blur-[150px] sm:blur-[200px] animate-pulse"
-        style={{ animationDuration: '4s' }} />
-      <div className="absolute bottom-0 right-1/4 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-yellow-500/10 rounded-full blur-[100px] sm:blur-[150px] animate-pulse"
-        style={{ animationDuration: '5s' }} />
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-red-600/20 rounded-full blur-[150px] sm:blur-[200px] animate-pulse"
+        style={{ animationDuration: "4s" }}
+      />
+      <div
+        className="absolute bottom-0 right-1/4 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-yellow-500/10 rounded-full blur-[100px] sm:blur-[150px] animate-pulse"
+        style={{ animationDuration: "5s" }}
+      />
       <div className="absolute top-1/4 left-1/4 w-[200px] sm:w-[300px] h-[200px] sm:h-[300px] bg-red-500/10 rounded-full blur-[80px] sm:blur-[100px]" />
 
       {/* Content Container */}
@@ -186,7 +190,7 @@ export default function SpeakersPage() {
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
+          transition={{ duration: 1, ease: "easeOut" }}
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-400 mb-6 sm:mb-8 leading-tight"
         >
           Countdown to Brilliance: Speakers Coming Soon!
@@ -199,8 +203,12 @@ export default function SpeakersPage() {
           transition={{ delay: 0.4, duration: 1 }}
           className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-4 sm:mb-5 px-2"
         >
-          We're getting ready to unveil the incredible minds who will take the TEDxVJIT 2025 stage.
-          This year's theme, <span className="font-semibold text-red-400">"Metamorphosis"</span>, is all about transformation, reinvention, and growth.
+          We&apos;re getting ready to unveil the incredible minds who will take
+          the TEDxVJIT 2025 stage. This year&apos;s theme,{" "}
+          <span className="font-semibold text-red-400">
+            &quot;Metamorphosis&quot;
+          </span>
+          , is all about transformation, reinvention, and growth.
         </motion.p>
 
         {/* Subtitle - Second Paragraph */}
@@ -210,15 +218,17 @@ export default function SpeakersPage() {
           transition={{ delay: 0.6, duration: 1 }}
           className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8 sm:mb-10 px-2"
         >
-          Our upcoming lineup will feature changemakers and storytellers who have embraced change and turned it into something extraordinary.
-          Their journeys will inspire you to turn challenges into opportunities and embrace your own transformation.
+          Our upcoming lineup will feature changemakers and storytellers who
+          have embraced change and turned it into something extraordinary. Their
+          journeys will inspire you to turn challenges into opportunities and
+          embrace your own transformation.
         </motion.p>
 
         {/* Animated Divider */}
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
-          transition={{ delay: 0.8, duration: 1, ease: 'easeInOut' }}
+          transition={{ delay: 0.8, duration: 1, ease: "easeInOut" }}
           className="w-20 sm:w-24 md:w-32 h-1 bg-gradient-to-r from-red-600 to-slate-800 rounded-full mb-8 sm:mb-10 mx-auto"
         />
 
@@ -230,13 +240,13 @@ export default function SpeakersPage() {
           className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 max-w-2xl mx-auto shadow-lg mb-8 sm:mb-10 md:mb-12"
         >
           <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed">
-            Stay tuned the speaker reveal is just around the corner!
+            Stay tuned — the speaker reveal is just around the corner!
           </p>
         </motion.div>
 
         {/* Button */}
         <motion.button
-          onClick= {handleExploreClick}
+          onClick={handleExploreClick}
           className="relative flex items-center justify-center font-semibold text-white rounded-[0.9em] overflow-hidden cursor-pointer bg-red-600 px-5 sm:px-6 pr-12 sm:pr-14 py-2.5 sm:py-3 shadow-lg hover:shadow-red-600/30 transition-shadow mx-auto"
           initial="initial"
           animate="initial"
@@ -249,18 +259,18 @@ export default function SpeakersPage() {
               initial: { opacity: 1 },
               hovered: { opacity: 0 },
             }}
-            transition={{ duration: 0.28, ease: 'easeInOut' }}
+            transition={{ duration: 0.28, ease: "easeInOut" }}
           >
-            Explore Last Edition's Speakers
+            Explore Last Edition&apos;s Speakers
           </motion.span>
 
           <motion.div
             className="absolute top-0 right-0 h-full flex items-center justify-center bg-red-700 rounded-[0.9em]"
             variants={{
-              initial: { width: '40px' },
-              hovered: { width: '100%' },
+              initial: { width: "40px" },
+              hovered: { width: "100%" },
             }}
-            transition={{ duration: 0.28, ease: 'easeInOut' }}
+            transition={{ duration: 0.28, ease: "easeInOut" }}
           >
             <ArrowRight className="text-white w-4 h-4 sm:w-5 sm:h-5" />
           </motion.div>
@@ -270,7 +280,7 @@ export default function SpeakersPage() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1.5, ease: 'easeInOut' }}
+          transition={{ delay: 1.5, duration: 1.5, ease: "easeInOut" }}
           className="text-xs sm:text-sm text-gray-500 mt-6 sm:mt-8"
         >
           Stay tuned for updates ✨
