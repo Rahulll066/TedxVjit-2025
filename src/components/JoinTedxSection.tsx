@@ -161,8 +161,9 @@ export default function JoinTedxSection() {
               }}
               className="bg-gradient-to-r from-yellow-400 via-red-500 to-yellow-400 bg-[length:200%_200%] bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(255,215,0,0.3)]"
             >
-              Your ticket is golden worthy – Grab your seat before it's too late! 
+              Your ticket is golden worthy – Grab your seat before it&apos;s too late!
             </motion.span>
+
           </motion.p>
 
         </motion.div>
@@ -181,9 +182,10 @@ export default function JoinTedxSection() {
             </h2>
             <p className="text-gray-100 text-sm md:text-base leading-relaxed">
               Step into a space where bold ideas, powerful stories, and meaningful conversations come together to spark real change.
-              At <span className="text-red-500">TEDxVJIT 2025</span>, whether you're taking the stage or watching from the audience, you become part of a global community driven by curiosity and purpose.
+              At <span className="text-red-500">TEDxVJIT 2025</span>, whether you&apos;re taking the stage or watching from the audience, you become part of a global community driven by curiosity and purpose.
               Experience a day of inspiration, connection, and transformation designed to challenge your thinking, fuel your passion, and empower you to make a difference.
             </p>
+
           </div>
         </motion.div>
       </div>
