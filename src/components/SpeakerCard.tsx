@@ -102,11 +102,13 @@ export default function SpeakerCard({ speaker }: SpeakerCardProps) {
         />
       </div>
       <div
-        className={`relative z-10 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-4 py-4 sm:py-6 flex flex-col items-start`}
-        style={{ minHeight: '100px' }}
+        className={`relative z-10 px-4 py-4 sm:py-6 flex flex-col items-start`}
+        style={{ minHeight: '130px' }}
       >
+        {/* Black overlay behind text */}
+        <div className="absolute inset-x-0 bottom-0 h-[130px] bg-black/80 rounded-b-2xl"></div>
         <motion.div
-          className={`w-full flex flex-col${(active || hovered ? ' items-center' : ' items-start')}`}
+          className={`relative z-10 w-full flex flex-col${(active || hovered ? ' items-center' : ' items-start')}`}
           initial={false}
           animate={{ y: (active || hovered) ? yOffset : 0 }}
           transition={{ type: 'spring', stiffness: 80, damping: 18 }}
@@ -132,7 +134,7 @@ export default function SpeakerCard({ speaker }: SpeakerCardProps) {
         </motion.div>
         {/* Social Icons: only show on hover (desktop) or active (mobile) */}
         {(hovered || active) && (
-          <div className={`flex flex-row gap-4 w-full justify-center mt-2 ${iconClass}`}>
+          <div className={`relative z-10 flex flex-row gap-4 w-full justify-center mt-2 ${iconClass}`}>
             {speaker.social?.linkedin && (
               <a
                 href={speaker.social.linkedin}
