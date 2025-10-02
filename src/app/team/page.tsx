@@ -52,8 +52,8 @@ export default function TeamsPage() {
             { id: 13, name: "Dr. G Sreeram Reddy", title: "Head of MECHANICAL", company: "VJIT", image: "https://ik.imagekit.io/bixqi9iwy/sreeramreddy.jpg", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
         ],
         Organising: [
-            { id: 14, name: "Keerthana", title: "Licensee", company: "VJIT", image: "/assets/hero-banner.png", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
-            { id: 15, name: "Amena Yasmeen", title: "Co - Licensee", company: "VJIT", image: "/assets/hero-banner.png", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
+            { id: 14, name: "Keerthana", title: "Licensee", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Organizing/20250927_171839.jpg?updatedAt=1759343102363", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
+            { id: 15, name: "Amena Yasmeen", title: "Co - Licensee", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Organizing/IMG_2641.jpg?updatedAt=1759341979801", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
             { id: 16, name: "Srinivasulu", title: "Convenor", company: "VJIT", image: "/assets/hero-banner.png", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
             { id: 17, name: "Dr. Ramesh Cheripelli", title: "Co - Convenor", company: "VJIT", image: "/assets/hero-banner.png", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
         ],
@@ -180,9 +180,7 @@ export default function TeamsPage() {
                             }}
                             className="flex justify-center"
                         >
-                            <div className="w-[280px] md:w-[300px] lg:w-[320px] rounded-2xl overflow-hidden">
-                                <SpeakerCard speaker={member} />
-                            </div>
+                            <SpeakerCard speaker={member} />
                         </motion.div>
                     ))}
                     </motion.div>
@@ -212,9 +210,7 @@ export default function TeamsPage() {
                                 }}
                                 className="flex justify-center"
                             >
-                                <div className="w-[280px] md:w-[300px] lg:w-[320px] rounded-2xl overflow-hidden">
-                                    <SpeakerCard speaker={member} />
-                                </div>
+                                <SpeakerCard speaker={member} />
                             </motion.div>
                         ))}
                     </motion.div>
@@ -272,9 +268,7 @@ export default function TeamsPage() {
                                 }}
                                 className="flex justify-center"                               
                             >
-                                <div className="w-[280px] md:w-[300px] lg:w-[320px] rounded-2xl overflow-hidden">
-                                    <SpeakerCard speaker={member} />
-                                </div>
+                                <SpeakerCard speaker={member} />
                             </motion.div>
                         ))}
                     </motion.div>
