@@ -172,7 +172,7 @@ export default function SpeakersPage() {
     //     </div>
     //   </section>
     // </div>
-    <section className="relative min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-black via-gray-900 to-black text-center overflow-hidden px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+    <section className="relative min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-black via-gray-900 to-black text-center overflow-hidden px-4 sm:px-6 lg:px-8 py-16 sm:py-20 pt-24 sm:pt-28 md:pt-32">
       {/* Background glows */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-red-600/20 rounded-full blur-[150px] sm:blur-[200px] animate-pulse"

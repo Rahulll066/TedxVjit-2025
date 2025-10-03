@@ -54,8 +54,8 @@ export default function TeamsPage() {
         Organising: [
             { id: 14, name: "Keerthana", title: "Licensee", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Organizing/20250927_171839.jpg?updatedAt=1759343102363", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
             { id: 15, name: "Amena Yasmeen", title: "Co - Licensee", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Organizing/IMG_2641.jpg?updatedAt=1759341979801", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
-            { id: 16, name: "Srinivasulu", title: "Convenor", company: "VJIT", image: "/assets/hero-banner.png", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
-            { id: 17, name: "Dr. Ramesh Cheripelli", title: "Co - Convenor", company: "VJIT", image: "/assets/hero-banner.png", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
+            { id: 16, name: "Srinivasulu", title: "Convenor", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Organizing/IMG_3132.PNG?updatedAt=1759522008332", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
+            { id: 17, name: "Dr. Ramesh Cheripelli", title: "Co - Convenor", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Organizing/IMG_3129.PNG?updatedAt=1759522008551", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
         ],
         "Web Dev": [
             { id: 20, name: "Varshith Reddy", title: "Team Lead", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Tech/Varshith.jpg?updatedAt=1757798704189", bio: "", description: "", expertise: [], social: { linkedin: "https://www.linkedin.com/in/varshithreddy-aileni", instagram: "", twitter: "", website: "" } },
