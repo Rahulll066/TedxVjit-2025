@@ -7,12 +7,12 @@ import PreviousCarousel from "./PreviousCarousel";
 
 export default function PreviousPreview() {
   const images = [
-    "/gallery/_DSC7474.JPG",
-    "/gallery/DSC00943.JPG",
-    "/gallery/G-images-1.JPG",
-    "/gallery/G-images-2.JPG",
-    "/gallery/G-images-3.JPG",
-    "/gallery/G-images-4.JPG",
+    "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/_DSC7474.JPG?updatedAt=1759593301174",
+    "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/Screenshot%202025-10-04%20213202.png?updatedAt=1759593832115",
+    "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/G-images-1.JPG?updatedAt=1759593298737",
+    "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/G-images-2.JPG?updatedAt=1759593304566",
+    "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/G-images-3.JPG?updatedAt=1759593295760",
+    "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/Screenshot%202025-10-04%20213144.png?updatedAt=1759593832587",
   ];
 
   return (

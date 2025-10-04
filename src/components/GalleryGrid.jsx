@@ -71,11 +71,11 @@ import VideoCarousel from "./VideoCarousel";
 
 const sections = {
   "Tedx@2024": [
-    { src: "/gallery/G-images-2.jpg", alt: "Event Combo", grid: "col-span-3 row-span-2 relative" },
-    { src: "/gallery/G-images-1.JPG", alt: "Event Highlight 1", grid: "col-span-2 row-span-3 col-start-4 relative" },
-    { src: "/gallery/G-images-3.JPG", alt: "Event Highlight 2", grid: "col-span-2 row-span-3 col-start-2 row-start-3 relative" },
-    { src: "/gallery/TEDimage.JPG", alt: "Ambiance", grid: "row-span-3 col-start-1 row-start-3 relative" },
-    { src: "/gallery/G-images-4.JPG", alt: "Event Highlight 3", grid: "col-span-2 row-span-2 col-start-4 row-start-4 relative" },
+    { src: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/G-images-2.JPG?updatedAt=1759593304566", alt: "Event Combo", grid: "col-span-3 row-span-2 relative" },
+    { src: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/G-images-1.JPG?updatedAt=1759593298737", alt: "Event Highlight 1", grid: "col-span-2 row-span-3 col-start-4 relative" },
+    { src: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/_DSC7474.JPG?updatedAt=1759593301174", alt: "Event Highlight 2", grid: "col-span-2 row-span-3 col-start-2 row-start-3 relative" },
+    { src: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/G-images-3.JPG?updatedAt=1759593295760", alt: "Ambiance", grid: "row-span-3 col-start-1 row-start-3 relative" },
+    { src: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/Screenshot%202025-10-04%20213144.png?updatedAt=1759593832587", alt: "Event Highlight 3", grid: "col-span-2 row-span-2 col-start-4 row-start-4 relative" },
   ],
 
   // 👇 Visual Stories is only videos
