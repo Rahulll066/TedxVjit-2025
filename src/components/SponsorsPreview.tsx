@@ -4,12 +4,12 @@ import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 
 const sponsors = [
-  { id: 1, logo: "/assets/2.png" },
-  { id: 2, logo: "/assets/6.png" },
-  { id: 3, logo: "/assets/2.png" },
-  { id: 4, logo: "/assets/6.png" },
-  { id: 5, logo: "/assets/2.png" },
-  { id: 6, logo: "/assets/6.png" },
+  { id: 1, logo: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/TEDimage.JPG?updatedAt=1759593279876" },
+  { id: 2, logo: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/TEDimage.JPG?updatedAt=1759593279876" },
+  { id: 3, logo: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/TEDimage.JPG?updatedAt=1759593279876" },
+  { id: 4, logo: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/TEDimage.JPG?updatedAt=1759593279876" },
+  { id: 5, logo: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/TEDimage.JPG?updatedAt=1759593279876" },
+  { id: 6, logo: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/TEDimage.JPG?updatedAt=1759593279876" },
 ];
 
 export default function SponsorsPreview() {

@@ -64,7 +64,7 @@ export default function AboutSection() {
       <div className="about-img w-full lg:w-1/2 flex justify-center items-center mb-8 lg:mb-0">
         <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-800 bg-black/60 max-w-xl w-full aspect-video">
           <img
-            src="/gallery/G-images-2.JPG"
+            src="https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/G-images-2.JPG?updatedAt=1759593304566"
             alt="TEDxVJIT event"
             className="w-full h-full object-cover"
           />

@@ -103,7 +103,7 @@ export default function AboutPage() {
             
             <div className="relative animate-fade-in-delay-1">
               <Image 
-                src="/gallery/TEDimage.JPG"
+                src="https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/Screenshot%202025-10-04%20213202.png?updatedAt=1759593832115"
                 alt="TEDxVJIT Event"
                 width={800}
                 height={600}
@@ -116,7 +116,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative animate-fade-in-delay-2">
               <Image
-                src="/gallery/_DSC8353.JPG"
+                src="https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/G-images-1.JPG?updatedAt=1759593298737"
                 alt="TEDxVJIT Event"
                 width={800}
                 height={600}
@@ -187,7 +187,7 @@ export default function AboutPage() {
             >
             <div>
               <Image
-                src="/gallery/_DSC7571.JPG"
+                src="https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/Screenshot%202025-10-04%20213144.png?updatedAt=1759593832587"
                 alt="TEDxVJIT Event"
                 width={800}
                 height={600}
@@ -196,7 +196,7 @@ export default function AboutPage() {
             </div>
             <div>
               <Image
-                src="/gallery/KVK_3670.JPG"
+                src="https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/G-images-2.JPG?updatedAt=1759593304566"
                 alt="TEDxVJIT Event"
                 width={800}
                 height={600}
@@ -205,7 +205,7 @@ export default function AboutPage() {
             </div>
             <div>
               <Image
-                src="/gallery/KVK_3568.JPG"
+                src="https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/_DSC7474.JPG?updatedAt=1759593301174"
                 alt="TEDxVJIT Event"
                 width={800}
                 height={600}
@@ -214,7 +214,7 @@ export default function AboutPage() {
             </div>
             <div>
               <Image
-                src="/gallery/DSC00943.JPG"
+                src="https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/G-images-3.JPG?updatedAt=1759593295760"
                 alt="TEDxVJIT Event"
                 width={800}
                 height={600}
@@ -223,7 +223,7 @@ export default function AboutPage() {
             </div>
             <div>
               <Image
-                src="/gallery/_DSC7474.JPG"
+                src="https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Core%20Images/G-images-1.JPG?updatedAt=1759593298737"
                 alt="TEDxVJIT Event"
                 width={800}
                 height={600}
