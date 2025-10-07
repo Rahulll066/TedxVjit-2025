@@ -53,37 +53,37 @@ export default function SpeakerCard({ speaker }: SpeakerCardProps) {
   };
 
   // Responsive values - only apply after mount to avoid hydration mismatch
-  let imgSize = 176, imgClass = 'w-44 h-44', circleClass = 'w-44 h-44 top-8', yOffset = -35;
-  let nameClass = 'text-[1.35rem]';
-  let titleClass = 'text-lg';
-  let companyClass = 'text-sm';
-  let iconClass = 'text-xl';
-  
+  let imgSize = 170, imgClass = 'w-36 h-36', circleClass = 'w-36 h-36 top-2', yOffset = -18;
+  let nameClass = 'text-[1.1rem]';
+  let titleClass = 'text-[0.95rem]';
+  let companyClass = 'text-xs';
+  let iconClass = 'text-lg';
+
   if (mounted) {
     if (device === 'mobile') {
-      imgSize = 120;
-      imgClass = 'w-30 h-30';
-      circleClass = 'w-28 h-28 top-6';
-      yOffset = -20;
-      nameClass = 'text-[1.7rem]';
-      titleClass = 'text-[1.25rem]';
-      companyClass = 'text-base';
-      iconClass = 'text-2xl';
+      imgSize = 110;
+      imgClass = 'w-24 h-24';
+      circleClass = 'w-24 h-24 top-1';
+      yOffset = -10;
+      nameClass = 'text-[1.2rem]';
+      titleClass = 'text-[1rem]';
+      companyClass = 'text-xs';
+      iconClass = 'text-base';
     } else if (device === 'tablet') {
-      imgSize = 145;
-      imgClass = 'w-36 h-36';
-      circleClass = 'w-36 h-36 top-7';
-      yOffset = -28;
-      nameClass = 'text-[1.5rem]';
-      titleClass = 'text-[1.1rem]';
-      companyClass = 'text-base';
-      iconClass = 'text-[1.6rem]';
+      imgSize = 140;
+      imgClass = 'w-32 h-32';
+      circleClass = 'w-32 h-32 top-1';
+      yOffset = -14;
+      nameClass = 'text-[1.15rem]';
+      titleClass = 'text-[0.98rem]';
+      companyClass = 'text-xs';
+      iconClass = 'text-[1.1rem]';
     }
   }
 
   return (
     <div
-      className={`rounded-2xl overflow-hidden shadow-lg flex flex-col justify-end relative group border border-gray-700/50 hover:border-red-500/50 transition-all duration-300 w-full max-w-[280px] sm:max-w-[320px] h-[340px] sm:h-[420px] cursor-pointer ${active ? 'active' : ''}`}
+  className={`rounded-2xl overflow-hidden flex flex-col justify-end relative group border border-gray-700/50 hover:border-red-500/50 transition-all duration-300 w-full max-w-[200px] sm:max-w-[240px] h-[240px] sm:h-[300px] cursor-pointer bg-transparent ${active ? 'active' : ''}`}
       onClick={handleCardClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -107,11 +107,11 @@ export default function SpeakerCard({ speaker }: SpeakerCardProps) {
         />
       </div>
       <div
-        className={`relative z-10 px-4 py-4 sm:py-6 flex flex-col items-start`}
-        style={{ minHeight: '130px' }}
+        className={`relative z-10 px-3 py-3 sm:py-4 flex flex-col items-start`}
+        style={{ minHeight: '80px' }}
       >
         {/* Black overlay behind text */}
-        <div className="absolute inset-x-0 bottom-0 h-[130px] bg-black/80 rounded-b-2xl"></div>
+        <div className="absolute inset-x-0 bottom-0 h-[80px] bg-black/80 rounded-b-2xl"></div>
         <motion.div
           className={`relative z-10 w-full flex flex-col${(active || hovered ? ' items-center' : ' items-start')}`}
           initial={false}
@@ -129,12 +129,6 @@ export default function SpeakerCard({ speaker }: SpeakerCardProps) {
             layout
           >
             {speaker.title}
-          </motion.p>
-          <motion.p
-            className={`${companyClass} text-white/80 truncate w-full text-center`}
-            layout
-          >
-            {speaker.company}
           </motion.p>
         </motion.div>
         {/* Social Icons: only show on hover (desktop) or active (mobile) */}

@@ -166,7 +166,7 @@ export default function TeamsPage() {
                         <hr className="mx-auto mt-2 w-24 lg:w-28 border-t-2 border-red-500" />
                     </div>
                     <motion.div
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8"
                         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
                         initial="hidden"
                         animate={isInView ? 'visible' : 'hidden'}
@@ -176,8 +176,7 @@ export default function TeamsPage() {
                             key={member.id}
                             variants={cardVariants}
                             whileHover={{
-                                scale: 1.05,
-                                boxShadow: '0 10px 25px rgba(225,29,72,0.5)',
+                                scale: 1.05
                             }}
                             className="flex justify-center"
                         >
@@ -196,7 +195,7 @@ export default function TeamsPage() {
                         <hr className="mx-auto mt-2 w-36 lg:w-40 border-t-2 border-red-500" />
                     </div>
                     <motion.div
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8"
                         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
                         initial="hidden"
                         animate={isInView ? 'visible' : 'hidden'}
@@ -206,8 +205,7 @@ export default function TeamsPage() {
                                 key={member.id}
                                 variants={cardVariants}
                                 whileHover={{
-                                    scale: 1.05,
-                                    boxShadow: '0 10px 25px rgba(225,29,72,0.5)',
+                                    scale: 1.05
                                 }}
                                 className="flex justify-center"
                             >
@@ -254,7 +252,7 @@ export default function TeamsPage() {
 
                     {/* Active Team Grid */}
                     <motion.div
-                        className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+                        className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8"
                         variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
                         initial="hidden"
                         animate={isInView ? 'visible' : 'hidden'}
@@ -264,8 +262,7 @@ export default function TeamsPage() {
                                 key={member.id}
                                 variants={cardVariants}
                                 whileHover={{
-                                    scale: 1.05,
-                                    boxShadow: '0 10px 25px rgba(225,29,72,0.5)',
+                                    scale: 1.05
                                 }}
                                 className="flex justify-center"                               
                             >
