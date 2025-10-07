@@ -24,7 +24,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <head>
-        <title>TED<sup>x</sup> VJIT</title>
+        <title>TEDˣ VJIT</title>
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       </head>
       <body className="relative min-h-screen flex flex-col bg-gray-900 text-white font-sans">

@@ -49,7 +49,7 @@ export default function TeamsPage() {
         ],
         Organising: [
             { id: 11, name: "Keerthana", title: "Licensee | Organiser", company: "VJIT", image: "https://ik.imagekit.io/tedxvjit/public/teams/organizing/Keerthana.jpg?updatedAt=1729522747620", bio: "", description: "", expertise: [], social: { linkedin: "https://www.linkedin.com/in/sai-keerthana-kurapati-15841b24a/", instagram: "", twitter: "", website: "" } },
-            { id: 12, name: "Akash MallaReddy", title: "Co-Organiser", company: "TEDx", image: "https://ik.imagekit.io/tedxvjit/public/teams/organizing/akash.png?updatedAt=1729522747039", bio: "", description: "", expertise: [], social: { linkedin: "https://www.linkedin.com/in/akash-rao-mallareddy/", instagram: "", twitter: "", website: "" } },
+            { id: 12, name: "Akash MallaReddy", title: "Co-Organiser", company: "TEDˣ", image: "https://ik.imagekit.io/tedxvjit/public/teams/organizing/akash.png?updatedAt=1729522747039", bio: "", description: "", expertise: [], social: { linkedin: "https://www.linkedin.com/in/akash-rao-mallareddy/", instagram: "", twitter: "", website: "" } },
             { id: 13, name: "Dr. Ramesh Cheripelli", title: "Faculty Coordinator", company: "VJIT", image: "https://ik.imagekit.io/tedxvjit/public/teams/organizing/ramesh.jpg?updatedAt=1729522748720", bio: "", description: "", expertise: [], social: { linkedin: "https://www.linkedin.com/in/dr-ramesh-cheripelli-66057399/", instagram: "", twitter: "", website: "" } },
         ],
         "Web Dev": [
