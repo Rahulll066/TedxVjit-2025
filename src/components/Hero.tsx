@@ -59,7 +59,7 @@ export default function Hero() {
         {/* Title */}
         <h1
           ref={titleRef}
-          className="text-lg sm:text-xl md:text-6xl lg:text-7xl font-extrabold uppercase tracking-wide flex flex-wrap justify-center gap-x-2"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-extrabold uppercase tracking-wide flex-nowrap flex justify-center gap-x-1 sm:gap-x-1"
           aria-label={title}
         >
           {title.split('').map((char, i) => (
