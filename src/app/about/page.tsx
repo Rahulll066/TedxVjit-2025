@@ -34,12 +34,12 @@ export default function AboutPage() {
           <h1
             className="text-5xl md:text-7xl font-bold text-white mb-14 animate-fade-in"
           >
-            About <span className="text-red-600">TEDx</span>VJIT
+            About <span className="text-red-600">TED<sup>x</sup> </span>VJIT
           </h1>
           <p
-            className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed animate-fade-in-delay-1"
+            className="text-xl md:text-2xl text-gray-300 max-w-4xl text-justify mx-auto mb-8 leading-relaxed animate-fade-in-delay-1"
           >
-            TEDxVJIT is an independently organized TED event at Vidya Jyothi Institute of Technology, Hyderabad, bringing together innovators, leaders, and changemakers to share ideas worth spreading.
+            TED<sup>x</sup> VJIT is an independently organized TED event at Vidya Jyothi Institute of Technology, Hyderabad, bringing together innovators, leaders, and changemakers to share ideas worth spreading.
           </p>
 
           {/* Know More Button */}
@@ -85,19 +85,19 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                What is <span className="text-red-600">TEDx</span>?
+                What is <span className="text-red-600 underline">TED<sup>x</sup></span>
               </h2>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
-                TEDx is a grassroots initiative, created in the spirit of TED&apos;s overall mission to research and discover &quot;ideas worth spreading.&quot; TEDx brings the spirit of TED to local communities around the globe through TEDx events.
+                TED<sup>x</sup> is a grassroots initiative, created in the spirit of TED&apos;s overall mission to research and discover &quot;ideas worth spreading.&quot; TED<sup>x</sup> brings the spirit of TED to local communities around the globe through TEDx events.
               </p>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
                 These events are organized by passionate individuals who seek to uncover new ideas and to share the latest research in their local areas that spark conversations in their communities.
               </p>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
-                At a TEDx event, speakers combine live talks and recorded TED Talks to inspire deep reflection and discussion. These events are fully planned and coordinated independently by volunteers, under a free license granted by TED.
+                At a TED<sup>x</sup> event, speakers combine live talks and recorded TED Talks to inspire deep reflection and discussion. These events are fully planned and coordinated independently by volunteers, under a free license granted by TED.
               </p>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
-                While the format follows TED&apos;s principles, the content and design are unique to each community,giving every TEDx event its own identity and local relevance.
+                While the format follows TED&apos;s principles, the content and design are unique to each community,giving every TED<sup>x</sup> event its own identity and local relevance.
               </p>
             </div>
 
@@ -128,7 +128,7 @@ export default function AboutPage() {
                 <span className="text-red-600">2024:</span> Power of Persistence
               </h2>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
-                The theme for TEDxVJIT 2024, &quot;Power of Persistence,&quot; celebrates the unwavering spirit of individuals who have overcome monumental challenges to achieve their goals. It&apos;s a tribute to the silent strength that fuels success and innovation.
+                The theme for TED<sup>x</sup> VJIT 2024, &quot;Power of Persistence,&quot; celebrates the unwavering spirit of individuals who have overcome monumental challenges to achieve their goals. It&apos;s a tribute to the silent strength that fuels success and innovation.
               </p>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
                 Through compelling stories and groundbreaking ideas, our speakers explored how resilience, determination, and consistency can shape destinies and inspire communities.

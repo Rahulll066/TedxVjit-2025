@@ -46,13 +46,13 @@ export default function PreviousPreview() {
 
         <div className="space-y-6 sm:space-y-8 text-white text-lg sm:text-xl text-justify">
           <p>
-            The 2024 edition of TEDxVJIT celebrated the unwavering spirit of persistence. 
+            The 2024 edition of TED<sup>x</sup> VJIT celebrated the unwavering spirit of persistence. 
             Our speakers shared stories of resilience, innovation, and the relentless pursuit 
             of dreams, inspiring everyone to push beyond boundaries.
           </p>
           <p>
             From breakthrough ideas to personal journeys, the event was a testament to the 
-            power of never giving up. Relive the highlights and discover what made TEDxVJIT 
+            power of never giving up. Relive the highlights and discover what made TED<sup>x</sup> VJIT 
             2024 unforgettable.
           </p>
         </div>

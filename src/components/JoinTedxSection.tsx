@@ -24,7 +24,7 @@ export default function JoinTedxSection() {
         className="w-full max-w-4xl flex flex-col items-center mb-12 text-center"
       >
         <h1 className="text-white text-4xl md:text-6xl font-extrabold tracking-wide drop-shadow-lg">
-          Join <span className="text-red-500">TEDxVJIT 2025</span>
+          Join <span className="text-red-500">TED<sup>x</sup> VJIT 2025</span>
         </h1>
         <p className="text-white text-lg md:text-2xl font-semibold mt-4">
           Metamorphosis: The Journey of Becoming
@@ -182,7 +182,7 @@ export default function JoinTedxSection() {
             </h2>
             <p className="text-gray-100 text-sm md:text-base leading-relaxed">
               Step into a space where bold ideas, powerful stories, and meaningful conversations come together to spark real change.
-              At <span className="text-red-500">TEDxVJIT 2025</span>, whether you&apos;re taking the stage or watching from the audience, you become part of a global community driven by curiosity and purpose.
+              At <span className="text-red-500">TED<sup>x</sup> VJIT 2025</span>, whether you&apos;re taking the stage or watching from the audience, you become part of a global community driven by curiosity and purpose.
               Experience a day of inspiration, connection, and transformation designed to challenge your thinking, fuel your passion, and empower you to make a difference.
             </p>
 

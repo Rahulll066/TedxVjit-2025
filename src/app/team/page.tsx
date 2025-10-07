@@ -91,6 +91,9 @@ export default function TeamsPage() {
         ],
         Hospitality: [
             { id: 60, name: "Parth Asawa", title: "Team Lead", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Hospitality/Parth%20Asawa.jpg?updatedAt=1759331600551", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
+            { id: 61, name: "Rohan Kumar", title: "Co - Lead", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Hospitality/Sowmya.jpg?updatedAt=1759331601987", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
+            { id: 62, name: "B. Rajshekar", title: "Team Member", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Hospitality/A.Sreeja.jpg?updatedAt=1759331674320", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
+            { id: 63, name: "Faizan", title: "Team Member", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Hospitality/G.VenkataLakshmi.jpg?updatedAt=1759331601581", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
         ],
         "Content & Curation": [
             { id: 70, name: "P Naga Bhavagnya", title: "Team Lead", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Content%20and%20Curation/P.%20Naga%20Bhavagnya.jpg?updatedAt=1759332620236", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
@@ -98,14 +101,14 @@ export default function TeamsPage() {
             { id: 72, name: "Juveria Usman", title: "Team Member", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Content%20and%20Curation/Juveria%20Usman.jpg?updatedAt=1759332620370", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
             { id: 73, name: "Md. Junaid Khan", title: "Team Member", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Content%20and%20Curation/Md.%20Junaid%20Khan.png?updatedAt=1759332622045", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
             { id: 74, name: "Ruthvik Reddy", title: "Team Member", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Content%20and%20Curation/Ruthvik%20Reddy%20Devidi.jpg?updatedAt=1759332620422", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
-            { id: 75, name: "Suhaib Safwan", title: "Team Member", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Content%20and%20Curation/Suhaib%20Safwaan%20Ahmed.jpg?updatedAt=1759332621403", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
+            { id: 75, name: "Suhaib Safwan", title: "Team Member", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Content%20and%20Curation/Suhaib%20Safwaan%20Ahmed.jpg?updatedAt=1759817485054", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
             { id: 76, name: "Vedasri Keerthi", title: "Team Member", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Content%20and%20Curation/VedasriKeerthi.jpg?updatedAt=1759332620726", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
         ],
         Productions: [
             { id: 80, name: "Akshith Reddy", title: "Team Lead", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Productions/Akshith%20Reddy.jpg?updatedAt=1759332802432", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
             { id: 81, name: "Naidhruv", title: "Co - Lead", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Productions/Naidhruv.jpg?updatedAt=1759332800819", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
             { id: 82, name: "Bhavani Devi", title: "Team Member", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Productions/BHAVANI%20DEVI%20.jpg?updatedAt=1759332799408", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
-            { id: 83, name: "Charitha", title: "Team Member", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Productions/Charitha.jpg?updatedAt=1759332800517", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
+            { id: 83, name: "Charitha", title: "Team Member", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Productions/charitha.jpg?updatedAt=1759817018171", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
             { id: 84, name: "Harshavardhan", title: "Team Member", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Productions/harshavardhan.jpg?updatedAt=1759332840884", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
             { id: 85, name: "Jithendra", title: "Team Member", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Productions/Jithendra.jpg?updatedAt=1759332840818", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
             { id: 86, name: "Tarun", title: "Team Member", company: "VJIT", image: "https://ik.imagekit.io/vjlive/TEDx%20VJIT%202025/Productions/Tarunnn.jpg?updatedAt=1759332801013", bio: "", description: "", expertise: [], social: { linkedin: "#", instagram: "", twitter: "", website: "" } },
@@ -153,7 +156,7 @@ export default function TeamsPage() {
                         </span>
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
-                        The passionate individuals working behind the scenes to bring TEDxVJIT to life.
+                        The passionate individuals working behind the scenes to bring TED<sup>x</sup> VJIT to life.
                     </p>
                 </div>
             </motion.section>
