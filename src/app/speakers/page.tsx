@@ -204,7 +204,7 @@ export default function SpeakersPage() {
           className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-4 sm:mb-5 px-2"
         >
           We&apos;re getting ready to unveil the incredible minds who will take
-          the TEDxVJIT 2025 stage. This year&apos;s theme,{" "}
+          the TED<sup>x</sup> VJIT 2025 stage. This year&apos;s theme,{" "}
           <span className="font-semibold text-red-400">
             &quot;Metamorphosis&quot;
           </span>

@@ -88,7 +88,7 @@ export default function Footer() {
         <div className="border-t border-neutral-800 pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <p className="text-sm text-gray-400">
-              © {new Date().getFullYear()} TEDxVJIT. All rights reserved.
+              © {new Date().getFullYear()} TED<sup>x</sup> VJIT. All rights reserved.
             </p>
           </div>
         </div>
