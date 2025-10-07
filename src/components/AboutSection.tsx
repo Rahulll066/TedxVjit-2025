@@ -109,7 +109,7 @@ export default function AboutSection() {
             }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            Learn More About TEDx
+            Learn More About TEDˣ
           </motion.span>
 
           <motion.div

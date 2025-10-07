@@ -88,7 +88,7 @@ export default function AboutPage() {
                 What is <span className="text-red-600 underline">TED<sup>x</sup></span>
               </h2>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
-                TED<sup>x</sup> is a grassroots initiative, created in the spirit of TED&apos;s overall mission to research and discover &quot;ideas worth spreading.&quot; TED<sup>x</sup> brings the spirit of TED to local communities around the globe through TEDx events.
+                TED<sup>x</sup> is a grassroots initiative, created in the spirit of TED&apos;s overall mission to research and discover &quot;ideas worth spreading.&quot; TED<sup>x</sup> brings the spirit of TED to local communities around the globe through TEDˣ events.
               </p>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed text-justify">
                 These events are organized by passionate individuals who seek to uncover new ideas and to share the latest research in their local areas that spark conversations in their communities.

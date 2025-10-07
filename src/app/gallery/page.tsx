@@ -20,7 +20,7 @@ const HeroSection: React.FC = () => {
 
           <p className="text-xl md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Relive the inspiring moments, powerful speeches, and unforgettable
-            experiences from our TEDx events through this curated collection of
+            experiences from our TEDˣ events through this curated collection of
             memories.
           </p>
         </motion.div>

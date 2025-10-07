@@ -8,6 +8,42 @@
 /* ✅ Tailwind */
 @import "tailwindcss";
 
+/* Responsive styles for InstagramModal close button */
+.tedx-instagram-modal-close {
+  top: 14px !important;
+  right: 14px !important;
+}
+
+@media (max-width: 480px) {
+  .tedx-instagram-modal-close {
+    top: 4px !important;
+    right: 4px !important;
+    width: 2rem !important;
+    height: 2rem !important;
+    font-size: 1.7rem !important;
+  }
+}
+
+/* Responsive styles for InstagramModal */
+.tedx-instagram-modal {
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .tedx-instagram-modal {
+    padding: 1.2rem 0.5rem !important;
+    min-width: 0 !important;
+    max-width: 98vw !important;
+    width: 98vw !important;
+  }
+  .tedx-instagram-modal-title {
+    font-size: 1.2rem !important;
+  }
+  .tedx-instagram-modal-text {
+    font-size: 1rem !important;
+  }
+}
+
 /* Custom thick red scrollbar */
 ::-webkit-scrollbar {
   width: 16px;
