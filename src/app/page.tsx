@@ -18,7 +18,7 @@ export default function Home() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
-      if (params.get('source') === 'instagram') {
+      if (params.get('source') === 'card') {
         setShowModal(true);
       }
     }
